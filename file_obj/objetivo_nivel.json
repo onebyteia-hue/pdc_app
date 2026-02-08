@@ -1,0 +1,17 @@
+[
+  {
+    "id_nivel": "INI",
+    "nivel": "Inicial en Familia Comunitaria Escolarizada",
+    "objetivo_holistico": "Fortalecemos los valores sociocomunitarios en la interrelación intracultural, intercultural y plurilingüismo en armonía y complementariedad con la Madre Tierra, desarrollando capacidades y habilidades lingüísticas, cognitivas, socioafectivas, psicomotrices, artísticas y creativas, a través de la observación, exploración, experimentación e investigación, para asumir actitudes inclusivas, de autonomía y toma de decisiones."
+  },
+  {
+    "id_nivel": "PRI",
+    "nivel": "Primaria Comunitaria Vocacional",
+    "objetivo_holistico": "Fortalecemos la práctica de valores sociocomunitarios y principios ético-morales, en el desarrollo del pensamiento crítico; lectura comprensiva, escritura creativa; el pensamiento lógico matemático y la resolución de problemas; a través de la convivencia comunitaria biocéntrica; la sensibilidad en las manifestaciones culturales de arte, música, danza y deporte; el uso adecuado de las Tecnologías de Información y Comunicación, la exploración, experimentación e investigación para contribuir a la educación intracultural, intercultural y plurilingüe del Estado Plurinacional, en complementariedad y diálogo de saberes, conocimientos propios y universales."
+  },
+  {
+    "id_nivel": "SEC",
+    "nivel": "Secundaria Comunitaria Productiva",
+    "objetivo_holistico": "Formamos integralmente a las y los estudiantes con identidad cultural, valores sociocomunitarios, espiritualidad y conciencia crítica, articulando la educación científica, humanística, técnica, tecnológica y artística a través de procesos productivos de acuerdo a las vocaciones y potencialidades de las regiones, en el marco de la descolonización, interculturalidad y plurilingüismo, para que contribuyan a la conservación y protección de la Madre Tierra y la salud comunitaria, así como a la construcción de una sociedad democrática, inclusiva y libre de violencia."
+  }
+]

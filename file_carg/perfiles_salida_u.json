@@ -1,0 +1,419 @@
+{
+  "_meta": {
+    "schema": "perfiles_salida_v1",
+    "generated_from": "perfiles_final.json",
+    "nivel_codes_supported": [
+      "PRI"
+    ],
+    "notes": "Keys match dashboard selects: escolaridad values like prim_1ro."
+  },
+  "PRI": {
+    "VAL_01": {
+      "prim_1ro": [
+        "Demuestra prácticas de inclusión en sus interrelaciones cotidianas, promoviendo espacios y oportunidades para el desarrollo integral pleno; independientemente de sus características, habilidades, discapacidad, cultura y otras.",
+        "Practica el valor del respeto, la reciprocidad y la inclusión en la interrelación con los miembros de la familia y escuela.",
+        "Describe y valora las prácticas religiosas manifestadas en su comunidad.",
+        "Reconoce su identidad cultural desde el vínculo con la comunidad."
+      ],
+      "prim_2do": [
+        "Practica relaciones de complementariedad en la ejecución de tareas y responsabilidades con sus compañeras y compañeros de estudio, los integrantes de la familia y comunidad.",
+        "Reconoce las diversas expresiones espirituales y religiosas practicadas en el contexto en que vive.",
+        "Practica la equidad y complementariedad en la convivencia con la familia, escuela y comunidad.",
+        "Explica sobre sus costumbres, creencias y manifestaciones culturales.",
+        "Propone acciones que permiten resolver discrepancias y controlar sus emociones."
+      ],
+      "prim_3ro": [
+        "Demuestra actitudes solidarias de manera incondicional a sus compañeras, com pañeros, al integrantes de su familia y de la comunidad en tareas de estudio y prácticas comunitarias de reciprocidad.",
+        "Expresa y valora actitudes de Igualdad de oportunidades demostradas en la convivencia comunitaria.",
+        "Explica a sus pares sobre las manifestaciones culturales de la comunidad",
+        "Valora y describe en textos escritos el sentido de su existencia, su origen, historia y memoria colectiva de su cultura como fuente de conocimiento y esencia de su identidad."
+      ],
+      "prim_4to": [
+        "Demuestra actitud transparente en todos sus actos, brindando información clara y verídica con referencia a sus actividades y de todo lo relacionado a su vida cotidiana.",
+        "Practica la reciprocidad, complementariedad e igualdad de oportunidades en las acciones desarrolladas en familia, escuela y contexto en el que vive",
+        "Explica y valora la importancia del autocontrol en situaciones comunicativas.",
+        "Propone acciones que permitan controlar conductas que dañan a los otros."
+      ],
+      "prim_5to": [
+        "Practica y promueve la unidad en el grupo apoyando a sus compañeras y compañeros en todo lo que está a su alcance.",
+        "Reconoce y valora las ceremonias y ritos espirituales practicados en la familia y comunidad.",
+        "Propone ideas en relación a la protección de la vida y el equilibrio con la naturaleza en la convivencia comunitaria.",
+        "Manifiesta mensajes orientados a fortalecer el bienestar común desde la diversidad religiosa y cultural."
+      ],
+      "prim_6to": [
+        "Practica principios y valores sociocomunitarios en la interrelación con los sistemas de vida, Cosmos y la Madre Tierra.",
+        "Reflexiona con sus pares sobre el respeto a las formas de expresión espiritual.",
+        "Reconoce normas, valores sociocomunitarios aplicados en la interrelación social.",
+        "Investiga sobre las manifestaciones simbólicas utilizadas en la práctica de las ritualidades.",
+        "Valora la regulación de emociones que expresa desde el autoconocimiento."
+      ]
+    },
+    "LENG_02": {
+      "prim_1ro": [
+        "Expresa oralmente experiencias y emociones de manera coherente y articulada en su texto oral, de acuerdo al propósito comunicativo, utilizando normas de cortesía en LC, LO, LE.",
+        "Interactúa en situaciones comunicativas, expresando sus ideas, demostrando interés y respetando la opinión del otro y los turnos de participación.",
+        "Comprende textos literarios y no literarios, relacionándolos con sus propias experiencias, extrayendo información explícita e implícita, sobre algún aspecto de la lectura."
+      ],
+      "prim_2do": [
+        "Expresa oralmente experiencias y emociones de manera coherente y articulada, de acuerdo al propósito comunicativo, utilizando normas de cortesía, recursos no verbales y para verbales en LC, LO, LE.",
+        "Asume actitudes de diálogo y escucha para resolver problemas en su vida cotidiana.",
+        "Lee en voz alta textos en cantidad de 60 a 84 palabras por minuto, con precisión y expresividad adecuada.",
+        "Lee y comprende textos literarios y no literarios escritos con oraciones simples detectando ideas centrales e información explícita e implícita del mismo."
+      ],
+      "prim_3ro": [
+        "Interactúa en situaciones comunicativas, expresando sus ideas, emociones de manera coherente utilizando recursos no verbales y de acuerdo con el propósito comunicativo, en LC, LO, LE.",
+        "Dialoga y escucha para resolver problemas, necesidades, desarrollar actividades en la escuela y comunidad.",
+        "Lee y comprende el contenido de textos narrativos, reconstruyendo la secuencia de las acciones, el ambiente, las características de los personajes, relaciones de causa y consecuencia emitiendo además una opinión sobre el mismo."
+      ],
+      "prim_4to": [
+        "Expresa oralmente ideas y emociones de manera coherente y articulada en su texto oral, de acuerdo con el propósito comunicativo, el contexto, utilizando recursos no verbales y para verbales de acuerdo con la situación formal o informal de comunicación, en LC, LO, LE.",
+        "Interactúa en situaciones comunicativas, expresando sus ideas, demostrando empatía, fundamentando sus ideas, desde actitudes de escucha activa.",
+        "Interpreta textos literarios y no literarios determinando las consecuencias de hechos o acciones, comparando a los personajes o la información de imágenes, reconociendo el problema y la solución en una narración, fundamentando su opinión con la información del texto y su experiencia."
+      ],
+      "prim_5to": [
+        "Expresa oralmente ideas y emociones de manera coherente y articulada en su texto oral, de acuerdo con el propósito comunicativo, el contexto, características del tipo de texto, utilizando recursos no verbales y para verbales de acuerdo con la situación formal o informal de comunicación, en LC, LO, LE.",
+        "Interactúa para compartir ideas en situaciones comunicativas, demostrando respeto, fundamentando sus ideas, regulando su participación desde la escucha activa en la creación de consensos.",
+        "Interpreta textos literarios y no literarios ,haciendo inferencias a partir de la información del texto y de sus experiencias y conocimiento, identificando la idea central, interpretando el lenguaje figurado, deduciendo las características de los personajes, relacionando la información de imágenes, gráficos, formulando una opinión sobre algún aspecto de la lectura.",
+        "Escribe creativamente textos literarios y no literarios",
+        ", considerando el destinatario, propósito, tomando en cuenta la secuencia lógica, la estructura, uso de conectores adecuados, incluyendo descripciones y diálogo para desarrollar la trama, los personajes y el ambiente, presentando el contenido en párrafos sobre ideas centrales, incorporando un vocabulario pertinente."
+      ],
+      "prim_6to": [
+        "Expresa oralmente ideas y emociones de manera lógica en su texto oral, de acuerdo con el propósito comunicativo, el contexto, características del texto, utilizando recursos no verbales y para verbales de acuerdo con la situación formal o informal de comunicación, manteniendo el interés del público en LC, LO, LE.",
+        "Interactúa en situaciones comunicativas, expresando sus ideas demostrando respeto , fundamentando sus ideas, respetando los puntos de vista diferentes, desde la escucha activa en la creación de consensos.",
+        "Interpreta textos literarios y no literarios , haciendo inferencias a partir de la información del texto y de sus experiencias y conocimientos, identificando las acciones principales del relato, describiendo el ambiente y las costumbres representadas, relacionando el relato, la intención del autor, relacionando la información de tablas, mapas o diagramas, comparando información entre dos textos sobre el mismo tema, llegando a conclusiones sustentadas en la",
+        "Escribe creativamente textos literarios y no literarios, considerando el destinatario, propósito, organizando el contenido en una estructura, desarrollando una idea central por cada párrafo, incorporando un vocabulario pertinente, a partir de sus conocimientos e investigación."
+      ]
+    },
+    "SOC_03": {
+      "prim_1ro": [
+        "Describe a su familia; comparte roles entre sus miembros y demuestra su autoestima.",
+        "Dialoga y explica las características geográficas, los paisajes, los servicios básicos, las costumbres y actividades económicas del lugar donde vive.",
+        "Explica la fundación y las tradiciones culturales de su comunidad.",
+        "Explica sobre el cuidado y seguridad de sí mismo; cumple con sus deberes y exige la observación de sus derechos.",
+        "Explica las fechas cívicas y actividades económicas de su comunidad.",
+        "Reconoce los medios de transporte.",
+        "Describe las expresiones simbólicas en tejidos y reconoce los símbolos del departamento."
+      ],
+      "prim_2do": [
+        "Dialoga y argumenta sobre las normas sociales y la convivencia armónica, evitando toda forma de violencia, dominación, sometimiento.",
+        "Reconoce los cambios producidos en el tiempo y el devenir histórico de su comunidad identificando a los personajes destacados.",
+        "Dialoga y explica la función de los medios de comunicación y los medios y vías de transporte.",
+        "Reconoce las instituciones y formas de organización del municipio.",
+        "Identifica las fechas cívicas de la provincia, los idiomas que se hablan y la música practicada en su municipio.",
+        "Reconoce y respeta las normas de circulación vial, tomando precauciones para su seguridad.",
+        "Dialoga y describe sobre las actividades en las ferias o mercados de su contexto, expresando la importancia del consumo de productos nacionales.",
+        "Reconoce los símbolos patrios y describe los sistemas de trabajo de las Naciones y Pueblos indígenas"
+      ],
+      "prim_3ro": [
+        "Ejerce su derecho a elegir y describe la organización de su municipio.",
+        "Identifica y describe las características principales del municipio: creación, actividades productivas y lugares culturales.",
+        "Dialoga y explica sobre el rol de las organizaciones sociales y expresa la noción del tiempo histórico a través de la recordación de las fechas cívicas del departamento.",
+        "Identifica y toma precauciones para prevenir diferentes tipos de riesgos y explica el rol imparcial de los medios de comunicación.",
+        "Valora el diálogo, consenso y el respeto en la toma de decisiones.",
+        "Describe las principales características geográficas de su departamento y localiza",
+        "Identifica y explica la división política de Bolivia.",
+        "Asume y explica que los recursos naturales son de propiedad irrenunciable de las y los bolivianos y describe la cosmovisión de las naciones y pueblos originarios en respeto a la Madre Tierra."
+      ],
+      "prim_4to": [
+        "Dialoga y describe sobre los espacios turísticos y organización del gobierno departamental.",
+        "Reconoce y asume su derecho a una vida libre de violencia y describe los derechos de la Madre Tierra.",
+        "Dialoga y explica sobre la importancia del aprovechamiento sustentable de los recursos naturales y clasifica las actividades económicas primarias, secundarias y terciarias.",
+        "Identifica diferentes manifestaciones culturales de su contexto, como parte de la conformación de su identidad.",
+        "Explica el rol de las organizaciones sociales e indígena campesinas en la defensa de los recursos naturales.",
+        "Dialoga y explica sobre las fechas cívicas y ubicación geográfi-ca de Bolivia.",
+        "Identifica las naciones y pueblos indígena originarios de tierras bajas y tierras altas.",
+        "Identifica y describe las causas de la migración en Bolivia y los riesgos del uso de la TICS en contra de su seguridad.",
+        "Dialoga y explica respecto de la despatriarcalización como la lucha por la convivencia armónica; y actúa con ética y transparencia, rechazando cualquier acto de injusticia y corrupción."
+      ],
+      "prim_5to": [
+        "Identifica y describe a los liberales y conservadores como protagonistas de la llamada “Guerra Federal”.",
+        "Reconoce en el mapa, las pérdidas territoriales.: aéreo, marítimo y terrestre, destacando a las y los héroes de dichos acontecimientos.",
+        "Identifica las características culturales de los pueblos antes de la invasión española al territorio nacional.",
+        "Aplica sus conocimientos para explicar las consecuencias de la invasión española, la organización política y social en la época colonial y movimientos de lucha en el Alto Perú.",
+        "Explica la resistencia de los pueblos originarios, frente al sometimiento en la República colonial, identificando a sus lideresas, líderes y héroes.",
+        "Explica los aportes de las mujeres lideresas en la historia de Bolivia.",
+        "Explica los antecedentes y acontecimientos que dieron lugar a la Asamblea Constituyente para la refundación del Estado Plurinacional, a través de la Constitución Política del Estado."
+      ],
+      "prim_6to": [
+        "Reconoce las formas de organización política, social y convivencia de los pueblos del Abya Yala y analiza críticamente las consecuencias de la invasión española y el rol de la Iglesia Católica en el proceso colonial.",
+        "Dialoga y explica sobre las causas y consecuencias de las pérdidas territoriales de Bolivia.",
+        "Describe los procesos del saqueo cometido por los denominados “Barones del Estaño” y la Revolución de 1952 y sustenta con argumentos sus ideas.",
+        "Dialoga y explica sobre la necesidad de acciones preventivas de circulación en las diferentes vías de nuestro país.",
+        "Explica los conceptos de libertad, diálogo, inclusión, participación, igualdad y respeto en la vida cotidiana e instituciones sociales y políticas.",
+        "Dialoga y explica sobre las formas de prevenir el bullyng y todo tipo de violencia.",
+        "Dialoga y explica sobre la redistribución de la economía en el marco del Modelo Económico boliviano y argumenta sobre el Derecho al agua y la concepción de la política como servicio al pueblo.",
+        "Identifica los pilares del desarrollo: “Bolivia Digna y Soberana” y las formas del ejercicio de la democracia."
+      ]
+    },
+    "ART_04": {
+      "prim_1ro": [
+        "Coordina ojo y mano, realiza dibujos creativos desde sus conocimientos previos.",
+        "Utiliza adecuadamente la regla recta, compone diseños creativos lineales.",
+        "Reconoce los colores por su tono y color, realiza obras creativas",
+        "Realiza elementos tridimensionales con materiales blandos desde sus saberes y conocimientos.",
+        "Experimenta con diversos materiales y crea expresiones artísticas desde sus concepciones"
+      ],
+      "prim_2do": [
+        "Realiza dibujos de animales del contexto y los clasifica.",
+        "Aplica sus conocimientos en el trazado de formas geométricas con la regla recta.",
+        "Demuestra habilidades en pinturas secas y solubles, reconoce colores primarios y secundarios.",
+        "Modela animales del contexto con materiales maleables."
+      ],
+      "prim_3ro": [
+        "Realiza gráficos de animales, personas y plantas y los contextualiza a temas sociales de su entorno con cierta proporcionalidad.",
+        "Maneja con soltura la regla recta, las escuadras y el compás, realiza diseños geométricos decorativos.",
+        "Compara y combina los colores en sus composiciones artísticas.",
+        "Modela animales, plantas y personas a través de materiales blandos."
+      ],
+      "prim_4to": [
+        "Realiza dibujos con características expresivas faciales y corporales.",
+        "Diseña formas geométricas de los pueblos originarios.",
+        "combinación y saturación del color, aplica sus conocimientos en obras artísticas.",
+        "Modela y compone obras tridimensionales con criterios artísticos.",
+        "Plantea y plasma formas creativas con relieve."
+      ],
+      "prim_5to": [
+        "Percibe la sensación de volumen en sus dibujos, inventa composiciones artísticas.",
+        "Valora el aporte creativo de los pueblos desde la práctica y empleo de los instrumentos geométricos.",
+        "Demuestra el uso correcto de todos los instrumentos geométricos y los aplica en ejercicios lineales.",
+        "Realiza combinaciones de colores y los aplica en sus trabajos creativos.",
+        "Crea obras tridimensionales sobre los pueblos precolombinos categorizando la época y sus características."
+      ],
+      "prim_6to": [
+        "Diseña elementos geométricos decorativos complejos, realiza letras y moldes.",
+        "Explica las características artísticas de los pueblos originarios.",
+        "Realiza gráficos creativos desde la comprensión de cuentos",
+        "y fábulas, conoce diferentes tipos de sombreado.",
+        "Percibe la sensación del color y lo aplica en el paisajismo.",
+        "Elabora maquetas sobre temas sociales que inhiben en su contexto"
+      ]
+    },
+    "EFD_05": {
+      "prim_1ro": [
+        "Distingue y consume los alimentos que benefician a su salud y desarrollo integral.",
+        "Explica y aplica la capacidad de coordinación, lateralidad.",
+        "Comprende y explica algunas alteraciones posturales y dificultades de salud básicas.",
+        "Explica y aplica reglas básicas de carrera de rendimiento de 30 a 50 m, carrera de relevo.",
+        "Explica y practica el voleo por arriba, voleo por abajo y saques, como juegos pre-deportivos.",
+        "Explica y practica pases, recepción y conducción con reglas de juego.",
+        "Explica y practica el ajedrez, tablero y piezas."
+      ],
+      "prim_2do": [
+        "Explica y practica hábitos de higiene y consumo de alimentos que contribuyan al desarrollo integral de su salud.",
+        "Ejecuta juegos recreativos destacando sus habilidades básicas motrices.",
+        "Demuestra sus habilidades motrices, con dinamismo, interacción, energía.",
+        "Desarrolla las nociones de lateralidad a través de actividades motrices, en los juegos deportivos.",
+        "Practica ejercicios de fuerza, velocidad, resistencia y flexibilidad.",
+        "Comprende y practica Juegos pre deportivos con reglas básicas.",
+        "Comprende y practica juegos pre deportivos, el mini atletismo y el mini fútbol."
+      ],
+      "prim_3ro": [
+        "Explica y aplica hábitos de higiene, alimentación saludable en las actividades deportivas.",
+        "Demuestra ejercicios físicos de fuerza, resistencia, velocidad y flexibilidad.",
+        "Explica y practica el mini atletismo con técnicas y reglas específicas.",
+        "Explica y aplica los sistemas de juego (básico), acordes a las reglas de juego en el baloncesto.",
+        "Explica y aplica los sistemas de juego(básico), acordes a las reglas de juego en el Voleibol.",
+        "Explica y aplica los sistemas de juego (básico), acordes a las reglas de juego en el fútbol.",
+        "Analiza y ejecuta el deporte de mesa, ajedrez con su reglamento específico.",
+        "Practica la gimnasia rítmica, artística, expresión corporal, escénica, en espacios apropiados."
+      ],
+      "prim_4to": [
+        "Aplica hábitos de nutrición saludables, hidratación e higiene.",
+        "Practica relevos, resistencia, salto triple, salto largo y lanzamiento del vortex, en mini atletismo.",
+        "Comprende y ejecuta técnicas pertinentes y adecuadas a disciplinas deportivas básicas.",
+        "Aplica principios técnicos y tácticos básicos del básquet.",
+        "Comprende y ejecuta actividades físicas y pre-deportivas, hidratación del cuerpo, coordinando su actividad muscular.",
+        "Ejecuta principios técnicos y tácticos básicos en la práctica de Voleibol.",
+        "Analiza y ejecuta jugadas extraordinarias en el ajedrez."
+      ],
+      "prim_5to": [
+        "Sabe que el deporte mejora su bienestar mental potenciando aspectos cognitivos.",
+        "Practicabuenos hábitos de nutrición, hidratación y hábitos de higiene.",
+        "Ejecuta ejercicios de formación, giros hacia diferentes direcciones, desplazamientos y marchas.",
+        "Experimenta movimientos estratégicos en la práctica del mini baloncesto.",
+        "Aplica la digitación y el antebrazo en la práctica del voleibol, con reglas específicas.",
+        "Aplica técnicas del portero en la práctica del fútbol.",
+        "Analiza estrategias de juego, en el ajedrez."
+      ],
+      "prim_6to": [
+        "Explica y aplica hábitos de higiene, alimentación saludable en las actividades deportivas. (LC, LO, LE).",
+        "Demuestra ejercicios físicos de fuerza, resistencia, velocidad y flexibilidad.",
+        "Explica y practica el mini atletismo con técnicas y reglas específicas.",
+        "Explica y aplica los sistemas de juego (básico), acordes a las reglas de juego en el baloncesto.",
+        "Explica y aplica los sistemas de juego (básico), acordes a las reglas de juego en el Voleibol."
+      ]
+    },
+    "MUS_06": {
+      "prim_1ro": [
+        "Interpreta rondas, canciones y el Himno Nacional de Bolivia modulando tonos de voces.",
+        "Estable diferencia de sonidos y ruidos que son propios de su entorno.",
+        "Practica ejercicios de respiración en la vocalización de cantos y juegos musicales rítmicos en lengua originaria y extranjera.",
+        "Expresa emociones y sentimientos en prácticas de canciones y danzas."
+      ],
+      "prim_2do": [
+        "Comprende e interpreta rondas, canciones del contexto y el Himno Nacional de Bolivia de forma rítmica, melódica y léxica.",
+        "Discrimina las cualidades del sonido: intensidad y duración.",
+        "Comprende técnicas de respiración básica para la expresión de canciones y rondas en lengua originaria y extranjera.",
+        "Reconoce y escribe figuras rítmicas básicas musicales y su ejecución básica"
+      ],
+      "prim_3ro": [
+        "Explora las posibilidades vocales atendiendo al cuidado de la voz y calidad del sonido.",
+        "Representa signos musicales en el pentagrama desarrollando capacidades musicales de interpretación instrumental.",
+        "Demuestra alegría corporal en ritmos variados de bailes, describiendo características de las manifestaciones culturales de su contexto.",
+        "Promueve la práctica de manifestaciones culturales, música y danza de la comunidad como fortalecimiento de la identidad."
+      ],
+      "prim_4to": [
+        "Aplica los recursos de técnica vocal de correcta vocalización y entonación de la voz, atendiendo a la afinación y el fraseo.",
+        "Comprende aspectos básicos de la lectura musical potenciando las capacidades de interpretación instrumental.",
+        "Coordina los pasos y movimientos, siguiendo el ritmo en la representación co-",
+        "Asume una postura crítica sobre los contenidos de la música no estereotipada."
+      ],
+      "prim_5to": [
+        "Interpreta cantos corales con sus compañeros desenvolviendo la armonización.",
+        "Ejecuta la lectura y escritura musical, mediante la cual expresa su interpretación instrumental.",
+        "Adapta diferentes movimientos de la coreografía en las danzas y bailes a partir de los ritmos musicales.",
+        "Plantea la recuperación desde la tradición oral de canciones en lengua originaria de su contexto."
+      ],
+      "prim_6to": [
+        "Reflexiona críticamente sobre la importancia de la música en el fortalecimiento de la identidad.",
+        "Realiza apreciaciones auditivas y críticas de los diferentes géneros musicales bolivianos.",
+        "Realiza técnica vocal para la interpretación de canciones de reflexión social.",
+        "Realiza la lectoescritura musical del pentagrama en las interpretaciones instrumentales básicas.",
+        "Ejecuta con ritmo y fluidez los desplazamientos, cambios de posición previstos en la coreografía."
+      ]
+    },
+    "CNA_07": {
+      "prim_1ro": [
+        "Explora y valora las características de su cuerpo, propiciando el autoconocimiento, y la práctica de hábitos de vida saludable en la prevención de enfermedades.",
+        "Propone acciones para establecer relaciones armónicas con la Madre Tierra a partir de la exploración y descripción de sus características y fenómenos.",
+        "Observa y reconoce que los seres vivos tienen diferentes características de acuerdo con determinados criterios.",
+        "LA TIERRA Y EL SISTEMA SOLAR",
+        "Observa y describe las características, diferencias y efectos que tiene el día y la noche en los seres vivos.",
+        "Explora y describe las características de algunos materiales en objetos de su contexto."
+      ],
+      "prim_2do": [
+        "Explora y describe la función de los sentidos, proponiendo a través del diálogo acciones de cuidado y hábitos de alimentación, propiciando el autoconocimiento desde la salud integral.",
+        "Reflexiona y recupera saberes sobre la convivencia armónica con los sistemas de vida en la Madre Tierra para la reducción del riesgo de desastres.",
+        "Observa e identifica las características de los seres vivos y su importancia en la prevención de enfermedades y equilibrio ecológico.",
+        "LA TIERRA Y EL SISTEMA SOLAR",
+        "Observa, explica y registra las características de los fenómenos atmosféricos y sus cambios durante el ciclo de las estaciones.",
+        "Observa y formula inferencias sobre la noción de materia y propiedades, expresando sus ideas de forma oral y registro de datos."
+      ],
+      "prim_3ro": [
+        "Recolecta información y explica las funciones vitales del ser humano, proponiendo desde el diálogo prácticas de cuidado y medidas de protección, comunicando sus conclusiones.",
+        "Valora críticamente las relaciones de equilibrio entre los elementos de un ecosistema, la preservación del agua y manejo de residuos sólidos, aguas residuales, como acciones preventivas ante riesgos de desastres.",
+        "Compara y explica las características de los seres vivos, su ciclo vital, la forestación y reforestación como acciones en la recuperación de los ecosistemas.",
+        "Identifica y explica, por medio de modelos, las características, los movimientos de rotación y traslación, considerando sus efectos en la tierra.",
+        "Observa y plantea preguntas sobre los estados de la materia y tipos de energía, comparando sus respuestas."
+      ],
+      "prim_4to": [
+        "Recoge información, compara y describe las estructuras y los procesos de interacción entre los sistemas, las normas vinculadas al cuidado de la salud integral, desde el diálogo, el registro y lectura de datos en tablas.",
+        "Reflexiona críticamente sobre las consecuencias de la acción humana en la estabilidad del medio ambiente, proponiendo acciones de reducción del riesgo y adaptación al cambio climático.",
+        "Propone pautas sencillas de clasificación de los seres vivos, de bosques, desde los procesos de adaptación, conservación del ecosistema.",
+        "Investiga y describe la estructura de la tierra, sus fenómenos internos y externos por medio de modelos",
+        "Plantea preguntas, formula predicciones sobre los cambios de estado de la materia y tipos de energía, comunicando de manera escrita sus experiencias."
+      ],
+      "prim_5to": [
+        "Investiga los procesos de interacción entre los sistemas, reconociendo hábitos para su cuidado y prevención de trastornos nutricionales, comunicando sus conclusiones consensuadas de manera escrita en tablas y gráficos.",
+        "Valora y explica las características de los pisos ecológicos del ciclo integral del agua, el problema de la erosión, respondiendo con acciones en reducción de riesgos.",
+        "Indaga y valora la importancia del proceso de la fotosíntesis proponiendo acciones de conservación y protección de las distintas formas de vida.",
+        "LA TIERRA Y EL SISTEMA SOLAR",
+        "Explica y demuestra la escasez relativa del agua dulce y la influencia del sol y la luna en los sistemas de vida de la tierra.",
+        "Selecciona preguntas, formula predicciones en experiencias sencillas sobre tipos de sustancias, las mezclas y tipos de energías, explicando sus conclusiones de manera escrita y oral."
+      ],
+      "prim_6to": [
+        "Investiga sobre las etapas del desarrollo humano, su relación con el sistema glandular y los diferentes niveles de organización biológica relacionándolos con la nutrición y salud integral, comunicando conclusiones fundamentadas desde el diálogo.",
+        "Evalúa y explica la importancia de acciones de adaptación al cambio climático, cuidado y defensa del ambiente y reducción de riesgos ante eventos adversos.",
+        "Investiga y explica la importancia del cuidado de las semillas como fuente de vida, conservación de los diferentes tipos de cobertura vegetal y su relación dentro de la cadena trófica, comunicando sus conclusiones.",
+        "Formula preguntas que guían su investigación sobre las características del sistema solar, de la atmósfera que posibilitan la vida y propone medidas de protección.",
+        "Planifica, identifica preguntas y lleva a cabo investigaciones experimentales sobre los elementos de la materia, tipos de energía, representando y argumentando sus conclusiones."
+      ]
+    },
+    "MAT_08": {
+      "prim_1ro": [
+        "Identifica nociones de cantidad, ubicación temporal, espacialidad, seriación, distancias, direccionalidad, lateralidad, conteo, desconteo, comparación de cantidades y valor posicional de números naturales utilizando objetos de su entorno natural.",
+        "Resuelve problemas de adición y sustracción de números naturales de dos dígitos, aplicados a la vida comunitaria.",
+        "Identifica, describe y compara las figuras y cuerpos geométricos de su entorno.",
+        "Reconoce las unidades básicas de medidas de longitud, masa-peso, capacidad, tiempo y sistema monetario utilizando el Sistema de Medidas Internacionales, medidas no convencionales y medidas propias de NyPIOs aplicadas a la vida comunitaria del contexto.",
+        "Representa y describe datos en tablas de conteo y pictogramas de su vida cotidiana.",
+        "Reconoce, emplea secuencias y patrones en diversas situaciones (números, figuras, dibujos, objetos del entorno) en su vida cotidiana"
+      ],
+      "prim_2do": [
+        "Conoce los números naturales hasta 1.000, además resuelve problemas de adición, sustracción de tres dígitos y en la multiplicación y división de un dígito, planteados en situaciones cotidianas de la vida.",
+        "Identifica las rectas paralelas, perpendiculares y figuras, cuerpos geométricos y su simetricidad y las asocia a su entorno natural y arquitectónico.",
+        "Identifica y reconoce las unidades pequeñas (submúltiplos) de las medidas de longitud, volumen, capacidad, sistema monetario, calendario en medidas del sistema internacional, medidas no convencionales y de las NyPIOs empleando diversos instrumentos de medición.",
+        "Resuelve planteamientos sencillos a partir de la recolección, organización e interpretación de datos en gráficos de barras y pictogramas aplicados a su vida cotidiana.",
+        "Representa, completa secuencias y patrones numéricos (figuras, dibujos, objetos del entorno) en su vida cotidiana."
+      ],
+      "prim_3ro": [
+        "Resuelve y plantea problemas aritméticos de adición, sustracción de números naturales de cuatro y cinco dígitos y la multiplicación, división de números naturales de tres dígitos aplicadas en situaciones de la vida.",
+        "Emplea diversas estrategias para la resolución de problemas de fracciones homogéneas y heterogéneas aplicados en actividades cotidianas de la vida.",
+        "Identifica, describe y compara ángulos, círculo, circunferencia, perímetros y área en su entorno natural y arquitectónico.",
+        "Explica y emplea estimaciones utilizando las unidades mínimas y máximas (múltiplos y submúltiplos) en el uso de su abreviatura en planteamientos de las medidas de longitud, capacidad, masa-peso, tiempo y el sistema monetario, utilizando instrumentos del sistema internacional de medidas, medidas no convencionales y de las NyPIOs.",
+        "Realiza encuestas, registra, clasifica, organiza, analiza, representa e interpreta registros de datos en tablas de doble entrada en gráfico de barras y líneas simples aplicadas en su vida cotidiana.",
+        "Selecciona, describe y registra patrones numéricos, usando una variedad de estrategias en tablas, la adición, sustracción y multiplicación."
+      ],
+      "prim_4to": [
+        "Plantea operaciones y problemas simples y complejos de adición, sustracción, multiplicación y división con números naturales de 4 y 5 dígitos, números fraccionarios y decimales empleando diversos procedimientos para aplicar a situaciones de la vida cotidiana.",
+        "Representa e interpreta las figuras planas y cuerpos geométricos en su entorno natural arquitectónico.",
+        "Resuelve problemas simples y complejos de las equivalencias y conversiones entre las medidas de longitud, capacidad, masa-peso, tiempo y el sistema monetario, utilizando instrumentos de equivalencias.",
+        "Realiza encuestas, analiza, compara, interpreta datos, gráficos de barras, columnas, líneas, puntos y círculos o tortas simples aplicados a su vida cotidiana.",
+        "Identifica y describe patrones numéricos en tablas que involucren una operación, de manera manual y/o usando software educativo."
+      ],
+      "prim_5to": [
+        "Plantea y resuelve problemas simples y complejos de múltiplos y divisores distinguiendo diversos tipos de fracciones: homogéneos, heterogéneos, mixtos y equivalentes aplicados a la vida de los pueblos.",
+        "Comprende nociones básicas de razón, proporción de magnitudes expresadas en potencia y realiza operaciones de potencias de base 10 y 100 y su aplicación en problemas de la vida.",
+        "Reconoce e interpreta figuras y cuerpos geométricos, paralelismo, intersección y plano cartesiano vinculados a su realidad de su entorno natural y arquitectónico.",
+        "medidas de superficie en metro cuadrado, metro cúbico y conversiones entre unidades de tiempo, resolución de problemas, utilizando instrumentos del sistema internacional, medidas no convencionales y de las NyPIOs.",
+        "Calcula, interpreta variables y utiliza diagrama de tallo en datos e información empleando en situaciones de la vida cotidiana.",
+        "Analiza y describe alguna regla que explique una sucesión dada y que permita hacer predicciones."
+      ],
+      "prim_6to": [
+        "Realiza operaciones y resuelve problemas simples y complejos de adición, sustracción, multiplicación y división con números enteros con 3 dígitos.",
+        "Comprende magnitudes directa e inversamente proporcionales y aplica en diversas situaciones de la vida expresados en: regla de tres simple, tanto por ciento e interés simple.",
+        "Identifica y expresa diferentes situaciones de la vida en números expresados en potencias y raíces aplicando sus propiedades a la vida comunitaria.",
+        "Reconoce, interpreta y emplea los ángulos en figuras y cuerpos geométricos en su entorno natural y arquitectónico.",
+        "Analiza y resuelve planteamientos de proporcionalidad con unidades de medida de longitud, masa y capacidad, utilizando instrumentos del sistema internacional, medidas no convencionales y de las NyPIOs.",
+        "Lee, analiza, compara, interpreta y describe la relación entre los valores de una tabla y usando gráfico de barras dobles, circulares, puntos y de tallo y hojas en situaciones de la vida cotidiana.",
+        "Identifica, representa y describe generalizaciones entre números y objetos alguna regla que explique una sucesión dada y que permita hacer predicciones."
+      ]
+    },
+    "TEC_09": {
+      "prim_1ro": [
+        "Identifica y reconoce objetos tecnológicos del entorno familiar y la comunidad comprendiendo la importancia de los mismos en la elaboración de objetos con el uso de la creatividad que fortalece su desarrollo cognitivo.",
+        "Reconoce y describe las bondades de la tecnología e identifica los objetos tecnológicos del contexto.",
+        "Aplica sus conocimientos en el uso de programas sencillos para desarrollar el pensamiento lógico matemático y la lectura."
+      ],
+      "prim_2do": [
+        "Identifica las tecnologías de las NyPIOs y valora la ciencia y tecnología de la cultura del contexto que coadyuva al fortalecimiento de la identidad personal y cultura.",
+        "Comprende las nociones básicas de la robótica y utiliza materiales esenciales del contexto para la elaboración de la misma a través de dibujos a mano alzados y/o digitales.",
+        "Reconoce los elementos de la computadora y fortalece su creatividad a través del manejo de programas computacionales."
+      ],
+      "prim_3ro": [
+        "Describe la ciencia y tecnologías de la cultura del contexto e identifica los medios tecnológicos y formas de comunicación de la región.",
+        "Elabora dibujos, diseños a mano alzada y/o digital identificando elementos esenciales para la construcción de un juguete robot con material del entorno y/o reciclado para el cuidado de la madre tierra.",
+        "Utiliza adecuadamente los navegadores de internet e identifica los beneficios en el uso de los mismos para el cuidado de su integridad."
+      ],
+      "prim_4to": [
+        "Practica procesos de deshidratación y transformación de alimentos de la región y describe los procedimientos de las mismas.",
+        "Demuestra habilidades de pensamiento, habilidades sociales, comunicativas en la construcción del robot móvil identificando materiales aprovechables y tiene cuidado con el uso de los mismos para cuidar su salud integral.",
+        "Comprende el manejo adecuado de las redes sociales y hace uso de programas para facilitar actividades básicas."
+      ],
+      "prim_5to": [
+        "Emplea técnicas y tecnologías de los NyPIOs e identifica el procedimiento de la conservación de alimentos según contexto.",
+        "Emplea su creatividad en la elaboración de un robot, que sea de utilidad, acorde a una necesidad.",
+        "Aplica y propone estrategias de planificación, ejecución a una situación o problema que conlleva a la elaboración de un robot.",
+        "Explica y utiliza los componentes electrónicos para la construcción de mecanismos.",
+        "Utiliza y diferencia las plataformas y redes sociales, empleando procesos básicos de programación."
+      ],
+      "prim_6to": [
+        "Emplea la materia prima para realizar artesanías, aplicando técnicas y tecnologías de losNyPIOs.",
+        "Elabora un robot con materiales reciclables, aplicando técnicas de protección.",
+        "Explica el uso de las plataformas y redes sociales, empleando procesos básicos de programación.",
+        "Valora y aplicalas tecnologías de su contexto, para la transformación de alimentos o plantas medicinales del contexto.",
+        "Aplica y compara las plataformas, redes sociales y maneja programas educativos de edición de videos."
+      ]
+    }
+  },
+  "SEC": {}
+}

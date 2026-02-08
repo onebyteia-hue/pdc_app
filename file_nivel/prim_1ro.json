@@ -1,0 +1,917 @@
+{
+  "curso_id": "PRIM_1RO_2026",
+  "areas_curriculares": [
+    {
+      "area_id": "VAL_01",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_VAL_1_01",
+              "titulo_principal": "El respeto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_VAL_1_02",
+              "titulo_principal": "Las emociones: alegría, tristeza y miedo",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_VAL_1_03",
+              "titulo_principal": "Mitos y costumbres de mi comunidad",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_VAL_1_01",
+              "titulo_principal": "La reciprocidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_VAL_1_02",
+              "titulo_principal": "Creencias religiosas y espirituales de la comunidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_VAL_1_03",
+              "titulo_principal": "La identidad cultural: soy uno en relación a otros",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_VAL_1_01",
+              "titulo_principal": "La inclusion",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_VAL_1_02",
+              "titulo_principal": "La amistad: relaciones interpersonales en la familia, escuela y comunidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_VAL_1_03",
+              "titulo_principal": "Autoestima: me acepto y me quiero tal como soy",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_VAL_1_04",
+              "titulo_principal": "Mi comunidad: espacios seguros e inseguros",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "LENG_02",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_LENG_1_01",
+              "titulo_principal": "Texto narrativo: escucha comprensiva y expresión oral",
+              "puntos_clave": [
+                "Palabras con los sonidos iniciales: a, e, i, o, u,",
+                "Texto instructivo: escucha y expresión oral",
+                "Lectura y escritura de palabras con las letras m, p, l"
+              ]
+            },
+            {
+              "id": "T1_LENG_1_02",
+              "titulo_principal": "Texto corto: lectura y escritura de palabras y oraciones",
+              "puntos_clave": [
+                "Los artículos: la – el – las – los",
+                "Letra “y” como elemento de enlace"
+              ]
+            },
+            {
+              "id": "T1_LENG_1_03",
+              "titulo_principal": "Texto narrativo: lectura comprensiva y expresión oral",
+              "puntos_clave": [
+                "Lectura y escritura de palabras con las letras s, d, n",
+                "Los artículos: un – una – unos – unas"
+              ]
+            },
+            {
+              "id": "T1_LENG_1_04",
+              "titulo_principal": "Texto literario: lectura comprensiva y expresión oral",
+              "puntos_clave": [
+                "Lectura y escritura de palabras con las letras r y el dígrafo rr"
+              ]
+            },
+            {
+              "id": "T1_LENG_1_05",
+              "titulo_principal": "Lengua Originaria (LO) - Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "Magic words (palabras mágicas) Greetings (Saludos oralmente)",
+                "The numbers (1 - 20) (números del 1 - 20)",
+                "The colors (los colores)"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_LENG_1_01",
+              "titulo_principal": "Texto narrativo: lectura comprensiva y expresión oral",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_LENG_1_02",
+              "titulo_principal": "Texto literario: lectura comprensiva en los niveles textual, inferencial y crítico, y escritura",
+              "puntos_clave": [
+                "Lectura y escritura de palabras y textos cortos con las letras c, q",
+                "Combinación ce – ci"
+              ]
+            },
+            {
+              "id": "T2_LENG_1_03",
+              "titulo_principal": "Texto instructivo: lectura comprensiva en los niveles textual, inferencial y crítico, y escritura",
+              "puntos_clave": [
+                "Lectura y escritura de palabras y textos cortos con las letras ll, v, k"
+              ]
+            },
+            {
+              "id": "T2_LENG_1_04",
+              "titulo_principal": "Texto descriptivo: lectura comprensiva en los niveles textual, inferencial y crítico, y escritura",
+              "puntos_clave": [
+                "Lectura y escritura de palabras y textos cortos con el dígrafo ch, la letra z, y"
+              ]
+            },
+            {
+              "id": "T2_LENG_1_05",
+              "titulo_principal": "Texto literario: lectura comprensiva en los niveles textual, inferencial y crítico, y escritura",
+              "puntos_clave": [
+                "Lectura y escritura de palabras y textos cortos con las letras x, w, h"
+              ]
+            },
+            {
+              "id": "T2_LENG_1_06",
+              "titulo_principal": "Texto narrativo: lectura comprensiva en los niveles textual, inferencial y crítico, y escritura",
+              "puntos_clave": [
+                "Lectura y escritura de palabras y textos cortos con las letras j, g",
+                "Caso de la gue – gui",
+                "Caso de la ge – gi"
+              ]
+            },
+            {
+              "id": "T2_LENG_1_07",
+              "titulo_principal": "Lengua Originaria (LO) - Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "Actions-Commands (Acciones y órdenes oralmente)",
+                "The family (la familia, oralmente)",
+                "Objects of the classroom -Writing (Objetos de la clase-escritura)"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_LENG_1_01",
+              "titulo_principal": "Texto literario: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación bl – br",
+                "Combinación fl – fr"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_02",
+              "titulo_principal": "Texto narrativo: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación cl – cr",
+                "Combinación gl – gr"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_03",
+              "titulo_principal": "Texto descriptivo: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación pl – pr",
+                "Combinación tl – tr"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_04",
+              "titulo_principal": "Texto instructivo: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación dr",
+                "Caso de la güe – güi"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_05",
+              "titulo_principal": "Texto literario: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación bl – br",
+                "Combinación fl – fr"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_06",
+              "titulo_principal": "Texto narrativo: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación cl – cr",
+                "Combinación gl – gr"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_07",
+              "titulo_principal": "Texto descriptivo: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación pl – pr",
+                "Combinación tl – tr"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_08",
+              "titulo_principal": "Texto instructivo: lectura comprensiva y escritura",
+              "puntos_clave": [
+                "Combinación dr",
+                "Caso de la güe – güi"
+              ]
+            },
+            {
+              "id": "T3_LENG_1_09",
+              "titulo_principal": "Lengua Originaria (LO) - Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "My body (Mi cuerpo)",
+                "Fruit and vegetables (frutas y vegetales)",
+                "The animals (animales)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "SOC_03",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_SOC_1_01",
+              "titulo_principal": "Integrantes de la familia: ocupaciones y roles compartidos entre mujeres y varones (LC y LO)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_1_02",
+              "titulo_principal": "La comunidad como espacio de autoaceptación",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_1_03",
+              "titulo_principal": "Espacio geográfico donde habita la familia y características de los paisajes",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_1_04",
+              "titulo_principal": "Servicios básicos en la comunidad o zona",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_1_05",
+              "titulo_principal": "¿Cómo era antes el lugar donde vivo?",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_SOC_1_01",
+              "titulo_principal": "Creación o fundación de nuestra comunidad/zona",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_1_02",
+              "titulo_principal": "Costumbres y tradiciones culturales de la familia y la comunidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_1_03",
+              "titulo_principal": "Seguridad en la familia, la escuela y la comunidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_1_04",
+              "titulo_principal": "Derechos de las niñas y los niños a la identidad y a la expresión de las ideas y sentimientos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_1_05",
+              "titulo_principal": "Deberes de las niñas y los niños en la familia, escuela y comunidad",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_SOC_1_01",
+              "titulo_principal": "Fechas cívicas de la comunidad/zona",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_1_02",
+              "titulo_principal": "Actividades económicas en la comunidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_1_03",
+              "titulo_principal": "Medios de transporte (terrestre, aéreo, ferroviario y fluvial)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_1_04",
+              "titulo_principal": "Expresiones simbólicas en tejidos, cerámica y vestimentas del entorno",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_1_05",
+              "titulo_principal": "Símbolos del municipio y el departamento",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "ART_04",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_ART_1_01",
+              "titulo_principal": "Psicomotricidad (trazo a mano alzada)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_1_02",
+              "titulo_principal": "El arte del garabato",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_1_03",
+              "titulo_principal": "El punto y la línea",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_1_04",
+              "titulo_principal": "Composiciones artísticas con el punto y la línea",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_1_05",
+              "titulo_principal": "Dibujo de la familia",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_ART_1_01",
+              "titulo_principal": "Trazado de líneas rectas, curvas y onduladas en dirección horizontal, vertical o inclinada (uso de la regla recta)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_1_02",
+              "titulo_principal": "Diseños creativos con diferentes tipos de líneas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_1_03",
+              "titulo_principal": "Caligrafía I",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_1_04",
+              "titulo_principal": "Percepción del tono y color (negro - blanco, amarillo - verde, azul - rojo, entre otros)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_1_05",
+              "titulo_principal": "Pintura con sorbete (bombilla)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_1_06",
+              "titulo_principal": "Composiciones de simetría y asimetría (pintura al dedo u otros propios del contexto)",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_ART_1_01",
+              "titulo_principal": "Primeras creaciones tridimensionales en materiales blandos (plastilina, masa, greda y otros) de acuerdo al contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_1_02",
+              "titulo_principal": "Manualidades con materiales en desuso representando animales domésticos o salvajes",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_1_03",
+              "titulo_principal": "Decoraciones con papel, moldes ilustrados o impresos recortados",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "EFD_05",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_EFD_1_01",
+              "titulo_principal": "Medidas antropométricas (Peso talla) e índice de masa corporal, detección de alteraciones posturales, dificultades de salud",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_1_02",
+              "titulo_principal": "Juegos motores, tradicionales y populares en actividades recreativas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_1_03",
+              "titulo_principal": "Gimnasia educativa: Procedimientos organizativos y formaciones",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_EFD_1_01",
+              "titulo_principal": "Ejercicios de atletismo (mini atletismo): Arrancada, pasos normales, transitorios y carrera de rendimiento de 30 a 50 m, carrera de relevo con reglas específicas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_EFD_1_02",
+              "titulo_principal": "Mini básquet: Juegos pre deportivos individuales y grupales y hábitos del consumo de alimentos que contribuyan al desarrollo físico",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_EFD_1_03",
+              "titulo_principal": "Mini Voleibol: Digitación, antebrazo",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_EFD_1_01",
+              "titulo_principal": "Fútbol: Pase, recepción y conducción con reglas de juego",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_EFD_1_02",
+              "titulo_principal": "Deportes individuales, tenis de mesa (simples, dobles y mixtos), natación",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_EFD_1_03",
+              "titulo_principal": "Deportes de mesa Ajedrez, tablero y piezas reglas básicas",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "MUS_06",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_MUS_1_01",
+              "titulo_principal": "Ejercicios de respiración básicos para el canto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_1_02",
+              "titulo_principal": "Himno Nacional de Bolivia a través del fraseo de manera progresiva primera parte. (Desarrollando en 1er, 2do y 3er trimestre)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_1_03",
+              "titulo_principal": "Interpretación de rondas y canciones infantiles",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_1_04",
+              "titulo_principal": "Sonidos y ruidos en la naturaleza y los diversos contextos",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_MUS_1_01",
+              "titulo_principal": "Canciones y juegos musicales con precisión rítmica (LO, LE)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_1_02",
+              "titulo_principal": "Lectura musical no convencional",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_1_03",
+              "titulo_principal": "Juegos rítmicos con expresión mediante Rondas y canciones infantiles",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_1_04",
+              "titulo_principal": "Instrumentos rítmicos de material reciclado y del contexto",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_MUS_1_01",
+              "titulo_principal": "Orquesta rítmica",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_1_02",
+              "titulo_principal": "Gestos y movimientos rítmicos en rondas y canciones propias",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_1_03",
+              "titulo_principal": "Ensamble de orquesta rítmica y coro infantil",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "CNA_07",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_CNA_1_01",
+              "titulo_principal": "Partes del cuerpo humano: estructura externa, función, diversidad en la apariencia física (LC y LO)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_1_02",
+              "titulo_principal": "Hábitos de vida saludable: higiene, alimentación, juego, descanso, regulación de emociones",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_1_03",
+              "titulo_principal": "Cambios corporales (peso, talla, dentición y otros)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_1_04",
+              "titulo_principal": "La tierra: los fenómenos que derivan en el día y la noche",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_CNA_1_01",
+              "titulo_principal": "Características de las plantas en diferentes hábitats y su utilidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_1_02",
+              "titulo_principal": "Plantas medicinales y sus propiedades preventivas y curativas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_1_03",
+              "titulo_principal": "Animales domésticos y silvestres del contexto: características",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_1_04",
+              "titulo_principal": "La materia: diferencia entre objeto y materiales",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_CNA_1_01",
+              "titulo_principal": "Paisajes naturales del contexto: características y cuidado",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_1_02",
+              "titulo_principal": "Fuentes de agua en la comunidad o barrio; su cuidado y protección",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_1_03",
+              "titulo_principal": "Fenómenos naturales y su incidencia en la comunidad",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "MAT_08",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_MAT_1_01",
+              "titulo_principal": "Nociones fundamentales de la matemática",
+              "puntos_clave": [
+                "Noción de cantidad: poco/mucho, varios/ninguno",
+                "Noción de espacialidad: Delante/detrás, arriba/abajo, izquierda/derecha, cerca/ lejos, junto/separado, estar entre, alrededor de, frente a, detrás de, entre otros",
+                "Noción de temporalidad con elementos de su entorno inmediato: ayer/hoy/ mañana"
+              ]
+            },
+            {
+              "id": "T1_MAT_1_02",
+              "titulo_principal": "Números naturales",
+              "puntos_clave": [
+                "Lectura y escritura de números naturales del 0 al 9 (LC y LO)",
+                "Cantidad y representación simbólica con objetos del entorno",
+                "La recta numérica. (1-9)",
+                "Números pares e impares. (1-9)",
+                "Conteo y desconteo de elementos del contexto",
+                "Relaciones de comparación entre números naturales: Mayor, menor e igual"
+              ]
+            },
+            {
+              "id": "T1_MAT_1_03",
+              "titulo_principal": "Adición de números naturales de un dígito",
+              "puntos_clave": [
+                "Términos y operaciones de adición de un dígito de forma horizontal y vertical",
+                "Resolución de problemas sencillos de adición con un dígito"
+              ]
+            },
+            {
+              "id": "T1_MAT_1_04",
+              "titulo_principal": "Sustracción de números naturales de un dígito",
+              "puntos_clave": [
+                "Términos y operaciones de sustracción de un dígito de forma horizontal y vertical",
+                "Resolución de problemas sencillos de sustracción con un dígito"
+              ]
+            },
+            {
+              "id": "T1_MAT_1_05",
+              "titulo_principal": "Figuras geométricas en el entorno",
+              "puntos_clave": [
+                "Cuadrado, rectángulo, triángulo, círculo y rombo"
+              ]
+            },
+            {
+              "id": "T1_MAT_1_06",
+              "titulo_principal": "Líneas y curvas",
+              "puntos_clave": [
+                "Punto - Líneas rectas",
+                "Curvas",
+                "Líneas abiertas y líneas cerradas"
+              ]
+            },
+            {
+              "id": "T1_MAT_1_07",
+              "titulo_principal": "Figuras",
+              "puntos_clave": [
+                "Simetría en figuras del entorno"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_MAT_1_01",
+              "titulo_principal": "Números ordinales",
+              "puntos_clave": [
+                "Números ordinales hasta el 12º"
+              ]
+            },
+            {
+              "id": "T2_MAT_1_02",
+              "titulo_principal": "Ampliando los números naturales hasta el 50",
+              "puntos_clave": [
+                "Lectura y escritura de números naturales de dos dígitos: hasta el 50",
+                "Representación en la recta numérica hasta el 50",
+                "Relaciones de comparación entre números naturales: Mayor, menor e igual",
+                "Valor posicional de un número (unidades y decenas)"
+              ]
+            },
+            {
+              "id": "T2_MAT_1_03",
+              "titulo_principal": "Adición de números naturales de dos dígitos hasta el 50",
+              "puntos_clave": [
+                "Operaciones de adición de dos dígitos hasta el 50 de forma horizontal y vertical",
+                "Resolución de problemas sencillos de adición con dos dígitos hasta el 50"
+              ]
+            },
+            {
+              "id": "T2_MAT_1_04",
+              "titulo_principal": "Sustracción de números naturales de dos dígitos hasta el 50",
+              "puntos_clave": [
+                "Operaciones de sustracción de dos dígitos de forma horizontal y vertical hasta el 50",
+                "Resolución de problemas sencillos de adición con dos dígitos hasta el 50. MEDIDAS"
+              ]
+            },
+            {
+              "id": "T2_MAT_1_05",
+              "titulo_principal": "Sistema Internacional de Medidas, no convencionales del contexto y NyPIOS: unidades básicas",
+              "puntos_clave": [
+                "Medidas de longitud: el metro",
+                "Medidas de masa y peso: el kilogramo",
+                "Medidas de capacidad: el litro",
+                "Sistema monetario: monedas y billetes",
+                "Medidas de tiempo: la hora en el reloj",
+                "El calendario: días, meses y año"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_MAT_1_01",
+              "titulo_principal": "Ampliando los números naturales hasta el 100",
+              "puntos_clave": [
+                "Lectura y escritura de números naturales de dos dígitos: del 51 al 99",
+                "La centena (100)",
+                "Representación en la recta numérica hasta el 100",
+                "Relaciones de comparación entre números naturales: Mayor, menor e igual"
+              ]
+            },
+            {
+              "id": "T3_MAT_1_02",
+              "titulo_principal": "Adición de números naturales de dos dígitos hasta el 100",
+              "puntos_clave": [
+                "Resolución de problemas sencillos de adición con dos dígitos hasta el 100"
+              ]
+            },
+            {
+              "id": "T3_MAT_1_03",
+              "titulo_principal": "Sustracción de números naturales de dos dígitos hasta el 100",
+              "puntos_clave": [
+                "Operaciones de sustracción de dos dígitos de forma horizontal y vertical hasta el 100",
+                "Resolución de problemas sencillos de adición con dos dígitos hasta el 100"
+              ]
+            },
+            {
+              "id": "T3_MAT_1_04",
+              "titulo_principal": "Operaciones combinadas. - La adición y sustracción de uno y dos dígitos",
+              "puntos_clave": [
+                "Números romanos hasta el diez (I al X)"
+              ]
+            },
+            {
+              "id": "T3_MAT_1_05",
+              "titulo_principal": "Nociones de estadística",
+              "puntos_clave": [
+                "Organización de datos en tablas y gráficos de barras",
+                "Tablas de doble entrada: representación simbólica y pictórica",
+                "Gráfico de barras"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "TEC_09",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_TEC_1_01",
+              "titulo_principal": "Artefactos y herramientas: utilidad, precaución y uso adecuado en la vida cotidiana",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_1_02",
+              "titulo_principal": "Figuras básicas de papel en la elaboración de origami",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_1_03",
+              "titulo_principal": "Productos tecnológicos del contexto: computadora, celular, radio, televisión y otros",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_1_04",
+              "titulo_principal": "Objetos o juguetes del contexto con: arcilla, plastilina y/o materiales del contexto y lego,",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_TEC_1_01",
+              "titulo_principal": "Herramientas básicas en la agricultura y cocina: utilidad, precaución y uso adecuado en la vida cotidiana",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_1_02",
+              "titulo_principal": "Teoría básica de la robótica en nuestro entorno expresado en dibujos (carrusel, teleférico, movilidades, bicicleta y otros)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_1_03",
+              "titulo_principal": "Herramientas y materiales: Utilización pertinentes para la elaboración de juguetes",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_TEC_1_01",
+              "titulo_principal": "Partes elementales de la computadora y sus funciones: Teclado, monitor, CPU, mouse, cámara, parlantes",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_1_02",
+              "titulo_principal": "Manejo de programas sencillos (Paint, Scratch, Gcompris)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_1_03",
+              "titulo_principal": "Programa interactivo SEBRAN (Desarrollando el pensamiento lógico y lectura)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_1_04",
+              "titulo_principal": "Artefactos y herramientas: utilidad, precaución y uso adecuado en la vida cotidiana",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_1_05",
+              "titulo_principal": "Figuras básicas de papel en la elaboración de origami",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_1_06",
+              "titulo_principal": "Productos tecnológicos del contexto: computadora, celular, radio, televisión y otros",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_1_07",
+              "titulo_principal": "Objetos o juguetes del contexto con: arcilla, plastilina y/o materiales del contexto y lego",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

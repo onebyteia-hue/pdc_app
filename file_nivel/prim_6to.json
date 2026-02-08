@@ -1,0 +1,1035 @@
+{
+  "curso_id": "PRIM_6TO_2026",
+  "areas_curriculares": [
+    {
+      "area_id": "VAL_01",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_VAL_6_01",
+              "titulo_principal": "Valores sociocomunitarios de los pueblos del Abya Yala",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_VAL_6_02",
+              "titulo_principal": "Espiritualidad y Religiosidad representadas en las artes de las NyPIOs",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_VAL_6_03",
+              "titulo_principal": "Ritos y ofrendas en las festividades de nuestra comunidad",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_VAL_6_01",
+              "titulo_principal": "Transparencia y honradez",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_VAL_6_02",
+              "titulo_principal": "Regulación de emociones (alegría, enojo, ira y tristeza)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_VAL_6_03",
+              "titulo_principal": "Cosmogonía y panteísmo en las NyPIOs",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_VAL_6_04",
+              "titulo_principal": "Normas de convivencia para una vida armónica",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_VAL_6_01",
+              "titulo_principal": "Tolerancia",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_VAL_6_02",
+              "titulo_principal": "Autonomía de los pueblos en la convivencia (trilogía andina)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_VAL_6_03",
+              "titulo_principal": "Mi identidad: autoconocimiento, soy único en relación con otros",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "LENG_02",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_LENG_6_01",
+              "titulo_principal": "La canción: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Características",
+                "Palabras con doble y triple acentuación",
+                "La intencionalidad del hablante",
+                "Técnicas de estudio: el cuadro SQA"
+              ]
+            },
+            {
+              "id": "T1_LENG_6_02",
+              "titulo_principal": "El cuento de miedo: comprensión lectora y producción escrita",
+              "puntos_clave": [
+                "Características, recursos",
+                "Las letras c, s, z, sus usos",
+                "La estructura del sujeto",
+                "Técnicas de estudio: lectura rápida"
+              ]
+            },
+            {
+              "id": "T1_LENG_6_03",
+              "titulo_principal": "La mesa redonda: expresión oral",
+              "puntos_clave": [
+                "Planeación, ejecución, práctica",
+                "Uso del lenguaje adecuado al tema y a la audiencia"
+              ]
+            },
+            {
+              "id": "T1_LENG_6_04",
+              "titulo_principal": "El mito: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y estructura",
+                "El dígrafo ll y de la letra y, sus usos",
+                "Las preposiciones y las conjunciones",
+                "Conectores: función y clases"
+              ]
+            },
+            {
+              "id": "T1_LENG_6_05",
+              "titulo_principal": "El sociodrama: expresión oral",
+              "puntos_clave": [
+                "Expresión corporal, gestual y actitudinal",
+                "Composición, creatividad, improvisación y representación"
+              ]
+            },
+            {
+              "id": "T1_LENG_6_06",
+              "titulo_principal": "Lengua Originaria (LO)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_LENG_6_07",
+              "titulo_principal": "Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "What are THOSE Knowing museums (virtual) (que son esos, aquellos; conociendo museos)",
+                "Posesive Adjecives (adjetivos posesivos)",
+                "I am going to….(future time) (yo voy a..tiempo futuro)"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_LENG_6_01",
+              "titulo_principal": "El texto expositivo-científico: comprensión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y función",
+                "La letra x y del dígrafo cc, sus usos",
+                "La estructura del predicado",
+                "Significado de las palabras",
+                "Técnicas de estudio: el parafraseo"
+              ]
+            },
+            {
+              "id": "T2_LENG_6_02",
+              "titulo_principal": "El afiche: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y estructura",
+                "Los dos puntos",
+                "La concordancia en la oración simple",
+                "Expresiones informales"
+              ]
+            },
+            {
+              "id": "T2_LENG_6_03",
+              "titulo_principal": "El discurso: escritura y expresión oral",
+              "puntos_clave": [
+                "Características y estructura",
+                "Lengua Extranjera (LE)",
+                "Recursos para hablar en público"
+              ]
+            },
+            {
+              "id": "T2_LENG_6_04",
+              "titulo_principal": "La novela corta: comprensión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y estructura",
+                "Punto y seguido, punto y aparte, punto final",
+                "El verbo: conjugación, raíz y desinencia",
+                "Anáfora, catáfora y elipsis"
+              ]
+            },
+            {
+              "id": "T2_LENG_6_05",
+              "titulo_principal": "La tertulia: expresión oral",
+              "puntos_clave": [
+                "Organización y moderación"
+              ]
+            },
+            {
+              "id": "T2_LENG_6_06",
+              "titulo_principal": "Lengua Originaria (LO)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_LENG_6_07",
+              "titulo_principal": "Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "Questions words (palabras de pregunta)",
+                "Jobs (ocupaciones o profesiones)",
+                "Regular verbs in past time. (Sentences) (verbos regulares en tiempo pasado; oraciones)"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_LENG_6_01",
+              "titulo_principal": "La autobiografía: comprensión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y estructura",
+                "El paréntesis, sus usos",
+                "El verbo: modos",
+                "Interjecciones y onomatopeyas"
+              ]
+            },
+            {
+              "id": "T3_LENG_6_02",
+              "titulo_principal": "El testimonio: escritura y expresión oral",
+              "puntos_clave": [
+                "Características"
+              ]
+            },
+            {
+              "id": "T3_LENG_6_03",
+              "titulo_principal": "El texto dramático: comprensión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y tipos",
+                "Formas verbales: simples y compuestas",
+                "Oraciones para completar"
+              ]
+            },
+            {
+              "id": "T3_LENG_6_04",
+              "titulo_principal": "El teatro: expresión oral",
+              "puntos_clave": [
+                "Diálogos, entonación y expresividad"
+              ]
+            },
+            {
+              "id": "T3_LENG_6_05",
+              "titulo_principal": "Plan de redacción para la escritura de textos",
+              "puntos_clave": [
+                "Definición",
+                "Estructura",
+                "Criterios de ordenamiento"
+              ]
+            },
+            {
+              "id": "T3_LENG_6_06",
+              "titulo_principal": "Las redes sociales",
+              "puntos_clave": [
+                "Definición",
+                "Seguridad",
+                "Técnicas de estudio: síntesis argumental"
+              ]
+            },
+            {
+              "id": "T3_LENG_6_07",
+              "titulo_principal": "Lengua Originaria (LO)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_LENG_6_08",
+              "titulo_principal": "Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "Verb to-be past tense (tiempo pasado del verbo to be)",
+                "My diary - Frequency adverbs (mi diario adverbios de frecuencia)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "SOC_03",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_SOC_6_01",
+              "titulo_principal": "Organización política y social de las naciones y pueblos originarios del Norte, Centro y Sur del Abya Yala (América)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_6_02",
+              "titulo_principal": "Principios de convivencia de los diferentes pueblos del Abya Yala y las consecuencias de la invasión europea",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_6_03",
+              "titulo_principal": "Movimientos de resistencia de los Pueblos Originarios del Abya Yala, contra la exclusión y sometimiento",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_6_04",
+              "titulo_principal": "Rol de la Iglesia Católica en el proceso colonial",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_6_05",
+              "titulo_principal": "Historia territorial de Bolivia, pérdidas por guerras y por vía diplomática",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_SOC_6_01",
+              "titulo_principal": "Los “Barones del Estaño” y saqueo de nuestros minerales",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_6_02",
+              "titulo_principal": "La Revolución Nacional de 1952 y los períodos dictatoriales",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_6_03",
+              "titulo_principal": "Seguridad Vial en ámbito regional y nacional. Análisis de estadísticas, formas de prevención de accidentes",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_6_04",
+              "titulo_principal": "La libertad, el diálogo, la inclusión, la participación, la igualdad y el respeto en las instituciones sociales y políticas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_6_05",
+              "titulo_principal": "Mecanismos para prevenir el bullyng en la escuela, la familia, y la comunidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_6_06",
+              "titulo_principal": "Tipos de violencia, sus causas y consecuencias",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_SOC_6_01",
+              "titulo_principal": "Modelo Económico boliviano de redistribución",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_6_02",
+              "titulo_principal": "Concepción de la política como servicio al pueblo",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_6_03",
+              "titulo_principal": "Derecho universal al agua potable en nuestro Estado Plurinacional",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_6_04",
+              "titulo_principal": "Ejercicio de la democracia representativa, participativa y comunitaria",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_6_05",
+              "titulo_principal": "Pilares del desarrollo: Bolivia Digna y Soberana",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "ART_04",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_ART_6_01",
+              "titulo_principal": "Diseño y pintado de polígonos regulares estrellados triángulo, cuadrado, rectángulo, rombo",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_6_02",
+              "titulo_principal": "Diseño de carátulas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_6_03",
+              "titulo_principal": "Diseño y Calado de letras molde",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_6_04",
+              "titulo_principal": "Estudio y análisis del Arte de las Culturas Aymara, Quechua, Guaraní",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_6_05",
+              "titulo_principal": "Vestigios del arte colonial en Bolivia representados en los diferentes departamentos",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_ART_6_01",
+              "titulo_principal": "Concepto y ejercicio de composición, encuadre y encaje",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_6_02",
+              "titulo_principal": "Interpretación de cuentos a través del dibujo artístico",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_6_03",
+              "titulo_principal": "Manejo de los instrumentos del dibujo artístico",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_6_04",
+              "titulo_principal": "Técnicas de sombreado: Liso, achurado, jaspeado, puntillismo, circulismo, difuminado, garabateado",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_6_05",
+              "titulo_principal": "Dibujo Digital o digitalización de personajes. En (Autodesk Sketchbook)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_6_06",
+              "titulo_principal": "Caligrafía VI",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_6_07",
+              "titulo_principal": "Primeras expresiones artísticas del paisaje con contrastes y armonías del color. (pinturas marinas, atardecer, amanecer y anochecer)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_6_08",
+              "titulo_principal": "Pintura decorativa en vasijas con relación a los diseños de los pueblos originarios",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_ART_6_01",
+              "titulo_principal": "Apreciación de obras artísticas de artistas bolivianos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_6_02",
+              "titulo_principal": "Maquetería sobre temáticas sociales actuales (plastilina, arcilla u otros del contexto)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_6_03",
+              "titulo_principal": "Primeras expresiones artísticas de orfebrería en arcilla u otros materiales del contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_6_04",
+              "titulo_principal": "Tallado en Jabón como Expresión artística cultural de los pueblos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_6_05",
+              "titulo_principal": "Composiciones artísticas con diversos materiales",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "EFD_05",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_EFD_6_01",
+              "titulo_principal": "Medidas antropométricas (peso, talla), hábitos de higiene en las actividades deportivas, nutrición, hidratación, alimentación saludable y ejercicios de respiración",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_6_02",
+              "titulo_principal": "Equilibrio estático, dinámico en actividades físicas y pre-deportivas: hidratación del cuerpo antes, durante y después",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_6_03",
+              "titulo_principal": "Gimnasia rítmica, artística, expresión corporal, escénica",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_6_04",
+              "titulo_principal": "Procesos formativos: Ejercicios a manos libres, familiarización en colchonetas, posiciones de equilibrio, rodamiento adelante y atrás, rodamientos en posición C o agrupado adelante y atrás, rodamientos en posición V, carpado adelante y atrás más",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_EFD_6_01",
+              "titulo_principal": "Mini Atletismo: perfeccionamiento de la técnica en cada una de las pruebas (carreras, saltos, lanzamientos) con reglas específicas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_EFD_6_02",
+              "titulo_principal": "Baloncesto: Sistemas de juego, táctica ofensiva y defensiva (bases para la organización de campeonatos) acorde a reglas de juego",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_EFD_6_03",
+              "titulo_principal": "Voleibol: Sistemas de juego, táctica ofensiva y defensiva acorde a reglas de juego",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_EFD_6_01",
+              "titulo_principal": "Fútbol: Sistemas de juego, táctica ofensiva y defensiva",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_EFD_6_02",
+              "titulo_principal": "Tenis de mesa y su reglamento (deporte alternativo) y encuentros deportivos en la recreación corporal",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_EFD_6_03",
+              "titulo_principal": "Ajedrez: tablero, valor de las piezas, movimientos especiales, jaque, enroques, mates básicos y notación",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "MUS_06",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_MUS_6_01",
+              "titulo_principal": "Ejercicios de técnica vocal, (relajación, respiración, articulación, dicción y correcta posición del canto)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_6_02",
+              "titulo_principal": "Análisis y entonación de Himnos, marchas y canciones en LC, LO. (Según calendario cívico desarrollando en 1er, 2do y 3er trimestre)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_6_03",
+              "titulo_principal": "Canto polifonía vocal: cánones de tres y cuatro voces, en canciones de la región",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_6_04",
+              "titulo_principal": "Apreciación melódica, ritmo y armonía de música boliviana, géneros musicales",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_MUS_6_01",
+              "titulo_principal": "Canciones y coro con mensajes de reflexión social",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_6_02",
+              "titulo_principal": "Uso de la escritura de los signos musicales: (pentagrama, clave, notas, figuras y silencios en canciones y ritmos)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_6_03",
+              "titulo_principal": "Creaciones rítmicas en base a frases y refranes",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_6_04",
+              "titulo_principal": "Melodías del repertorio (música instrumental originaria o folclórica de acuerdo al contexto)",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_MUS_6_01",
+              "titulo_principal": "Compás simples y compás compuestos 6/8, 2/8 en los movimientos, canciones y danzas del Estado Plurinacional",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_6_02",
+              "titulo_principal": "Lectura y escritura musical de ritmos y melodías autóctonas y populares (interpretación instrumental y coro)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_6_03",
+              "titulo_principal": "Historia de Danzas folclóricas tradicionales y autóctonas resaltantes dentro de la región",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_6_04",
+              "titulo_principal": "Ritmos y melodías del folklore (grupo instrumental y coro)",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "CNA_07",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_CNA_6_01",
+              "titulo_principal": "La pubertad: cambios fisiológicos, anatómicos y conductuales, educación integral en sexualidad",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_6_02",
+              "titulo_principal": "Sistema glandular y producción de hormonas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_6_03",
+              "titulo_principal": "Niveles de organización biológica: célula, tejido, órgano y sistema",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_6_04",
+              "titulo_principal": "Los microorganismos y los virus y sus efectos en la salud integral",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_6_05",
+              "titulo_principal": "Nutrición para la salud integral según contextos culturales: Proteínas, carbohidratos, grasas, vitaminas y minerales",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_6_06",
+              "titulo_principal": "Las drogas: efectos nocivos en las personas",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_CNA_6_01",
+              "titulo_principal": "Pisos ecológicos: la cuenca como productora, reservorio y fuente de agua para los sistemas de vida",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_6_02",
+              "titulo_principal": "Biodiversidad en el Abya Yala",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_6_03",
+              "titulo_principal": "Sistemas de agua convencionales y alternativos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_6_04",
+              "titulo_principal": "Gestión integral de los residuos orgánicos e inorgánicos en el cuidado y protección de la Madre Tierra y sus sistemas de vida",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_6_05",
+              "titulo_principal": "Los desastres no son naturales: amenaza, vulnerabilidad, riesgo y desastres (mapa de amenazas y plan de emergencia)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_6_06",
+              "titulo_principal": "Elementos de la materia: tabla periódica",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_6_07",
+              "titulo_principal": "Energía eléctrica (electricidad), energía química y energía nuclear: Noción, características, propiedades, fuentes, uso y cuidado",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_CNA_6_01",
+              "titulo_principal": "Reproducción de plantas: semillas certificadas, agricultura orgánica",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_6_02",
+              "titulo_principal": "Tipos de cobertura vegetal y su importancia en el cuidado del suelo, según contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_6_03",
+              "titulo_principal": "Cadena trófica en la transferencia de sistemas de vida entre seres vivos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_6_04",
+              "titulo_principal": "La atmósfera: composición, capas y fenómenos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_6_05",
+              "titulo_principal": "Sistema solar: constitución y características",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "MAT_08",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_MAT_6_01",
+              "titulo_principal": "Números enteros",
+              "puntos_clave": [
+                "El 0 y los números negativos",
+                "Representación en la recta numérica",
+                "Uso de los números enteros en la vida cotidiana",
+                "Valor absoluto del número entero",
+                "Adición y sustracción de números enteros (Z)"
+              ]
+            },
+            {
+              "id": "T1_MAT_6_02",
+              "titulo_principal": "Adición de Z con 1,2 y 3 dígitos",
+              "puntos_clave": [
+                "Propiedades de los números Z",
+                "Sustracción de (Z) con 1,2 y 3 dígitos",
+                "Signos de agrupación",
+                "Operaciones combinadas de adición y sustracción de (Z)",
+                "Problemas simples y complejos de adición y sustracción"
+              ]
+            },
+            {
+              "id": "T1_MAT_6_03",
+              "titulo_principal": "Ángulos",
+              "puntos_clave": [
+                "Ángulos y sus elementos",
+                "Medición de ángulos",
+                "Clasificación de ángulos",
+                "Estimación de medidas de ángulos"
+              ]
+            },
+            {
+              "id": "T1_MAT_6_04",
+              "titulo_principal": "Construcción de ángulos",
+              "puntos_clave": [
+                "Paralelismo en figuras geométricas",
+                "Paralelos en cuerpos geométricos",
+                "Perpendicularidad en figuras geométricas y en cuerpos geométricos con (Z)"
+              ]
+            },
+            {
+              "id": "T1_MAT_6_05",
+              "titulo_principal": "Polígonos",
+              "puntos_clave": [
+                "Polígonos regulares",
+                "Polígonos irregulares"
+              ]
+            },
+            {
+              "id": "T1_MAT_6_06",
+              "titulo_principal": "Triángulos",
+              "puntos_clave": [
+                "Ángulos en un triángulo",
+                "Ángulos en un cuadrilátero"
+              ]
+            },
+            {
+              "id": "T1_MAT_6_07",
+              "titulo_principal": "Área",
+              "puntos_clave": [
+                "Unidades de superficie",
+                "Área de un cubo",
+                "Área de un Paralelepípedo"
+              ]
+            },
+            {
+              "id": "T1_MAT_6_08",
+              "titulo_principal": "Volumen",
+              "puntos_clave": [
+                "Unidad de medida",
+                "Volumen de cubos",
+                "Paralelepípedo"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_MAT_6_01",
+              "titulo_principal": "Multiplicación y división de números enteros",
+              "puntos_clave": [
+                "Multiplicación de Z con 1,2 y 3 dígitos",
+                "Propiedades de la multiplicación de Z",
+                "División de Z con 1,2 y 3 dígitos",
+                "Propiedades de la división de Z",
+                "Polinomios aritméticos de Z",
+                "Resolución de problemas simples y complejos con Z"
+              ]
+            },
+            {
+              "id": "T2_MAT_6_02",
+              "titulo_principal": "Operaciones combinadas",
+              "puntos_clave": [
+                "Operaciones de adición, sustracción, multiplicación y división de números enteros"
+              ]
+            },
+            {
+              "id": "T2_MAT_6_03",
+              "titulo_principal": "Razones y proporciones",
+              "puntos_clave": [
+                "Razón de cantidades homogéneas",
+                "Proporciones de cantidades",
+                "Serie de razones iguales",
+                "Propiedades de las proporciones",
+                "Magnitud directamente proporcional",
+                "Magnitud inversamente proporcional",
+                "Regla de tres simple e inversa"
+              ]
+            },
+            {
+              "id": "T2_MAT_6_04",
+              "titulo_principal": "Tanto por ciento",
+              "puntos_clave": [
+                "Porcentajes",
+                "Tanto por ciento más",
+                "Tanto por ciento menos",
+                "Interés simple",
+                "Resolución de problemas simples"
+              ]
+            },
+            {
+              "id": "T2_MAT_6_05",
+              "titulo_principal": "Sistema Internacional de Medidas, no convencionales del contexto y NyPIOS: Proporcionalidad y medida",
+              "puntos_clave": [
+                "Proporcionalidad y medida en unidades de masa",
+                "Proporcionalidad y medida en unidades de capacidad",
+                "Medidas de tiempo no convencionales de uso en la comunidad",
+                "Medidas de tiempo propias de los NyPIOs"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_MAT_6_01",
+              "titulo_principal": "Potenciación",
+              "puntos_clave": [
+                "¿Qué son las potencias?",
+                "Términos de una potencia",
+                "Propiedades de las potencias:",
+                "Potencias con exponente 0",
+                "Potencias con exponente 1",
+                "Producto de potencias con la misma base",
+                "Producto de división con la misma base",
+                "Potencias de exponente entero negativo",
+                "Potencias de otra potencia",
+                "Multiplicación de potencias con el mismo exponente",
+                "División de potencias con el mismo exponente",
+                "Potencia de base fraccionaria",
+                "Potencia de base fraccionaria y exponente negativo",
+                "Potencias de base 10 y 100",
+                "Resolución de problemas"
+              ]
+            },
+            {
+              "id": "T3_MAT_6_02",
+              "titulo_principal": "Radicación",
+              "puntos_clave": [
+                "¿Qué es la radicación?",
+                "Términos de la radicación",
+                "Propiedades de la radicación:",
+                "La radicación de un número positivo si su índice es par",
+                "La radicación de un número negativo en el radicando y su índice impar",
+                "Raíz con índice impar",
+                "Raíz elevada a un exponente",
+                "Anulación de una raíz",
+                "Raíz de un cociente o fracción",
+                "Raíz de un producto",
+                "Raíz de raíz"
+              ]
+            },
+            {
+              "id": "T3_MAT_6_03",
+              "titulo_principal": "Estimación de radicales",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MAT_6_04",
+              "titulo_principal": "Tablas de frecuencia con datos agrupados",
+              "puntos_clave": [
+                "Histograma",
+                "Diagrama de puntos, tallo y hojas",
+                "Gráficos de barras dobles y circulares"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "TEC_09",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_TEC_6_01",
+              "titulo_principal": "Procesamiento y uso de plantas medicinales del contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_6_02",
+              "titulo_principal": "Transformación de diversos alimentos según la región",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_6_03",
+              "titulo_principal": "Fundamentos de robótica: Historia, leyes, componentes y sus funciones",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_6_04",
+              "titulo_principal": "Seguridad industrial en el manejo de herramientas (Kit de soldadura con estaño)",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_TEC_6_01",
+              "titulo_principal": "Electrónica básica orientada a la robótica (Componentes electrónicos en físico y/o simuladores)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_6_02",
+              "titulo_principal": "Robot seguidor de luz con material del entorno y casos de prueba",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_6_03",
+              "titulo_principal": "Introducción al uso y las bondades del Arduino (físico y/o simulador), instalación del IDE Arduino",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_6_04",
+              "titulo_principal": "Componentes del Arduino y su función. (Programación, identificación de pines de entrada, salida y alimentación del Arduino)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_6_05",
+              "titulo_principal": "Programación de un semáforo con LED",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_TEC_6_01",
+              "titulo_principal": "Hojas electrónicas Excel en la computadora personal y dispositivos móviles",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_6_02",
+              "titulo_principal": "Programación con Robomint",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_6_03",
+              "titulo_principal": "Aplicaciones educativas: Kahoot, Khan Academy y/o otros",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_TEC_6_04",
+              "titulo_principal": "Edición de imágenes y videos educativos (Window Movie Maker, KineMaster, Canva, y otros)",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id_area": "COM",
+    "area_curricular": "Comunicación y Lenguaje, Lengua Originaria y Extranjera",
+    "carga_horaria": {
+      "primero": 44,
+      "segundo": 44,
+      "tercero": 36,
+      "cuarto": 36,
+      "quinto": 36,
+      "sexto": 36
+    }
+  },
+  {
+    "id_area": "CSO",
+    "area_curricular": "Ciencias Sociales",
+    "carga_horaria": {
+      "primero": 8,
+      "segundo": 8,
+      "tercero": 8,
+      "cuarto": 8,
+      "quinto": 8,
+      "sexto": 8
+    }
+  },
+  {
+    "id_area": "EFD",
+    "area_curricular": "Educación Física y Deportes",
+    "carga_horaria": {
+      "primero": 8,
+      "segundo": 8,
+      "tercero": 8,
+      "cuarto": 8,
+      "quinto": 8,
+      "sexto": 8
+    }
+  },
+  {
+    "id_area": "EMU",
+    "area_curricular": "Educación Musical",
+    "carga_horaria": {
+      "primero": 8,
+      "segundo": 8,
+      "tercero": 8,
+      "cuarto": 8,
+      "quinto": 8,
+      "sexto": 8
+    }
+  },
+  {
+    "id_area": "APV",
+    "area_curricular": "Artes Plásticas y Visuales",
+    "carga_horaria": {
+      "primero": 8,
+      "segundo": 8,
+      "tercero": 8,
+      "cuarto": 8,
+      "quinto": 8,
+      "sexto": 8
+    }
+  },
+  {
+    "id_area": "MAT",
+    "area_curricular": "Matemática",
+    "carga_horaria": {
+      "primero": 20,
+      "segundo": 20,
+      "tercero": 28,
+      "cuarto": 28,
+      "quinto": 28,
+      "sexto": 28
+    }
+  },
+  {
+    "id_area": "TEC",
+    "area_curricular": "Técnica y Tecnología",
+    "carga_horaria": {
+      "primero": 8,
+      "segundo": 8,
+      "tercero": 8,
+      "cuarto": 8,
+      "quinto": 8,
+      "sexto": 8
+    }
+  },
+  {
+    "id_area": "CNT",
+    "area_curricular": "Ciencias Naturales",
+    "carga_horaria": {
+      "primero": 8,
+      "segundo": 8,
+      "tercero": 8,
+      "cuarto": 8,
+      "quinto": 8,
+      "sexto": 8
+    }
+  },
+  {
+    "id_area": "VER",
+    "area_curricular": "Valores Espirituales y Religiones",
+    "carga_horaria": {
+      "primero": 8,
+      "segundo": 8,
+      "tercero": 8,
+      "cuarto": 8,
+      "quinto": 8,
+      "sexto": 8
+    }
+  }
+]

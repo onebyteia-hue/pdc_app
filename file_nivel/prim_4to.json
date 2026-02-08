@@ -1,0 +1,953 @@
+{
+  "curso_id": "PRIM_4TO_2026",
+  "areas_curriculares": [
+    {
+      "area_id": "VAL_01",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_VAL_4_01",
+              "titulo_principal": "Reciprocidad y complementariedad entre mujer y varón",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_VAL_4_02",
+              "titulo_principal": "Identidad personal y cultural",
+              "puntos_clave": [
+                "somos iguales y diversos en nuestras costumbres"
+              ]
+            },
+            {
+              "id": "T1_VAL_4_03",
+              "titulo_principal": "La conducta y el autocontrol",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_VAL_4_01",
+              "titulo_principal": "El Vivir bien",
+              "puntos_clave": [
+                "interrelación intra e interpersonal"
+              ]
+            },
+            {
+              "id": "T2_VAL_4_02",
+              "titulo_principal": "Equilibrio y armonía de la persona en cuerpo, mente y espíritu, en sus relaciones socioculturales",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_VAL_4_03",
+              "titulo_principal": "Normas y costumbres socioculturales y espirituales de la comunidad",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_VAL_4_01",
+              "titulo_principal": "Igualdad de oportunidades en la convivencia comunitaria y el vivir bien",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_VAL_4_02",
+              "titulo_principal": "Sensibilidad ante el sufrimiento de unos",
+              "puntos_clave": [
+                "cultura de la paz"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "LENG_02",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_LENG_4_01",
+              "titulo_principal": "El cuento fantástico: comprensión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y recursos",
+                "Sustantivo concreto y abstracto",
+                "El punto aparte, seguido y final",
+                "Hiperónimos, hipónimos y definiciones"
+              ]
+            },
+            {
+              "id": "T1_LENG_4_02",
+              "titulo_principal": "Técnicas de estudio: los principales indicios del texto. La noticia: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Estructura y características",
+                "Sustantivo: género y número",
+                "Las mayúsculas",
+                "La oración, el párrafo y el texto"
+              ]
+            },
+            {
+              "id": "T1_LENG_4_03",
+              "titulo_principal": "La leyenda: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y estructura",
+                "Sílabas tónicas y sílabas átonas",
+                "Clases de sustantivos",
+                "Prefijos y sufijos",
+                "La dramatización: expresión oral",
+                "Expresión corporal, gestual y actitudinal",
+                "Composición, creatividad, improvisación y representación"
+              ]
+            },
+            {
+              "id": "T1_LENG_4_04",
+              "titulo_principal": "El correo electrónico",
+              "puntos_clave": [
+                "Estructura, funcionamiento y utilidad"
+              ]
+            },
+            {
+              "id": "T1_LENG_4_05",
+              "titulo_principal": "Lengua Originaria (LO) - Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "Verb To be present tense - Personal pronouns (verbo to be-pronombres personales)",
+                "Verb To be present ten Games (verbo to be juegos)",
+                "Can - Can’t (poder - no poder)"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_LENG_4_01",
+              "titulo_principal": "La receta: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Estructura y características",
+                "Palabras agudas",
+                "El adjetivo y sus grados",
+                "Conectores de tiempo",
+                "Técnicas de estudio: palabras clave"
+              ]
+            },
+            {
+              "id": "T2_LENG_4_02",
+              "titulo_principal": "La fábula: comprensión lectora y producción escrita",
+              "puntos_clave": [
+                "Características, la moraleja",
+                "Palabras graves",
+                "Los pronombres relativos",
+                "Palabras parónimas",
+                "Técnicas de lectura: anotaciones al margen"
+              ]
+            },
+            {
+              "id": "T2_LENG_4_03",
+              "titulo_principal": "La exposición: expresión oral",
+              "puntos_clave": [
+                "Fase de preparación: documentación, organización del texto, planificación, ensayo",
+                "La carta: comprensión lectora y producción escrita",
+                "La carta formal e informal",
+                "Palabras esdrújulas",
+                "Modos del verbo",
+                "Palabras homófonas",
+                "Técnicas de investigación: búsqueda de información en Internet"
+              ]
+            },
+            {
+              "id": "T2_LENG_4_04",
+              "titulo_principal": "Lengua Originaria (LO) - Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "Possessive adjectives-my –your, etc. (Adjetivos posesivos mi- tu, etc.)",
+                "Songs (Canciones)",
+                "Verbs present tense, affirmative (verbos en tiempo presente, afirmativo)"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_LENG_4_01",
+              "titulo_principal": "Reglas de juego: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Características y estructura",
+                "Las comas enumerativas, vocativas y explicativas",
+                "Clases de oraciones",
+                "Palabras homógrafas",
+                "Técnicas de estudio: la cadena"
+              ]
+            },
+            {
+              "id": "T3_LENG_4_02",
+              "titulo_principal": "Portada de revista: compresión lectora y producción escrita",
+              "puntos_clave": [
+                "Elementos y características",
+                "Verbos terminados en: ger y gir",
+                "Sujeto y predicado: núcleos y concordancia",
+                "Lenguaje figurado"
+              ]
+            },
+            {
+              "id": "T3_LENG_4_03",
+              "titulo_principal": "Exposición con apoyo gráfico: expresión oral",
+              "puntos_clave": [
+                "Fase de preparación: planificación y uso de material de apoyo",
+                "Fase de exposición: uso del lenguaje formal"
+              ]
+            },
+            {
+              "id": "T3_LENG_4_04",
+              "titulo_principal": "La comunicación",
+              "puntos_clave": [
+                "Concepto",
+                "Situaciones comunicativas",
+                "Intencionalidad comunicativa",
+                "Técnicas de estudio: ampliación de textos"
+              ]
+            },
+            {
+              "id": "T3_LENG_4_05",
+              "titulo_principal": "Lengua Originaria (LO) - Lengua Extranjera (LE)",
+              "puntos_clave": [
+                "Seasons – weather (estaciones y el tiempo)",
+                "Months – days of the week (meses - días de la semana)",
+                "Games (juegos)"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "SOC_03",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_SOC_4_01",
+              "titulo_principal": "Gobierno Autónomo Departamental",
+              "puntos_clave": [
+                "Gobernación, Asamblea Departamental y su organización"
+              ]
+            },
+            {
+              "id": "T1_SOC_4_02",
+              "titulo_principal": "Centros o espacios turísticos del departamento",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_4_03",
+              "titulo_principal": "Derecho de la niña y el niño a vivir una vida libre de violencia",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_4_04",
+              "titulo_principal": "Derechos reconocidos a favor de la Madre Tierra",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_4_05",
+              "titulo_principal": "Actividades económicas primarias, secundarias y terciarias",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_SOC_4_06",
+              "titulo_principal": "Aprovechamiento sustentable de los recursos naturales y respeto a la Madre Tierra",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_SOC_4_01",
+              "titulo_principal": "Identidad cultural. Danzas y otras manifestaciones identitarias de la región",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_4_02",
+              "titulo_principal": "Organizaciones indígena originario campesinos y sociales departamentales",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_4_03",
+              "titulo_principal": "Luchas sociales e indígena originarios",
+              "puntos_clave": [
+                "“Guerra del Gas”, “Guerra del Agua” y “1ra Marcha Indígena por el territorio y la dignidad”"
+              ]
+            },
+            {
+              "id": "T2_SOC_4_04",
+              "titulo_principal": "Fechas cívicas en el Estado Plurinacional",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_SOC_4_05",
+              "titulo_principal": "Ubicación geográfica de Bolivia (Sud América)",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_SOC_4_01",
+              "titulo_principal": "Naciones y pueblos indígena originarios de tierras bajas y tierras altas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_4_02",
+              "titulo_principal": "Información y prevención de la trata de personas a través de las TICS y seguridad de las niñas y los niños",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_4_03",
+              "titulo_principal": "Causas y consecuencias de la migración en Bolivia",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_4_04",
+              "titulo_principal": "Despatriarcalización en las relaciones de personas y ejercicio del poder",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_SOC_4_05",
+              "titulo_principal": "Intolerancia a todo acto de corrupción",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "ART_04",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_ART_4_01",
+              "titulo_principal": "DIBUJO ARTÍSTICO",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_4_02",
+              "titulo_principal": "Dibujo infantil de personas y paisajes (urbano y rural)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_4_03",
+              "titulo_principal": "Dibujo de expresiones faciales en el estilo infantil",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_4_04",
+              "titulo_principal": "Movimiento de la figura humana en el estilo (dibujo infantil)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_4_05",
+              "titulo_principal": "Uso del sombreado en cuerpos simples (frutas, vasijas, cacharros, etc.)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_ART_4_06",
+              "titulo_principal": "Dibujo creativo sobre temáticas sociales",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_ART_4_01",
+              "titulo_principal": "DIBUJO TÉCNICO",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_4_02",
+              "titulo_principal": "Construcción y pintado de diseños creativos en función a las características propias de los pueblos indígena originarios campesinos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_4_03",
+              "titulo_principal": "Creatividad y lógica con tangram",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_4_04",
+              "titulo_principal": "Caligrafía IV",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_4_05",
+              "titulo_principal": "PINTURA",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_4_06",
+              "titulo_principal": "Saturación del color",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_ART_4_07",
+              "titulo_principal": "Pintura de témpera sobre venesta, lienzo, etc.",
+              "puntos_clave": ["Temática bodegón (frutas y/o verduras del contexto)"]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_ART_4_01",
+              "titulo_principal": "ESCULTURA",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_4_02",
+              "titulo_principal": "Modelado de (animales, personas y vegetación con materiales del contexto)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_4_03",
+              "titulo_principal": "MANUALIDADES",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_4_04",
+              "titulo_principal": "Diseños de animales con relieve (usando semillas, canela, trompos, corteza de árbol, etc.)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_ART_4_05",
+              "titulo_principal": "Composiciones artísticas con técnicas mixtas",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "EFD_05",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_EFD_4_01",
+              "titulo_principal": "Medidas antropométricas (Peso, talla)",
+              "puntos_clave": [
+                "Nutrición, hidratación y hábitos de higiene en las actividades deportivas y ejercicios de respiración"
+              ]
+            },
+            {
+              "id": "T1_EFD_4_02",
+              "titulo_principal": "Ejercicios físicos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_4_03",
+              "titulo_principal": "Capacidades condicionales, coordinativas y flexibilidad, Juegos de control y conciencia corporal",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_4_04",
+              "titulo_principal": "Gimnasia educativa",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_EFD_4_05",
+              "titulo_principal": "Posiciones Fundamentales, Derivadas y movimientos, voces de mando",
+              "puntos_clave": [
+                "etapas de las voces de mando, voz de mando directa"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_EFD_4_01",
+              "titulo_principal": "Mini atletismo",
+              "puntos_clave": [
+                "relevos, resistencia, salto triple, salto largo y lanzamiento del vortex"
+              ]
+            },
+            {
+              "id": "T2_EFD_4_02",
+              "titulo_principal": "Mini Baloncesto",
+              "puntos_clave": [
+                "Posiciones y desplazamientos, pase, recepción y dribling con reglas específicas del deporte"
+              ]
+            },
+            {
+              "id": "T2_EFD_4_03",
+              "titulo_principal": "Fundamentos técnicos básicos de Voleibol, Fases del mini vóley, voleo alto y bajo, saques",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_EFD_4_01",
+              "titulo_principal": "Fútbol de salón",
+              "puntos_clave": [
+                "finta, regate y técnica del portero"
+              ]
+            },
+            {
+              "id": "T3_EFD_4_02",
+              "titulo_principal": "Deportes de conjunto Balonmano (Handball), juego recreativo de equipo",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_EFD_4_03",
+              "titulo_principal": "Deportes de mesa",
+              "puntos_clave": [
+                "Ajedrez, jugadas extraordinarias, entre niñas y niños"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "MUS_06",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_MUS_4_01",
+              "titulo_principal": "Ejercicios de técnica vocal (relajación, respiración y articulación)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_4_02",
+              "titulo_principal": "Historia y entonación de Himnos, marchas y canciones en LC, LO. (Según calendario cívico desarrollando en 1er, 2do y 3er trimestre)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_4_03",
+              "titulo_principal": "Cánones a dos voces de canciones tradicionales culturales de acuerdo a la región",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_MUS_4_04",
+              "titulo_principal": "Audición e identificación de cualidades de medios sonoros (la voz e instrumentos musicales del contexto)",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_MUS_4_01",
+              "titulo_principal": "Canciones y coro infantil como o manifestación en contra de todo tipo de violencia. (LO, LE)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_4_02",
+              "titulo_principal": "Escritura convencional de la música",
+              "puntos_clave": [
+                "Notas, figuras y valores musicales"
+              ]
+            },
+            {
+              "id": "T2_MUS_4_03",
+              "titulo_principal": "La rítmica en las notas musicales mediante juegos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_4_04",
+              "titulo_principal": "Instrumentos autóctonos de la región. (interpretación)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_MUS_4_05",
+              "titulo_principal": "Instrumentos musicales autóctonos y su clasificación",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_MUS_4_01",
+              "titulo_principal": "Uso de la escritura musical (pentagrama, clave, notas, figuras y silencios)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_4_02",
+              "titulo_principal": "Lectura musical para interpretación de instrumento de viento (instrumento accesible a elección)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_4_03",
+              "titulo_principal": "Bailes y músicas tradicionales como manifestación de los ciclos de producción agrícola y/o festiva según las costumbres de la región",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_4_04",
+              "titulo_principal": "Características socio-culturales de la música y danzas del departamento",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_MUS_4_05",
+              "titulo_principal": "Ensamble de coro y grupos instrumentales",
+              "puntos_clave": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "CNA_07",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_CNA_4_01",
+              "titulo_principal": "Sistema locomotor y medidas de cuidado en la actividad física",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_4_02",
+              "titulo_principal": "Sistema nervioso",
+              "puntos_clave": [
+                "estructura, función, efectos del alcohol"
+              ]
+            },
+            {
+              "id": "T1_CNA_4_03",
+              "titulo_principal": "La nutrición",
+              "puntos_clave": [
+                "alimentos naturales, transgénicos y sus consecuencias en la salud"
+              ]
+            },
+            {
+              "id": "T1_CNA_4_04",
+              "titulo_principal": "Normas vinculadas al cuidado de la salud y normas sociales de prevención de enfermedades contagiosas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_CNA_4_05",
+              "titulo_principal": "Cuidado y protección del cuerpo humano frente a todo tipo de violencia",
+              "puntos_clave": [
+                "pedir y brindar ayuda"
+              ]
+            },
+            {
+              "id": "T1_CNA_4_06",
+              "titulo_principal": "La tierra",
+              "puntos_clave": [
+                "geósfera, características, fenómenos internos y externos"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_CNA_4_01",
+              "titulo_principal": "Estabilidad de los componentes de la Madre Tierra y acciones para su mantenimiento en el departamento",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_4_02",
+              "titulo_principal": "Calentamiento global y resiliencia al cambio climático",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_4_03",
+              "titulo_principal": "El agua segura, cualidades y sus beneficios en la vida",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_CNA_4_04",
+              "titulo_principal": "Importancia del saneamiento básico",
+              "puntos_clave": [
+                "cuidado de la salud, uso de contenedores por color, control de inundaciones"
+              ]
+            },
+            {
+              "id": "T2_CNA_4_05",
+              "titulo_principal": "Fenómenos naturales, antrópicos y sociales en el municipio, departamento y Bolivia (Mapa de amenazas)",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_CNA_4_01",
+              "titulo_principal": "Clasificación de plantas y animales de acuerdo a criterios establecidos",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_4_02",
+              "titulo_principal": "Bosques, origen, clasificación, importancia y características según contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_4_03",
+              "titulo_principal": "Adaptación de animales y plantas a los ecosistemas",
+              "puntos_clave": []
+            },
+            {
+              "id": "T3_CNA_4_04",
+              "titulo_principal": "Cambios de estado de la materia",
+              "puntos_clave": [
+                "fusión, evaporación, solidificación y condensación"
+              ]
+            },
+            {
+              "id": "T3_CNA_4_05",
+              "titulo_principal": "Energía hidráulica (agua), energía sonora (sonido) y energía lumínica (luz)",
+              "puntos_clave": [
+                "Noción, características, propiedades, fuentes, uso y cuidado"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "MAT_08",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_MAT_4_01",
+              "titulo_principal": "Números naturales de 4 y 5 dígitos",
+              "puntos_clave": [
+                "Antecesor y sucesor de números naturales de 4 y 5 dígitos en la recta numérica",
+                "Valor posicional: Centena de mil, unidad de millón"
+              ]
+            },
+            {
+              "id": "T1_MAT_4_02",
+              "titulo_principal": "Adición de números naturales con 4 y 5 dígitos",
+              "puntos_clave": [
+                "Propiedad conmutativa, asociativa de la adición y elemento neutro",
+                "Resolución de problemas simples y complejos"
+              ]
+            },
+            {
+              "id": "T1_MAT_4_03",
+              "titulo_principal": "Sustracción de números naturales con 4 y 5 dígitos",
+              "puntos_clave": [
+                "Operaciones combinadas de adición y sustracción con 4 y 5 dígitos",
+                "Resolución de problemas simples y complejos"
+              ]
+            },
+            {
+              "id": "T1_MAT_4_04",
+              "titulo_principal": "Figuras planas y cuerpos geométricos",
+              "puntos_clave": [
+                "Polígonos: definición y clasificación",
+                "Polígonos: elementos y su clasificación",
+                "Triángulos: clasificación y perímetro",
+                "Cuadrilátero: clasificación y perímetro",
+                "Paralelogramos: clasificación y perímetro",
+                "Prismas y pirámides",
+                "Paralelepípedo",
+                "Cuerpos redondos"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_MAT_4_01",
+              "titulo_principal": "Multiplicación de números naturales con 3 y 4 dígitos en el multiplicador",
+              "puntos_clave": [
+                "Multiplicación por descomposición",
+                "Prueba de exclusión del 9",
+                "Propiedad conmutativa, asociativa y distributiva",
+                "Resolución de problemas simples y complejos"
+              ]
+            },
+            {
+              "id": "T2_MAT_4_02",
+              "titulo_principal": "División de números naturales con 3 dígitos en el divisor",
+              "puntos_clave": [
+                "División exacta e inexacta",
+                "División con el 0 en el cociente: Divisor de 2 y 3 dígitos",
+                "Resolución de problemas simples y complejos",
+                "Números romanos hasta el mil (M)",
+                "Escritura de los números romanos y su uso"
+              ]
+            },
+            {
+              "id": "T2_MAT_4_03",
+              "titulo_principal": "Sistema Internacional de Medidas, no convencionales del contexto y NyPIOs: Unidades de medidas, equivalencias y conversiones",
+              "puntos_clave": [
+                "Equivalencia y conversiones en las unidades de medidas de longitud",
+                "Medidas de masa y peso no convencionales de uso en la comunidad y sus equivalencias",
+                "Medidas de masa y peso propias de los NyPIOs y sus equivalencias",
+                "Equivalencia y conversiones en las unidades de medidas de masa y peso",
+                "Equivalencia y conversiones en las unidades de medidas de capacidad",
+                "Equivalencia y conversiones en las unidades de medidas de tiempo",
+                "Equivalencia y conversiones en las unidades de medidas de masa y peso",
+                "Conversión de una unidad a otra: Medidas monetarias"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_MAT_4_01",
+              "titulo_principal": "Fracciones",
+              "puntos_clave": [
+                "Clasificación de fracciones: propias, impropias, mixtas, aparentes",
+                "Fracciones equivalentes",
+                "Amplificación y reducción de fracciones",
+                "Adición y sustracción de fracciones homogéneas",
+                "Multiplicación y división de fracciones homogéneas",
+                "Problemas simples y complejos de fracciones homogéneas"
+              ]
+            },
+            {
+              "id": "T3_MAT_4_02",
+              "titulo_principal": "Los Números decimales",
+              "puntos_clave": [
+                "Lectura y escritura de decimales, comparación y orden",
+                "Números decimales en la recta numérica",
+                "Fracciones decimales (con denominador 10)",
+                "Adición y sustracción de números decimales",
+                "Problemas simples y complejos de los números decimales"
+              ]
+            },
+            {
+              "id": "T3_MAT_4_03",
+              "titulo_principal": "Pictogramas y gráfico de líneas de barras simples",
+              "puntos_clave": [
+                "Lectura e interpretación de gráfico de barras simples: Columnas y barras, circular o tortas",
+                "Líneas y puntos"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area_id": "TEC_09",
+      "planificacion_anual": [
+        {
+          "trimestre": 1,
+          "unidades": [
+            {
+              "id": "T1_TEC_4_01",
+              "titulo_principal": "Tecnologías y/o mecanismos para la Cosecha de agua según contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_4_02",
+              "titulo_principal": "Sistemas de riego según contexto",
+              "puntos_clave": [
+                "inundación, aspersión, goteo y otros"
+              ]
+            },
+            {
+              "id": "T1_TEC_4_03",
+              "titulo_principal": "Proceso de elaboración de alimentos nutritivos según contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_4_04",
+              "titulo_principal": "Procesos de deshidratación de alimentos según contexto",
+              "puntos_clave": []
+            },
+            {
+              "id": "T1_TEC_4_05",
+              "titulo_principal": "Fundamentos de la robótica (tipos, funciones y características)",
+              "puntos_clave": []
+            }
+          ]
+        },
+        {
+          "trimestre": 2,
+          "unidades": [
+            {
+              "id": "T2_TEC_4_01",
+              "titulo_principal": "Componentes electrónicos para la construcción de mecanismos (pequeños motores o transformadores)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_4_02",
+              "titulo_principal": "Diseño físico y/o digital (Paint) del plano de construcción de un robot móvil",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_4_03",
+              "titulo_principal": "Juguete robot móvil y el empleo de fuentes de energía (pilas y/o baterías)",
+              "puntos_clave": []
+            },
+            {
+              "id": "T2_TEC_4_04",
+              "titulo_principal": "Hoja de cálculo Excel",
+              "puntos_clave": [
+                "funciones básicas (combinación y operaciones básicas con celdas, tablas y gráfico de barras y otros)"
+              ]
+            }
+          ]
+        },
+        {
+          "trimestre": 3,
+          "unidades": [
+            {
+              "id": "T3_TEC_4_01",
+              "titulo_principal": "Redes sociales",
+              "puntos_clave": [
+                "WhatsApp, Telegram, Facebook, Instagram y TikTok. (empleo adecuado y responsable de las aplicaciones)"
+              ]
+            },
+            {
+              "id": "T3_TEC_4_02",
+              "titulo_principal": "Plataformas de comunicación",
+              "puntos_clave": [
+                "Zoom, Google Meet y otros (aplicación)"
+              ]
+            },
+            {
+              "id": "T3_TEC_4_03",
+              "titulo_principal": "Plataforma de gestión de aula",
+              "puntos_clave": [
+                "Classroom, Moodle y otros (función y uso adecuado)"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
