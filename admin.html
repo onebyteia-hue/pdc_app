@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDC Bolivia 2026 - Administración</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+  <div class="admin-card">
+
+        <div class="text-header">
+          <h1 class="txt-ministerio">Panel de Administración</h1>
+          <p class="txt-elaboracion" style="margin-top: 6px">
+            Gestión de planes (Gratis / Trimestral / Anual) — año 2026
+          </p>
+        </div>
+
+        <div class="admin-topbar">
+
+          <div
+            id="admin-status"
+            class="form-error"
+            style="
+              display: block;
+              background: #f6f7f9;
+              border: 1px solid #e7eaee;
+              color: #333;
+            "
+          >
+            Verificando permisos…
+          </div>
+
+          <div
+            style="
+              display: flex;
+              gap: 10px;
+              align-items: center;
+              justify-content: space-between;
+              margin: 6px 0 12px;
+            "
+          >
+            <div
+              style="display: flex; gap: 10px; align-items: center; width: 100%"
+            >
+              <input
+                id="admin-search"
+                type="search"
+                placeholder="Buscar por nombre o correo…"
+                style="
+                  flex: 1;
+                  padding: 10px 12px;
+                  border-radius: 10px;
+                  border: 1px solid rgba(0, 0, 0, 0.12);
+                  font-family: Inter, system-ui, sans-serif;
+                "
+              />
+              <button id="admin-refresh" class="btn-secundario" type="button">
+                Actualizar
+              </button>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center">
+              <span
+                id="admin-count"
+                style="font-family: Inter, system-ui, sans-serif; color: #555"
+              ></span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px">
+            <a
+              href="dashboard.html"
+              class="btn-secundario"
+              style="text-decoration: none"
+              >Volver al Dashboard</a
+            >
+            <button id="btn-admin-logout" class="btn-cancelar" type="button">
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+
+          <table
+            style="
+              width: 100%;
+              border-collapse: collapse;
+              font-family: Inter, system-ui, sans-serif;
+            "
+          >
+            <thead>
+              <tr style="background: #ffffff">
+                <th style="text-align: left; padding: 10px; font-weight: 600">
+                  Usuario
+                </th>
+                <th style="text-align: left; padding: 10px; font-weight: 600">
+                  Correo
+                </th>
+                <th style="text-align: center; padding: 10px; font-weight: 600">
+                  Estado
+                </th>
+                <th style="text-align: center; padding: 10px; font-weight: 600">
+                  Inicio
+                </th>
+                <th style="text-align: center; padding: 10px; font-weight: 600">
+                  Vencimiento
+                </th>
+                <th style="text-align: center; padding: 10px; font-weight: 600">
+                  Acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody">
+              <tr>
+                <td
+                  colspan="6"
+                  style="padding: 12px; text-align: center; color: #666"
+                >
+                  Cargando…
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div
+          id="admin-error"
+          class="form-error"
+          role="alert"
+          aria-live="polite"
+          style="margin-top: 14px"
+        ></div>
+      </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>

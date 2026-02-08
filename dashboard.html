@@ -1,0 +1,1629 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PDC 2026 - Panel de Control</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dash-body">
+    <div class="dash-wrapper">
+      <aside class="dash-sidebar">
+        <div class="dash-header">
+          <h2 class="txt-ministerio">Planificación PDC</h2>
+          <div class="tab-nav">
+            <button class="tab-btn active" id="btn-tab-1" type="button">
+              1. Datos
+            </button>
+            <button class="tab-btn" id="btn-tab-2" type="button">
+              2. Contenidos
+            </button>
+          </div>
+
+          <span
+            class="paso-titulo"
+            style="margin-bottom: 10px; padding-bottom: 5px 20px"
+            >Maestro(a):</span
+          >
+          <spa class="user-name" id="maestro-display">
+            Cargando Usuario...
+          </spa>
+        </div>
+        <form class="dash-form" id="pdc-form">
+          <div class="tab-content active" id="tab-datos">
+            <label class="paso-titulo" style="padding-bottom: 5px 20px"
+              >INGRESE SUS DATOS LABORALES</label
+            >
+            <div class="form-row">
+              <div class="input-group">
+                <label>Nº de PDC</label
+                ><input
+                  id="num-pdc"
+                  placeholder="Número de PDC"
+                  type="number"
+                />
+              </div>
+              <div class="input-group">
+                <label>Distrito</label
+                ><input id="distrito" placeholder="Ej: Cercado 2" type="text" />
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Nivel</label>
+              <select id="nivel">
+                <option disabled="" selected="" value="">
+                  Elija el nivel de Educación
+                </option>
+                <option value="INI">
+                  INICIAL EN FAMILIA COMUNITARIA ESCOLARIZADA
+                </option>
+                <option value="PRI">PRIMARIA COMUNITARIA VOCACIONAL</option>
+                <option value="SEC">SECUNDARIA COMUNITARIA PRODUCTIVA</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Unidad Educativa</label>
+              <input id="ue" placeholder="San Agustin" type="text" />
+            </div>
+            <div class="form-row">
+              <div class="input-group">
+                <label>Año de Escolaridad</label>
+                <select id="escolaridad">
+                  <option disabled="" selected="" value="">
+                    Elija el año de escolaridad
+                  </option>
+                  <optgroup label="Primaria">
+                    <option value="prim_1ro">Primero</option>
+                    <option value="prim_2do">Segundo</option>
+                    <option value="prim_3ro">Tercero</option>
+                    <option value="prim_4to">Cuarto</option>
+                    <option value="prim_5to">Quinto</option>
+                    <option value="prim_6to">Sexto</option>
+                  </optgroup>
+                  <optgroup label="Secundaria">
+                    <option value="sec_1ro">Primero Sec.</option>
+                    <option value="sec_2do">Segundo Sec.</option>
+                    <option value="sec_3ro">Tercero Sec.</option>
+                    <option value="sec_4to">Cuarto Sec.</option>
+                    <option value="sec_5to">Quinto Sec.</option>
+                    <option value="sec_6to">Sexto Sec.</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="input-group">
+                <label>Trimestre</label>
+                <select id="trimestre">
+                  <option disabled="" selected="" value="">
+                    Elija el Trimestre
+                  </option>
+                  <option value="Primer Trimestre">Primer Trimestre</option>
+                  <option value="Segundo Trimestre">Segundo Trimestre</option>
+                  <option value="Tercer Trimestre">Tercer Trimestre</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Área de Saberes y Conocimientos</label>
+              <select id="area">
+                <option disabled="" selected="" value="">Elija el Área</option>
+                <option value="LENG_02">Comunicación y Lenguaje</option>
+                <option value="SOC_03">Ciencias Sociales</option>
+                <option value="EFD_05">Educación Física y Deportes</option>
+                <option value="MUS_06">Educación Musical</option>
+                <option value="ART_04">Artes Plásticas y Visuales</option>
+                <option value="MAT_08">Matemática</option>
+                <option value="TEC_09">Técnica Tecnología</option>
+                <option value="CNA_07">Ciencias Naturales</option>
+                <option value="VAL_01">
+                  Valores Espirituales y Religiones
+                </option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Director(a)</label
+              ><input
+                id="director"
+                placeholder="Juanito el Huerfanito"
+                type="text"
+              />
+            </div>
+            <div class="form-row">
+              <div class="input-group">
+                <label>Duración</label>
+                <select id="duracion-semanas">
+                  <option value="21">3 Semanas</option>
+                  <option selected="" value="28">4 Semanas</option>
+                  <option value="35">5 Semanas</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label>Fecha Inicio</label
+                ><input id="fecha-inicio" type="date" />
+              </div>
+            </div>
+
+            <div class="user-actions">
+              <button class="btn-admin" id="btn-logout" type="button">
+                Cerrar Sesión
+              </button>
+              <button id="admin-btn" class="btn-admin1" type="button">
+                <span>⚙️</span> Admin
+              </button>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-contenido">
+            <label class="paso-titulo" style="padding-bottom: 5px 20px"
+              >1ER PASO "SELECCIONE EL PERFIL DE SALIDA"</label
+            >
+            <!-- PERFIL DE SALIDA (solo 1) -->
+            <div class="input-group">
+              <label>Perfil de salida (elige solo uno)</label>
+              <div class="temas-container" id="perfil-salida-container"></div>
+            </div>
+
+            <label class="paso-titulo" style="padding-bottom: 5px 20px"
+              >2DO PASO "SELECCIONE LOS CONTENIDOS"</label
+            >
+            <div class="input-group">
+              <label>Seleccionar Temas del Trimestre</label>
+              <div class="temas-container" id="lista-temas-json"></div>
+            </div>
+            <div class="dash-actions-final">
+              <!-- 1) IDEA + Elaborar (objetivo) -->
+              <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                >3RO PASO "ELABORAR EL OBJETIVO DE APRENDIZAJE "</label
+              >
+              <div class="input-group">
+                <label>Idea</label>
+                <input
+                  id="idea-objetivo"
+                  placeholder="Tienes alguna idea ?"
+                  type="text"
+                />
+              </div>
+              <div class="row-buttons">
+                <button class="btn-ai" id="btn-elaborar">
+                  <span>✨</span> Generar el Objetivo de Aprendizaje
+                </button>
+              </div>
+              <!-- 2) Checkboxes dinámicos por contenido seleccionado -->
+              <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                >4TO PASO "SELECCIONE PARA LOS M.P.F."</label
+              >
+              <div class="input-group">
+                <label>(Momentos / Recursos)</label>
+                <div
+                  class="temas-container"
+                  id="checks-contenidos-seleccionados"
+                  style="max-height: 170px; overflow: auto"
+                ></div>
+              </div>
+              <!-- 3) IDEA + Generar Momentos -->
+
+              <div class="input-group">
+                <label>Idea (Momentos del proceso formativo)</label>
+                <input
+                  id="idea-momentos"
+                  placeholder="Tienes alguna idea ?"
+                  type="text"
+                />
+              </div>
+              <div class="row-buttons">
+                <button class="btn-ai" id="btn-momentos">
+                  <span>🧩</span> Generar Momentos del Proceso Formativo
+                </button>
+              </div>
+              <!-- 4) IDEA + Generar Recursos y Criterios -->
+              <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                >5TO PASO "ELABORE LOS CRITERIOS DE EVALUACIÓN"</label
+              >
+              <div class="input-group">
+                <label>Idea (Criterios de Evaluación)</label>
+                <input
+                  id="idea-criterios"
+                  placeholder="Tienes alguna idea ?"
+                  type="text"
+                />
+              </div>
+              <div class="input-group">
+                <label>Dimensiones a generar (Criterios)</label>
+                <div
+                  class="temas-container"
+                  style="max-height: 200px; overflow: auto"
+                >
+                  <div class="tema-item">
+                    <label>
+                      <input checked="" id="crit-ser" type="checkbox" />
+                      <div class="tema-item-texto">
+                        <strong>SER</strong>
+                        <span class="tema-detalle">Actitudes y valores</span>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="tema-item">
+                    <label>
+                      <input checked="" id="crit-saber" type="checkbox" />
+                      <div class="tema-item-texto">
+                        <strong>SABER</strong>
+                        <span class="tema-detalle">Conocimientos</span>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="tema-item">
+                    <label>
+                      <input checked="" id="crit-hacer" type="checkbox" />
+                      <div class="tema-item-texto">
+                        <strong>HACER</strong>
+                        <span class="tema-detalle"
+                          >Procedimientos y desempeño</span
+                        >
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row-buttons">
+                <button class="btn-ai" id="btn-crit">
+                  <span>✅</span> Generar Criterios de Evaluación
+                </button>
+              </div>
+              <!-- 4.5) Elaborar PDC completo -->
+              <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                >"ELABORAR PDC COMPLETO"</label
+              >
+              <div class="row-buttons">
+                <button class="btn-com" id="btn-pdc-completo">
+                  <span>🚀</span> Elaborar el PDC Completo
+                </button>
+              </div>
+
+              <!-- 4.6) Adaptaciones curriculares -->
+              
+
+              <label class="paso-titulo" style="padding-bottom: 5px 20px">
+  "ADAPTACIONES CURRICULARES"
+</label>
+
+<div class="input-group">
+  <label style="display:flex; align-items:center; gap:10px;">
+    <input type="checkbox" id="chk-adaptaciones" />
+    ¿Hay adaptaciones?
+  </label>
+</div>
+
+<!-- Panel desplegable -->
+<div id="adaptaciones-panel" style="display:none; border-left: 3px solid rgba(255,255,255,0.12); padding-left: 10px; margin-left: 5px;">
+  <!-- TODO tu bloque actual de adaptaciones va aquí adentro -->
+
+  <div class="input-group">
+    <label>Contenidos (para Adaptaciones Generales)</label>
+    <textarea
+      id="adapt-gen-contenidos"
+      placeholder="Escribe el/los contenidos"
+      style="min-height: 30px"
+    ></textarea>
+  </div>
+
+  <div class="row-buttons">
+    <button class="btn-ai" id="btn-adapt-gen">
+      <span>🧠</span> Generar Adaptaciones Generales
+    </button>
+  </div>
+
+  <div class="input-group">
+    <label>Contenido a desarrollar (Adaptaciones Específicas)</label>
+    <textarea
+      id="adapt-esp-contenido"
+      placeholder="Ingrese el contenido a desarrollar"
+      style="min-height: 30px"
+    ></textarea>
+  </div>
+
+  <div class="input-group">
+    <label>Talento extraordinario / discapacidad / dificultades</label>
+    <textarea
+      id="adapt-esp-condicion"
+      placeholder="Ej: TEA, dislexia, talento extraordinario.."
+      style="min-height: 30px"
+    ></textarea>
+  </div>
+
+  <div class="row-buttons">
+    <button class="btn-ai" id="btn-adapt-esp">
+      <span>🎯</span> Generar Adaptaciones Específicas
+    </button>
+  </div>
+</div>
+
+
+              <!-- 5) Limpiar + Descargar en la misma línea -->
+              <div class="row-buttons" style="margin-bottom: 80px;">
+                <button
+                  class="btn-clear"
+                  onclick="limpiarFormulario()"
+                  type="button"
+                >
+                  <span>🗑️</span> Limpiar Datos
+                </button>
+                <button
+                  class="btn-word"
+                  onclick="descargarWord()"
+                  type="button"
+                >
+                  <span>📄</span> Descargar Word
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </aside>
+      <main class="dash-preview">
+        <div class="preview-area" id="hojas-container">
+          <div class="sheet-landscape page-shadow" id="hoja-carta">
+            <div class="WordSection1">
+              <p class="MsoNormal">
+                <b><span lang="ES-TRAD" style="font-size: 9pt"> </span></b>
+              </p>
+              <p align="center" class="MsoNormal" style="text-align: center">
+                <b
+                  ><span lang="ES-TRAD" style="font-size: 11pt"
+                    >EDUCACIÓN
+                  </span>
+                  <span id="p-nivel" lang="ES-TRAD" style="font-size: 11pt">
+                  </span>
+                </b>
+              </p>
+              <p align="center" class="MsoNormal" style="text-align: center">
+                <b
+                  ><span lang="ES-TRAD" style="font-size: 11pt"
+                    >PLAN DE DESARROLLO CURRICULAR Nº
+                  </span>
+                  <span id="p-num-pdc" lang="ES-TRAD" style="font-size: 11pt">
+                  </span>
+                </b>
+              </p>
+              <p class="MsoNormal" style="text-align: justify">
+                <b><span lang="ES-TRAD" style="font-size: 9pt"> </span></b>
+              </p>
+              <ol start="1" style="margin-top: 0cm" type="1">
+                <li
+                  class="MsoNormal"
+                  style="
+                    color: black;
+                    margin-bottom: 10pt;
+                    text-align: justify;
+                    line-height: 150%;
+                    border: none;
+                    font-size: 10pt;
+                  "
+                >
+                  <b><span lang="ES-TRAD">DATOS REFERENCIALES</span></b>
+                </li>
+              </ol>
+              <table
+                border="1"
+                cellpadding="0"
+                cellspacing="0"
+                class="a"
+                style="
+                  margin-left: 18pt;
+                  border-collapse: collapse;
+                  border: none;
+                "
+                width="935"
+              >
+                <tbody>
+                  <tr style="height: 10.1pt">
+                    <td
+                      style="
+                        width: 119.35pt;
+                        border: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.1pt;
+                      "
+                      valign="top"
+                      width="159"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Distrito educativo</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 197.65pt;
+                        border: solid black 1pt;
+                        border-left: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.1pt;
+                      "
+                      valign="top"
+                      width="264"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-distrito"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 143.35pt;
+                        border: solid black 1pt;
+                        border-left: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.1pt;
+                      "
+                      valign="top"
+                      width="191"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Unidad educativa</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 241.25pt;
+                        border: solid black 1pt;
+                        border-left: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.1pt;
+                      "
+                      valign="top"
+                      width="322"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-ue"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="height: 10.4pt">
+                    <td
+                      style="
+                        width: 119.35pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.4pt;
+                      "
+                      valign="top"
+                      width="159"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Nivel
+                          </span></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 197.65pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.4pt;
+                      "
+                      valign="top"
+                      width="264"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-nivel"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 143.35pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.4pt;
+                      "
+                      valign="top"
+                      width="191"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Año de escolaridad</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 241.25pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.4pt;
+                      "
+                      valign="top"
+                      width="322"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-escolaridad"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="height: 10.4pt">
+                    <td
+                      style="
+                        width: 119.35pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.4pt;
+                      "
+                      valign="top"
+                      width="159"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Director/a</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      colspan="3"
+                      style="
+                        width: 582.25pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10.4pt;
+                      "
+                      valign="top"
+                      width="776"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-director"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="height: 10pt">
+                    <td
+                      style="
+                        width: 119.35pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="159"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Maestro/a</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      colspan="3"
+                      style="
+                        width: 582.25pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="776"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-maestro"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="height: 10pt">
+                    <td
+                      style="
+                        width: 119.35pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="159"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Áreas</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      colspan="3"
+                      style="
+                        width: 582.25pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="776"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-area"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="height: 10pt">
+                    <td
+                      style="
+                        width: 119.35pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="159"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Trimestre
+                          </span></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      colspan="3"
+                      style="
+                        width: 582.25pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="776"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-trimestre"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        ></span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="height: 10pt">
+                    <td
+                      style="
+                        width: 119.35pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="159"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; color: black"
+                            >Fecha</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      colspan="3"
+                      style="
+                        width: 582.25pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 10pt;
+                      "
+                      valign="top"
+                      width="776"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; border: none"
+                      >
+                        <span
+                          id="p-fecha-ini"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        >
+                        </span>
+                        <span
+                          id="p-union"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        >
+                          A
+                        </span>
+                        <span
+                          id="p-fecha-fin"
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; color: black"
+                        >
+                        </span>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p
+                class="MsoNormal"
+                style="
+                  margin-left: 36pt;
+                  text-align: justify;
+                  line-height: 115%;
+                  border: none;
+                "
+              >
+                <b><span lang="ES-TRAD" style="color: black"> </span></b>
+              </p>
+              <ol start="2" style="margin-top: 0cm" type="1">
+                <li
+                  class="MsoNormal"
+                  style="
+                    color: black;
+                    margin-bottom: 10pt;
+                    text-align: justify;
+                    line-height: 115%;
+                    border: none;
+                    font-size: 10pt;
+                  "
+                >
+                  <b><span lang="ES-TRAD">DESARROLLO</span></b>
+                </li>
+              </ol>
+              <p
+                class="MsoNormal"
+                style="
+                  text-align: justify;
+                  text-indent: 18pt;
+                  line-height: 150%;
+                "
+              >
+                <b
+                  ><span
+                    lang="ES-TRAD"
+                    style="font-size: 9pt; line-height: 150%"
+                    >Objetivo holístico de nivel</span
+                  ></b
+                >
+              </p>
+              <p
+                class="MsoNormal"
+                style="
+                  text-align: justify;
+                  text-indent: 18pt;
+                  line-height: 150%;
+                "
+              >
+                <span
+                  id="p-objetivo"
+                  lang="ES-TRAD"
+                  style="font-size: 9pt; padding: 5; margin: 0; text-indent: 0"
+                ></span>
+              </p>
+              <p class="MsoNormal" style="text-align: justify">
+                <span lang="ES-TRAD" style="font-size: 9pt"> </span>
+              </p>
+              <table
+                align="left"
+                border="1"
+                cellpadding="0"
+                cellspacing="0"
+                class="a0"
+                style="
+                  width: 100%;
+                  border-collapse: collapse;
+                  border: none;
+                  margin-left: 4.8pt;
+                  margin-right: 4.8pt;
+                "
+                width="100%"
+              >
+                <tbody id="tabla-planificacion-dinamica">
+                  <tr style="height: 15.85pt">
+                    <td
+                      colspan="6"
+                      style="
+                        width: 100%;
+                        border: solid black 1pt;
+                        background: #e2efd9;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 15.85pt;
+                      "
+                      width="100%"
+                    >
+                      <p
+                        align="center"
+                        class="MsoNormal"
+                        style="text-align: center"
+                      >
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >Área de saberes y conocimiento</span
+                          ></b
+                        ><span
+                          style="
+                            position: absolute;
+                            z-index: 251658238;
+                            left: 0px;
+                            margin-left: 553px;
+                            margin-top: 1px;
+                            width: 232px;
+                            height: 19px;
+                          "
+                        ></span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr style="height: 15.85pt">
+                    <td
+                      style="
+                        width: 8.24%;
+                        border: solid black 1pt;
+                        border-top: none;
+                        background: #e2efd9;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 15.85pt;
+                      "
+                      width="8%"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >Objetivo de aprendizaje</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 11.26%;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #e2efd9;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 15.85pt;
+                      "
+                      width="11%"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >Contenidos</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 30.98%;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #e2efd9;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 15.85pt;
+                      "
+                      width="30%"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >Momentos del proceso formativo</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 6.94%;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #e2efd9;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 15.85pt;
+                      "
+                      width="6%"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >Recursos</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 6.56%;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #e2efd9;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 15.85pt;
+                      "
+                      width="6%"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >Periodos</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 36.02%;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #e2efd9;
+                        padding: 0cm 5.75pt 0cm 5.75pt;
+                        height: 15.85pt;
+                      "
+                      valign="top"
+                      width="36%"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >Criterios de evaluación</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr id="contenedor-filas-ia"></tr>
+                </tbody>
+                <tr style="height: 12.2pt">
+                  <td
+                    colspan="6"
+                    style="
+                      width: 55.74%;
+                      border-top: none;
+                      border-left: solid black 1pt;
+                      border-bottom: solid black 1pt;
+                      border-right: solid black 1pt;
+                      padding: 0cm 5.75pt 0cm 5.75pt;
+                      height: 12.2pt;
+                    "
+                    width="100%"
+                  >
+                    <p
+                      class="MsoNormal"
+                      style="
+                        margin-top: 0cm;
+                        margin-right: -2.85pt;
+                        margin-bottom: 0cm;
+                        margin-left: -2.85pt;
+                        margin-bottom: 0.0001pt;
+                        text-align: justify;
+                      "
+                    >
+                      
+                      <p class="MsoNormal" style="text-align: justify; margin-left: -2.85pt;">
+  <b><span lang="ES-TRAD" style="font-size: 9pt">ADAPTACIONES CURRICULARES GENERALES:</span></b>
+  <span id="p-adapt-gen-contenidos" lang="ES-TRAD" style="font-size: 9pt"></span>
+</p>
+
+<p class="MsoNormal" style="text-align: justify; margin-left: -2.85pt;">
+  <span id="p-adapt-gen-out" lang="ES-TRAD" style="font-size: 9pt"></span>
+</p>
+
+                    
+                    <p
+                      class="MsoNormal"
+                      style="
+                        margin-top: 0cm;
+                        margin-right: -2.85pt;
+                        margin-bottom: 0cm;
+                        margin-left: -2.85pt;
+                        margin-bottom: 0.0001pt;
+                        text-align: justify;
+                      "
+                    >
+                      <b
+                        ><span lang="ES-TRAD" style="font-size: 9pt"> </span></b
+                      >
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <p class="MsoNormal" style="text-align: justify">
+                <span lang="ES-TRAD" style="font-size: 9pt"> </span>
+              </p>
+              <table
+                border="1"
+                cellpadding="0"
+                cellspacing="0"
+                class="a1"
+                style="
+                  margin-left: -0.25pt;
+                  border-collapse: collapse;
+                  border: none;
+                "
+                width="959"
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      colspan="4"
+                      style="
+                        width: 719.6pt;
+                        border: solid black 1pt;
+                        background: #a8d08d;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="959"
+                    >
+                      <p
+                        align="center"
+                        class="MsoNormal"
+                        style="text-align: center"
+                      >
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >ADAPTACIONES CURRICULARES SIGNIFICATIVAS</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        width: 107.65pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        background: #a8d08d;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="144"
+                    >
+                      <p
+                        align="center"
+                        class="MsoNormal"
+                        style="text-align: center; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Contenido</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 204.8pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #a8d08d;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="273"
+                    >
+                      <p
+                        align="center"
+                        class="MsoNormal"
+                        style="text-align: center; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Discapacidad/Talento extraordinario/TDH/TEA y
+                            otros</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 243.1pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #a8d08d;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="324"
+                    >
+                      <p
+                        align="center"
+                        class="MsoNormal"
+                        style="text-align: center; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Adaptación</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 164.05pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        background: #a8d08d;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="219"
+                    >
+                      <p
+                        align="center"
+                        class="MsoNormal"
+                        style="text-align: center; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Criterio de evaluación</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        width: 107.65pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="144"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <b
+                          ><span lang="ES-TRAD" style="font-size: 9pt"
+                            >
+                            <span id="p-adapt-esp-contenido" lang="ES-TRAD" style="font-size: 9pt"></span>
+
+                            </span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 204.8pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="273"
+                    >
+                      <p class="MsoNormal" style="text-align: justify">
+                        <span lang="ES-TRAD" style="font-size: 9pt">
+                          
+                          <span id="p-adapt-esp-condicion" lang="ES-TRAD" style="font-size: 9pt"></span>
+
+                        
+                        
+                        </span>
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 243.1pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="324"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >
+                            <span id="p-adapt-esp-adaptacion" lang="ES-TRAD" style="font-size: 9pt"></span>
+
+                            
+                            </span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 164.05pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="219"
+                    >
+                      <p class="MsoNormal" style="text-align: justify; line-height: 115%">
+  <b><span lang="ES-TRAD" style="font-size: 9pt; line-height: 115%">Ser:</span></b>
+  <span id="p-adapt-esp-ser" lang="ES-TRAD" style="font-size: 9pt"></span>
+</p>
+<p class="MsoNormal" style="text-align: justify; line-height: 115%">
+  <b><span lang="ES-TRAD" style="font-size: 9pt; line-height: 115%">Saber:</span></b>
+  <span id="p-adapt-esp-saber" lang="ES-TRAD" style="font-size: 9pt"></span>
+</p>
+<p class="MsoNormal" style="text-align: justify; line-height: 115%">
+  <b><span lang="ES-TRAD" style="font-size: 9pt; line-height: 115%">Hacer:</span></b>
+  <span id="p-adapt-esp-hacer" lang="ES-TRAD" style="font-size: 9pt"></span>
+</p>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        width: 107.65pt;
+                        border: solid black 1pt;
+                        border-top: none;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="144"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Ca2</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 204.8pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="273"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; line-height: 115%"
+                      >
+                        <span
+                          lang="ES-TRAD"
+                          style="font-size: 9pt; line-height: 115%"
+                          >Est 2</span
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 243.1pt;
+                        border-top: none;
+                        border-left: none;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="324"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Ada 2</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                    <td
+                      style="
+                        width: 164.05pt;
+                        border-top: none;
+                        border-left: solid black 1pt;
+                        border-bottom: solid black 1pt;
+                        border-right: solid black 1pt;
+                        padding: 0cm 5.4pt 0cm 5.4pt;
+                      "
+                      valign="top"
+                      width="219"
+                    >
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Ser:</span
+                          ></b
+                        >
+                      </p>
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Saber:</span
+                          ></b
+                        >
+                      </p>
+                      <p
+                        class="MsoNormal"
+                        style="text-align: justify; line-height: 115%"
+                      >
+                        <b
+                          ><span
+                            lang="ES-TRAD"
+                            style="font-size: 9pt; line-height: 115%"
+                            >Hacer:</span
+                          ></b
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="MsoNormal" style="text-align: justify">
+                <span lang="ES-TRAD" style="font-size: 9pt"> </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal: Límite de uso (plan gratis) -->
+    <div
+      id="modal-uso-gratis"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      "
+    >
+      <div
+        style="
+          width: min(520px, 96vw);
+          background: #fff;
+          border-radius: 14px;
+          box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+          padding: 18px 18px 14px;
+        "
+      >
+        <div style="display: flex; align-items: flex-start; gap: 12px">
+          <div style="font-size: 22px; line-height: 1">⚠️</div>
+          <div style="flex: 1">
+            <h3 style="margin: 0 0 6px 0; font-size: 18px">
+              Límite de uso alcanzado
+            </h3>
+            <p
+              id="modal-uso-gratis-msg"
+              style="margin: 0; color: #333; font-size: 14px; line-height: 1.35"
+            >
+              Tu plan gratis permite usar la IA una sola vez. Para seguir
+              generando, solicita habilitación de plan.
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 14px;
+          "
+        >
+          <button
+            id="btn-modal-uso-gratis-close"
+            type="button"
+            style="
+              border: none;
+              background: #111827;
+              color: #fff;
+              padding: 10px 14px;
+              border-radius: 10px;
+              cursor: pointer;
+            "
+          >
+            Entendido
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="dashboard-logic.js" type="module"></script>
+  </body>
+</html>
