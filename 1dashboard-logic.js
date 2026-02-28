@@ -29,8 +29,6 @@ import {
 
 import { callAI, notifyAIError } from "./ai.js";
 
-
-
 let currentUser = null;
 let currentProfile = null;
 
@@ -184,7 +182,40 @@ function paintNombreDocente({ user, profile }) {
   if (el2) el2.innerText = full;
 }
 
+// Guard: si no hay sesión, vuelve al login
+// onAuthStateChanged(auth, async (user) => {
+//   if (!user) {
+//     window.location.href = "index.html";
+//     return;
+//   }
+//   currentUser = user;
+//   currentProfile = await loadProfile(user.uid);
 
+//   // Exponer para otras funciones si lo necesitan
+//   window.__PDC_CURRENT_USER__ = currentUser;
+//   window.__PDC_CURRENT_PROFILE__ = currentProfile;
+
+//   paintNombreDocente({ user: currentUser, profile: currentProfile });
+
+//   // Mostrar link de administración SOLO si el usuario es admin
+//   const adminLink = document.getElementById("admin-link");
+//   if (adminLink) {
+//     const isAdmin = await isAdminUser(user.uid);
+//     adminLink.style.display = isAdmin ? "inline-block" : "none";
+//       }
+
+//   // Si existe la función, aplicar restricciones desde perfil (sin sessionStorage)
+//   if (typeof window.aplicarRestriccionesUI === "function") {
+//     window.aplicarRestriccionesUI(currentProfile);
+//   }
+
+//   const adminBtn = document.getElementById("admin-btn");
+//   if (adminBtn) {
+//     const ok = await isAdminUser(user.uid);
+//     adminBtn.style.display = ok ? "inline-flex" : "none";
+//     adminBtn.onclick = () => (window.location.href = "admin.html");
+//   }
+// });
 // ==========================================
 // VERSIÓN OPTIMIZADA - auth-guard.js
 // ==========================================
@@ -271,7 +302,6 @@ document.getElementById("btn-logout")?.addEventListener("click", async () => {
 
 // ===== Helper: token + backend call =====
 
-
 function renderizarPerfilesSalida() {
   const cont = document.getElementById("perfil-salida-container");
   if (!cont) return;
@@ -353,7 +383,70 @@ document
   .getElementById("escolaridad")
   ?.addEventListener("change", renderizarPerfilesSalida);
 
+// =========================
+// UI: Modal de límite de uso (plan gratis)
+// =========================
+// ====a====s=====a====aa===
+// function __normalizeErrMessage(err) {
+//   const raw = String(err?.message || err || "");
+//   // A veces viene como JSON string desde el servidor
+//   try {
+//     const obj = JSON.parse(raw);
+//     return String(obj?.message || obj?.error?.message || obj?.error || raw);
+//   } catch {
+//     return raw;
+//   }
+// }
 
+// function __isUsageLimitError(err) {
+//   const msg = __normalizeErrMessage(err).toLowerCase();
+//   // Ajusta aquí si tu backend devuelve un código específico
+//   return (
+//     msg.includes("una vez") ||
+//     msg.includes("solo una") ||
+//     msg.includes("límite") ||
+//     msg.includes("limite") ||
+//     msg.includes("gratis") ||
+//     msg.includes("free") ||
+//     (msg.includes("plan") && msg.includes("agot"))
+//   );
+// }
+
+// function showUsoGratisModal(customMsg) {
+//   const modal = document.getElementById("modal-uso-gratis");
+//   const msgEl = document.getElementById("modal-uso-gratis-msg");
+//   const closeBtn = document.getElementById("btn-modal-uso-gratis-close");
+//   if (!modal) return;
+
+//   if (msgEl) {
+//     msgEl.textContent =
+//       customMsg ||
+//       "Tu plan gratis permite usar la IA una sola vez. Para seguir generando, solicita habilitación de plan.";
+//   }
+
+//   // abrir
+//   modal.style.display = "flex";
+
+//   const close = () => (modal.style.display = "none");
+//   closeBtn?.addEventListener("click", close, { once: true });
+
+//   // cerrar al click fuera
+//   modal.addEventListener(
+//     "click",
+//     (e) => {
+//       if (e.target === modal) close();
+//     },
+//     { once: true },
+//   );
+// }
+
+// function notifyAIError(err, fallbackMsg) {
+//   if (__isUsageLimitError(err)) {
+//     showUsoGratisModal(__normalizeErrMessage(err));
+//     return;
+//   }
+//   alert(fallbackMsg || "Ocurrió un error al conectar con Gemini.");
+// }
 
 function convertirULaVinetasWord(html) {
   // Reemplaza cada <ul>...</ul> por párrafos estilo Word (MsoListParagraph)
@@ -418,6 +511,18 @@ function initToggleAdaptaciones() {
 document.addEventListener("DOMContentLoaded", () => {
   // ✅ V2: ya no usamos sessionStorage. La sesión se controla con Firebase Auth en el guard superior.
   // Si el guard aún no cargó el perfil, no hacemos nada aquí; el guard se encargará de pintar el nombre y aplicar restricciones.
+  try {
+    if (
+      window.__PDC_CURRENT_PROFILE__ &&
+      typeof window.aplicarRestriccionesUI === "function"
+    ) {
+      window.aplicarRestriccionesUI(window.__PDC_CURRENT_PROFILE__);
+    }
+  } catch (e) {
+    console.warn("Restricciones UI (init):", e);
+  }
+  // Restricciones por plan (permisos)
+  // Nota: se aplican desde el guard al cargar el perfil; aquí re-aplicamos si ya está disponible.
   try {
     if (
       window.__PDC_CURRENT_PROFILE__ &&
@@ -818,6 +923,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     actualizarObjetivoNivel(document.getElementById("nivel").value);
+
+    // Refrescar checks dinámicos por fila
+    actualizarChecksContenidosSeleccionados(seleccionados);
   };
 
   ["escolaridad", "area", "trimestre"].forEach((id) => {
@@ -858,6 +966,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Necesario porque el HTML usa onclick="limpiarFormulario()"
+  window.limpiarFormulario = limpiarFormulario;
+
+  // Necesario para onclick="limpiarFormulario()" en HTML
   window.limpiarFormulario = limpiarFormulario;
 
   window.descargarWord = function () {
@@ -1075,20 +1186,28 @@ async function elaborarPDCCompletoConAI() {
 
   try {
     await runAI(async () => {
-    // 1) Objetivo (usa idea-objetivo)
-    await generarObjetivoConIA();
+      // 🔹 Forzar criterios automáticamente en PDC completo
+      const ser = document.getElementById("crit-ser");
+      const saber = document.getElementById("crit-saber");
+      const hacer = document.getElementById("crit-hacer");
 
-    // 2) Momentos + Recursos (reusa la idea del objetivo para mantener coherencia)
-    if (ideaMomEl) ideaMomEl.value = ideaBase;
-    await generarMomentosConIA();
+      if (ser) ser.checked = true;
+      if (saber) saber.checked = true;
+      if (hacer) hacer.checked = true;
+      // 1) Objetivo (usa idea-objetivo)
+      await generarObjetivoConIA();
 
-    // 3) Criterios (reusa la idea del objetivo para mantener coherencia)
-    if (ideaCritEl) ideaCritEl.value = ideaBase;
-    const indices = indicesSeleccionadosMomentos();
-    await generarRecYCritConIA(indices);
+      // 2) Momentos + Recursos (reusa la idea del objetivo para mantener coherencia)
+      if (ideaMomEl) ideaMomEl.value = ideaBase;
+      await generarMomentosConIA();
 
-    // Listo
-    // alert("✅ PDC completo generado.");
+      // 3) Criterios (reusa la idea del objetivo para mantener coherencia)
+      if (ideaCritEl) ideaCritEl.value = ideaBase;
+      const indices = indicesSeleccionadosMomentos();
+      await generarRecYCritConIA(indices);
+
+      // Listo
+      // alert("✅ PDC completo generado.");
     });
   } catch (err) {
     console.error("Error en PDC completo:", err);
@@ -1097,6 +1216,7 @@ async function elaborarPDCCompletoConAI() {
       "No se pudo elaborar el PDC completo. Revisa la consola.",
     );
   } finally {
+    __pdcCompletoMode = false;
     // Restaurar textos previos
     if (ideaMomEl) ideaMomEl.value = prevMom;
     if (ideaCritEl) ideaCritEl.value = prevCrit;
@@ -1161,21 +1281,17 @@ Perfil de salida (nose mensiona): ${perfilSel || "(no seleccionado)"}
 Idea docente: ${ideaUsuario || "(sin idea adicional)"}
 Entrega solo el objetivo final, sin títulos ni explicaciones.`;
 
-
-
   setTyping(campoDestino, "✨ Generando");
 
   try {
-
     const feature = __pdcCompletoMode ? "pdcCompleto" : "objetivo";
     // const data = await callAI({ prompt: promptTexto, feature });
     const data = await callAI({
-  prompt: promptTexto,
-  feature,
-  timeoutMs: 50000,
-  getToken: () => currentUser.getIdToken(true),
-});
-
+      prompt: promptTexto,
+      feature,
+      timeoutMs: 50000,
+      getToken: () => currentUser.getIdToken(true),
+    });
 
     console.log("Respuesta IA:", data);
 
@@ -1553,23 +1669,23 @@ async function generarMomentosConIA() {
 
   try {
     await runAI(async () => {
-    for (const index of indices) {
-      const tema = seleccionados[index];
-      if (!tema) continue;
+      for (const index of indices) {
+        const tema = seleccionados[index];
+        if (!tema) continue;
 
-      const titulo =
-        tema.getAttribute("data-titulo") || `Contenido ${index + 1}`;
-      const puntos = (tema.getAttribute("data-puntos") || "")
-        .split("|")
-        .map((x) => x.trim())
-        .filter(Boolean);
+        const titulo =
+          tema.getAttribute("data-titulo") || `Contenido ${index + 1}`;
+        const puntos = (tema.getAttribute("data-puntos") || "")
+          .split("|")
+          .map((x) => x.trim())
+          .filter(Boolean);
 
-      const destinoMom = document.getElementById(`p-metodologia-${index}`);
-      const destinoRec = document.getElementById(`p-recursos-${index}`);
-      setTyping(destinoMom, "✨ Generando momentos");
-      setTyping(destinoRec, "✨ Generando recursos");
+        const destinoMom = document.getElementById(`p-metodologia-${index}`);
+        const destinoRec = document.getElementById(`p-recursos-${index}`);
+        setTyping(destinoMom, "✨ Generando momentos");
+        setTyping(destinoRec, "✨ Generando recursos");
 
-      const promptTexto = `Actúa como docente experto en Planificación de Desarrollo Curricular en Bolivia.
+        const promptTexto = `Actúa como docente experto en Planificación de Desarrollo Curricular en Bolivia.
 Necesito elaborar los Momentos del Proceso Formativo (Práctica, Teoría, Producción, Valoración) PARA UN SOLO CONTENIDO.
 Contenido (título): ${titulo}
 Puntos clave del contenido: ${puntos.join(", ") || "(sin puntos clave)"}
@@ -1585,47 +1701,47 @@ Requisitos estrictos:
   },
   "recursos": ["recurso 1", "recurso 2", "..."]
 }
-2) En recursos, usa viñetas (arreglo) de recursos concretos (máx 10), 2-6 viñetas .
+2) En recursos, usa viñetas (arreglo) de recursos concretos (máx 10), 2-4 viñetas.
 3) Ajusta a nivel escolar (lenguaje sencillo y viable en aula).
 4) Parrafos de max. 15 palabras.`;
 
-      const texto = await llamarGeminiTexto(promptTexto);
+        const texto = await llamarGeminiTexto(promptTexto);
 
-      const parsed = extraerJSONSeguro(texto);
+        const parsed = extraerJSONSeguro(texto);
 
-      if (!parsed?.momentos) {
-        if (destinoMom) destinoMom.innerText = texto || "(sin respuesta)";
+        if (!parsed?.momentos) {
+          if (destinoMom) destinoMom.innerText = texto || "(sin respuesta)";
+          if (destinoRec)
+            destinoRec.innerText = "(no se pudo estructurar recursos)";
+          continue;
+        }
+
+        const mom = parsed.momentos;
+
+        const htmlMomentos = renderMomentosPorSeccion(mom);
+        if (destinoMom) destinoMom.innerHTML = htmlMomentos;
+
+        // const itemsMomentos = [
+        //   { label: "Práctica", text: mom.practica || "" },
+        //   { label: "Teoría", text: mom.teoria || "" },
+        //   { label: "Producción", text: mom.produccion || "" },
+        //   { label: "Valoración", text: mom.valoracion || "" },
+        // ].filter((x) => String(x.text || "").trim().length);
+
+        // const htmlMomentos = itemsMomentos.length
+        //   ? `<ul style="margin: 4pt 0 0 0; padding-left: 15pt; list-style-type: disc;">${itemsMomentos
+        //       .map(
+        //         (it) =>
+        //           `<li style="margin-bottom: 2pt;">${escapeHtml(it.text)} <b>(${escapeHtml(it.label)})</b></li>`,
+        //       )
+        //       .join("")}</ul>`
+        //   : "<i>(sin momentos)</i>";
+
+        // if (destinoMom) destinoMom.innerHTML = htmlMomentos;
         if (destinoRec)
-          destinoRec.innerText = "(no se pudo estructurar recursos)";
-        continue;
+          destinoRec.innerHTML = renderListaBullets(parsed.recursos);
       }
-
-      const mom = parsed.momentos;
-
-      const htmlMomentos = renderMomentosPorSeccion(mom);
-      if (destinoMom) destinoMom.innerHTML = htmlMomentos;
-
-      // const itemsMomentos = [
-      //   { label: "Práctica", text: mom.practica || "" },
-      //   { label: "Teoría", text: mom.teoria || "" },
-      //   { label: "Producción", text: mom.produccion || "" },
-      //   { label: "Valoración", text: mom.valoracion || "" },
-      // ].filter((x) => String(x.text || "").trim().length);
-
-      // const htmlMomentos = itemsMomentos.length
-      //   ? `<ul style="margin: 4pt 0 0 0; padding-left: 15pt; list-style-type: disc;">${itemsMomentos
-      //       .map(
-      //         (it) =>
-      //           `<li style="margin-bottom: 2pt;">${escapeHtml(it.text)} <b>(${escapeHtml(it.label)})</b></li>`,
-      //       )
-      //       .join("")}</ul>`
-      //   : "<i>(sin momentos)</i>";
-
-      // if (destinoMom) destinoMom.innerHTML = htmlMomentos;
-      if (destinoRec)
-        destinoRec.innerHTML = renderListaBullets(parsed.recursos);
-    }
-  });
+    });
   } catch (err) {
     console.error("Error generando momentos:", err);
     notifyAIError(
@@ -1636,7 +1752,6 @@ Requisitos estrictos:
     btn.innerHTML = original;
     btn.disabled = false;
   }
-  
 }
 
 // Cache en memoria (se mantiene mientras no recargues la página)
@@ -1720,11 +1835,11 @@ async function generarRecYCritConIA(indicesOverride) {
 
   try {
     await runAI(async () => {
-    setTyping(destino, "✨ Generando criterios");
+      setTyping(destino, "✨ Generando criterios");
 
-    const keys = dimsFinal.map((d) => d.toLowerCase()); // ser | saber | hacer
+      const keys = dimsFinal.map((d) => d.toLowerCase()); // ser | saber | hacer
 
-    const promptTexto = `Actúa como docente experto en evaluación en el marco del PDC de Bolivia.
+      const promptTexto = `Actúa como docente experto en evaluación en el marco del PDC de Bolivia.
 
 Debes generar CRITERIOS DE EVALUACIÓN SOLO para estas dimensiones: ${dimsFinal.join(", ")}.
 Datos:
@@ -1742,25 +1857,25 @@ Requisitos estrictos:
 4) No incluyas la dimensión DECIDIR.
 5) Cada parrafo max. 8 palabras.`;
 
-    const texto = await llamarGeminiTexto(promptTexto);
+      const texto = await llamarGeminiTexto(promptTexto);
 
-    const parsed = extraerJSONSeguro(texto);
+      const parsed = extraerJSONSeguro(texto);
 
-    if (!parsed || typeof parsed !== "object") {
-      destino.innerText = texto || "(sin respuesta)";
-      return;
-    }
+      if (!parsed || typeof parsed !== "object") {
+        destino.innerText = texto || "(sin respuesta)";
+        return;
+      }
 
-    // ✅ CAMBIO: actualizar SOLO lo solicitado, sin borrar lo previo
-    if (dimsFinal.includes("SER") && Array.isArray(parsed.ser))
-      __critCache.ser = parsed.ser;
-    if (dimsFinal.includes("SABER") && Array.isArray(parsed.saber))
-      __critCache.saber = parsed.saber;
-    if (dimsFinal.includes("HACER") && Array.isArray(parsed.hacer))
-      __critCache.hacer = parsed.hacer;
+      // ✅ CAMBIO: actualizar SOLO lo solicitado, sin borrar lo previo
+      if (dimsFinal.includes("SER") && Array.isArray(parsed.ser))
+        __critCache.ser = parsed.ser;
+      if (dimsFinal.includes("SABER") && Array.isArray(parsed.saber))
+        __critCache.saber = parsed.saber;
+      if (dimsFinal.includes("HACER") && Array.isArray(parsed.hacer))
+        __critCache.hacer = parsed.hacer;
 
-    // ✅ Renderiza todo desde cache (lo viejo se mantiene)
-    destino.innerHTML = renderCriteriosFromCache(__critCache);
+      // ✅ Renderiza todo desde cache (lo viejo se mantiene)
+      destino.innerHTML = renderCriteriosFromCache(__critCache);
     });
   } catch (err) {
     console.error("Error generando criterios:", err);

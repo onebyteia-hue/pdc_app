@@ -1,0 +1,129 @@
+{
+  "perfil_salida": [
+    {
+      "nivel_escolaridad": "Inicial Primero",
+      "seccion": "Perfil de salida",
+      "apartados": [
+        {
+          "titulo": "Desarrollo del Lenguaje",
+          "items": [
+            "Comprende relatos y mensajes a partir de la escucha atenta, respetando los turnos para hablar en distintas situaciones cotidianas.",
+            "Expresa a través del lenguaje oral ideas claras, pensamientos, necesidades y anécdotas de forma espontánea utilizando su lengua. (Originaria o castellana).",
+            "Comunica mensajes de forma oral utilizando un vocabulario más amplio, en situaciones comunicativas propias de su contexto.",
+            "Expresa ideas, sentimientos e inquietudes utilizando expresiones corporales y/o gestuales. (Lengua de señas).",
+            "Disfruta escuchar textos breves y sencillos, y explora distintos libros buscando imágenes, símbolos y letras.",
+            "Comunica sus ideas a través de dibujos, trazos, líneas, garabatos potenciando las capacidades de preescritura."
+          ]
+        },
+        {
+          "titulo": "Desarrollo Cognitivo",
+          "items": [
+            "Realiza comparaciones entre elementos que varían en sus atributos: de color, forma, tamaño, textura, longitud, volumen, temperatura y peso.",
+            "Usa expresiones temporales para explicar la sucesión de acontecimientos.",
+            "Realiza conteo de diferentes cantidades con elementos del entorno, relacionando cantidad y numeral en situaciones cotidianas.",
+            "Resuelve problemas simples del día a día buscando diferentes alternativas.",
+            "Reconoce los elementos tecnológicos de su entorno, su importancia y uso adecuado.",
+            "Explora su entorno, formulando diversas preguntas, observando, explorando y describiendo."
+          ]
+        },
+        {
+          "titulo": "Desarrollo Socioafectivo",
+          "items": [
+            "Participa e interacciona en actividades grupales estableciendo normas y pautas de convivencias inclusivas.",
+            "Asume actitudes de cuidado en situaciones de riesgo y cuidado personal en la familia y la comunidad.",
+            "Practica los principios y valores sociocomunitarios desarrollados en la familia, escuela y la comunidad.",
+            "Reconoce las emociones propias y la de los demás en diferentes situaciones o contextos.",
+            "Reconoce su identidad personal, social y cultural tomando conciencia gradual de sus características corporales.",
+            "Reconoce y respeta la diversidad de personas que tienen creencias, religiones, intereses y necesidades diversas.",
+            "Valora las formas de vida de su entorno y genera vínculos de cuidado y armonía con la Madre Tierra."
+          ]
+        },
+        {
+          "titulo": "Desarrollo Psicomotor",
+          "items": [
+            "Reconoce e identifica en su cuerpo y en los otros sus partes externas, interiorizando la imagen corporal positiva de sí mismo.",
+            "Utiliza las partes simétricas de su cuerpo (manos, pies, oídos y ojos) con mayor destreza en actividades complejas que involucren movimientos coordinados.",
+            "Realiza diversos movimientos corporales, desplazándose con coordinación y control sobre su propio cuerpo.",
+            "Ejecuta movimientos precisos de prensión, agarre y fuerza en las actividades de la vida diaria.",
+            "Realiza ejercicios de equilibrio dinámico y estático, controlando los movimientos del cuerpo.",
+            "Experimenta la dimensión del espacio a través de movimientos y posturas, usando todo el cuerpo.",
+            "Reconoce la ubicación de objetos en relación de su cuerpo y puntos de referencia.",
+            "Combina diferentes posturas y desplazamientos en diferentes movimientos rítmicos."
+          ]
+        },
+        {
+          "titulo": "Desarrollo de la autonomía",
+          "items": [
+            "Práctica hábitos de higiene corporal, de vestimenta y alimentación de manera autónoma.",
+            "Organiza su espacio colaborando en las actividades escolares y familiares, expresando relaciones positivas.",
+            "Toma decisiones en las actividades que desarrolla tanto dentro como fuera del aula.",
+            "Disfruta de diferentes expresiones plásticas, artísticas y culturales."
+          ]
+        }
+      ]
+    },
+    {
+      "nivel_escolaridad": "Inicial Segundo",
+      "seccion": "Perfil de salida",
+      "apartados": [
+        {
+          "titulo": "Desarrollo del Lenguaje",
+          "items": [
+            "Comprende relatos, mensajes, ideas, consignas, reglas, normas en diferentes situaciones, a partir de la escucha atenta, solicitando la palabra para participar en distintas situaciones cotidianas.",
+            "Utiliza el lenguaje oral para intercambiar ideas claras, pensamientos, necesidades y anécdotas argumentando la información en su lengua (lengua originaria, castellana, lengua de señas).",
+            "Comunica oralmente temas de su interés, incorporando palabras nuevas y pertinentes a las distintas situaciones comunicativas propias de su contexto.",
+            "Utiliza diversas expresiones (lingüísticas, gestuales, visuales, corporales, entre otras) en las interacciones con sus pares y con otras personas.",
+            "Realiza descripciones de la información que tiene en su entorno: anuncios, gráficos, imágenes, fotografías, libros con imágenes, hechos de la naturaleza y de la vida cotidiana.",
+            "Comprende acciones principales de diversos textos: cuentos, canciones, poesías entre otros.",
+            "Representa gráficamente mensajes con intención de comunicar algo por escrito, utilizando dibujos, signos, letras, garabatos."
+          ]
+        },
+        {
+          "titulo": "Desarrollo Cognitivo",
+          "items": [
+            "Identifica semejanzas y diferencias en objetos del entorno estableciendo relaciones comparativas para clasificar, seriar y representar.",
+            "Ordena en secuencia lógica sucesos, escenas y/o rutinas utilizando nociones de tiempo.",
+            "Utiliza diversos cuantificadores para identificar, comparar, ordenar y representar objetos y números.",
+            "Plantea y ejecuta procedimientos en la resolución de problemas cotidianos.",
+            "Maneja de manera básica elementos digitales en su aprendizaje bajo la guía y acompañamiento de un adulto.",
+            "Indaga sobre los cambios que ocurren en los objetos, seres vivos, fenómenos naturales, físicos y otros."
+          ]
+        },
+        {
+          "titulo": "Desarrollo Socioafectivo",
+          "items": [
+            "Identifica y respeta las normas y acuerdos de convivencia armónica dentro de la comunidad educativa.",
+            "Identifica acciones apropiadas e inapropiadas de diferentes situaciones (verbales y corporales) que pongan en riesgo su integridad física y emocional.",
+            "Practica los principios y valores sociocomunitarios en la familia, escuela y comunidad.",
+            "Reconoce distintas emociones en sí mismo y es capaz de gestionarlas y adecuarlas progresivamente a diversas situaciones.",
+            "Reconoce y expresa su identidad personal, social y cultural tomando conciencia gradual de sus características corporales, preferencias y cualidades.",
+            "Valora y respeta la diversidad de personas presente en su entorno de acuerdo a sus características físicas, lingüísticas, religiosas, de género entre otras.",
+            "Participa en acciones de cuidado y protección de los seres vivos en armonía con la Madre Tierra."
+          ]
+        },
+        {
+          "titulo": "Desarrollo psicomotor",
+          "items": [
+            "Reconoce características de su cuerpo y funciones para lograr la conciencia de su esquema corporal y definir su lateralidad.",
+            "Utiliza nociones espaciales de izquierda a derecha en relación a su propio cuerpo.",
+            "Combina diversos movimientos y posturas con mayor fluidez, velocidad, equilibrio y dirección al desplazarse.",
+            "Realiza movimientos más precisos con los dedos y utiliza herramientas tales como: lápiz, tijeras, punzón y otros en actividades de la vida diaria.",
+            "Realiza diferentes movimientos manteniendo el control y equilibrio postural en diversas situaciones de juego y exploración.",
+            "Realiza ejercicios de control corporal, desplazándose con precisión en un espacio determinado.",
+            "Reconoce la ubicación de objetos en relación de su cuerpo y puntos de referencia.",
+            "Ejecuta movimientos sincronizados y coordinados al ritmo de la música mediante rondas, danzas, bailes y ejercicios."
+          ]
+        },
+        {
+          "titulo": "Desarrollo de la autonomía",
+          "items": [
+            "Realiza de forma autónoma prácticas de higiene corporal y bucal, vestimenta, alimentación y comprende la importancia para su salud.",
+            "Organiza su espacio para actividades y juegos, respetando las normas de convivencia pacífica en el cumplimiento de sus tareas familiares y escolares.",
+            "Participa activamente en la toma de decisiones presentes en las actividades cotidianas, presentando iniciativa y confianza.",
+            "Manifiesta sus ideas a través de la creación artística, plástica, escénica y musical."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -96,7 +96,7 @@ async function postFunction(url, payload) {
   if (!user) throw new Error("No autenticado.");
 
   // true = refresca token (útil si cambiaste claims recientemente)
-  const token = await user.getIdToken(true);
+  const token = await user.getIdToken();
 
   const r = await fetch(url, {
     method: "POST",

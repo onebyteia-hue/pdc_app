@@ -13,6 +13,7 @@ import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 import {
@@ -29,10 +30,80 @@ import {
 let isAuthActionRunning = false;
 let firstAuthState = true;
 
+const FUNCTIONS_BASE =
+  "https://us-central1-simulacroesfms2026.cloudfunctions.net";
+const URL_GET_MY_PROFILE = `${FUNCTIONS_BASE}/getMyProfile`;
+
+async function postFunction(url, payload) {
+  const user = auth.currentUser;
+  if (!user) throw new Error("No autenticado.");
+
+  const token = await user.getIdToken(true);
+
+  const r = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(payload || {}),
+  });
+
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data?.error || `HTTP ${r.status}`);
+  return data;
+}
+
+async function fetchMyProfile() {
+  const data = await postFunction(URL_GET_MY_PROFILE, {});
+  return data?.profile || null;
+}
+
 /* =========================
    Helpers DOM/UI
 ========================= */
-const byId = (id) => document.getElementById(id);
+
+function setAuthUI(isAuthed, user) {
+  // 1) Ocultar / mostrar botones Registro/Login
+  byId("btnShowRegister")?.classList.toggle("d-none", isAuthed);
+  byId("btnShowLogin")?.classList.toggle("d-none", isAuthed);
+
+  // 0) Ocultar/mostrar botones de logout
+  byId("btnLogout")?.classList.toggle("d-none", !isAuthed);
+
+  // 2) Marcar protegidos como bloqueados visualmente
+  document.querySelectorAll('[data-auth="required"]').forEach((el) => {
+    el.classList.toggle("locked", !isAuthed);
+
+    // Si es botón, lo deshabilitamos de verdad
+    // NO usar disabled, porque bloquea el click y no podremos abrir el login
+    el.dataset.authLocked = String(!isAuthed); // "true" / "false"
+
+    // Para accesibilidad
+    el.setAttribute("aria-disabled", String(!isAuthed));
+  });
+
+  // 3) Mostrar user en sidebar
+  if (isAuthed && user) {
+    byId("userName") &&
+      (byId("userName").textContent = user.displayName || "Usuario");
+    byId("userEmail") && (byId("userEmail").textContent = user.email || "");
+
+    byId("sidebarPlan") && (byId("sidebarPlan").textContent = "CARGANDO...");
+  } else {
+    byId("userName") && (byId("userName").textContent = "Usuario");
+
+    byId("sidebarPlan") && (byId("sidebarPlan").textContent = "Gratis");
+  }
+
+  // 4) cerrar modales al entrar
+  if (isAuthed) {
+    cerrarModal("modal-login");
+    cerrarModal("modal-registro");
+  }
+}
+
+let isAuthed = false;
 
 function setError(id, msg) {
   const el = byId(id);
@@ -84,13 +155,38 @@ function firebaseErrorToText(e) {
   }
 }
 
+// ✅ AJUSTA esto a tu URL real de Cloud Function (la misma región us-central1)
+
 function parsePermisos(planSel) {
   // Mantiene tu formato: "prim:prim_4to" o "sec:MAT_08"
   const [tipo, valor] = String(planSel || "").split(":");
   return {
+    inicial: tipo === "ini" && valor ? [valor] : [],
     primaria: tipo === "prim" && valor ? [valor] : [],
     secundaria: tipo === "sec" && valor ? [valor] : [],
   };
+}
+
+
+function planLegible(planSel) {
+  if (!planSel) return "";
+
+  const [tipo, grado] = planSel.split(":");
+
+  const niveles = {
+    ini: "Inicial",
+    prim: "Primaria",
+    sec: "Secundaria"
+  };
+
+  const nivel = niveles[tipo] || tipo;
+  const gradoBonito = grado
+    ?.replace("ini_", "")
+    .replace("prim_", "")
+    .replace("sec_", "")
+    .replace("_", " ");
+
+  return `${nivel} - ${gradoBonito}`;
 }
 
 /* =========================
@@ -127,7 +223,7 @@ async function ensureUserProfile(
       fechaInicio: null,
       fechaVencimiento: null,
       permisos: parsePermisos(planSel),
-      nivelEscolaridad: planSel || "",
+      nivelEscolaridad: planLegible(planSel),
       aiUsage: defaultUsage,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
@@ -151,6 +247,115 @@ async function ensureUserProfile(
   }
 }
 
+// ====================================================
+// ====================================================
+// ====================================================
+
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function setActiveView(viewKey) {
+  document
+    .querySelectorAll(".view")
+    .forEach((v) => v.classList.remove("active"));
+  document
+    .querySelectorAll(".side-link")
+    .forEach((b) => b.classList.remove("active"));
+
+  const view = byId(`view-${viewKey}`); // ✅ antes era $()
+  if (view) view.classList.add("active");
+
+  const btn = document.querySelector(`.side-link[data-view="${viewKey}"]`);
+  if (btn) btn.classList.add("active");
+
+  document
+    .querySelector(".app-content")
+    ?.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function wireUI() {
+  // Menú lateral
+  document.querySelector(".side-nav")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("button.side-link");
+    if (!btn) return;
+
+    const view = btn.getAttribute("data-view");
+    const go = btn.getAttribute("data-go");
+
+    if (go) window.location.href = go;
+    if (view) setActiveView(view);
+  });
+
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest("[data-go],[data-view]");
+    if (!el) return;
+
+    // ✅ Si requiere login y NO hay sesión, manda a login y NO navegues
+    const requiresAuth = el.closest('[data-auth="required"]');
+    if (requiresAuth && !auth.currentUser) {
+      requireLogin(e);
+      return;
+    }
+
+    const go = el.getAttribute("data-go");
+    const view = el.getAttribute("data-view");
+
+    if (go) window.location.href = go;
+    if (view) setActiveView(view);
+  });
+
+  function requireLogin(e) {
+    // Bloquea el click
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Lleva a la vista principal si estás en otra
+    try {
+      setActiveView("principal");
+    } catch {}
+
+    // Abre modal login (usa tu función existente)
+    try {
+      abrirModal("modal-login");
+    } catch {}
+  }
+
+  function installAuthClickGuard() {
+    document.addEventListener(
+      "click",
+      (e) => {
+        // 1) Si hay sesión, no hacemos nada
+        if (auth.currentUser) return;
+
+        // 2) ¿El click fue sobre (o dentro de) algo que requiere auth?
+        const target = e.target.closest('[data-auth="required"]');
+        if (!target) return;
+
+        // 3) No guardes clicks en inputs/botones dentro de modales de login/registro
+        if (
+          e.target.closest("#modal-login") ||
+          e.target.closest("#modal-registro")
+        )
+          return;
+
+        requireLogin(e);
+      },
+      true, // capture: se ejecuta ANTES que otros listeners
+    );
+  }
+
+  installAuthClickGuard();
+}
+
+// Init
+wireUI();
+setActiveView("principal");
+
+// ====================================================
+// ====================================================
+// ====================================================
+
 /* =========================
    Acciones Auth
 ========================= */
@@ -166,7 +371,8 @@ async function signInGoogle(commonProfile = {}) {
     const result = await signInWithPopup(auth, provider);
 
     await ensureUserProfile(result.user, commonProfile);
-    window.location.href = "dashboard.html";
+    // Aquie quitamos el ir a Dashboard
+    //window.location.href = "dashboard.html";
   } catch (e) {
     const msg = firebaseErrorToText(e);
     console.error("❌ Google SignIn error:", e);
@@ -192,7 +398,10 @@ async function registerEmail() {
     const pass2 = val("reg-pass2");
     const planSel = val("reg-plan");
     if (!planSel) {
-      setError("reg-error", "Debes seleccionar un plan antes de registrarte.");
+      setError(
+        "reg-error",
+        "Debes seleccionar un curso o especialidad antes de registrarte.",
+      );
       return;
     }
 
@@ -216,7 +425,8 @@ async function registerEmail() {
     const cred = await createUserWithEmailAndPassword(auth, correo, pass);
     await ensureUserProfile(cred.user, { nombre, apellido, planSel });
 
-    window.location.href = "dashboard.html";
+    // Aquie quitamos el ir a Dashboard
+    //window.location.href = "dashboard.html";
   } catch (e) {
     console.error("❌ Register error:", e);
     setError("reg-error", firebaseErrorToText(e));
@@ -248,7 +458,8 @@ async function loginEmail() {
 
     const cred = await signInWithEmailAndPassword(auth, correo, pass);
     await ensureUserProfile(cred.user, {});
-    window.location.href = "dashboard.html";
+    // Aquie quitamos el ir a Dashboard
+    //window.location.href = "dashboard.html";
   } catch (e) {
     console.error("❌ Login error:", e);
     setError("login-error", firebaseErrorToText(e));
@@ -315,20 +526,87 @@ async function resetPassword() {
 /* =========================
    Modales (compatibles con onclick del HTML)
 ========================= */
+// function abrirModal(id) {
+//   const m = byId(id);
+//   if (m) m.style.display = "flex";
+
+// }
+// function cerrarModal(id) {
+//   const m = byId(id);
+//   if (m) m.style.display = "none";
+// }
+// window.abrirModal = abrirModal;
+// window.cerrarModal = cerrarModal;
+
+// window.addEventListener("click", (e) => {
+//   const t = e.target;
+//   if (t?.classList?.contains("modal-overlay")) t.style.display = "none";
+// });
+
 function abrirModal(id) {
   const m = byId(id);
-  if (m) m.style.display = "flex";
+  if (!m) return;
+
+  m.style.display = "flex";
+  m.removeAttribute("aria-hidden");
+  m.inert = false;
+
+  // mover foco al primer elemento interactivo del modal
+  const focusable = m.querySelector("input,button,select,textarea,a[href]");
+  focusable?.focus();
 }
+
 function cerrarModal(id) {
   const m = byId(id);
-  if (m) m.style.display = "none";
+  if (!m) return;
+
+  // sacar foco del modal antes de ocultarlo
+  document.activeElement?.blur();
+
+  m.inert = true;
+  m.setAttribute("aria-hidden", "true");
+  m.style.display = "none";
 }
+
+// Compatibilidad heredada
 window.abrirModal = abrirModal;
 window.cerrarModal = cerrarModal;
 
-window.addEventListener("click", (e) => {
+// Abrir por data-modal
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-modal]");
+  if (!btn) return;
+  const id = btn.getAttribute("data-modal");
+  if (id) abrirModal(id);
+});
+
+// Cerrar por data-close-modal
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-close-modal]");
+  if (!btn) return;
+  const id = btn.getAttribute("data-close-modal");
+  if (id) cerrarModal(id);
+});
+
+// Cerrar al hacer click fuera (overlay)
+document.addEventListener("click", (e) => {
   const t = e.target;
-  if (t?.classList?.contains("modal-overlay")) t.style.display = "none";
+  if (t?.classList?.contains("modal-overlay")) {
+    t.style.display = "none";
+    t.setAttribute("aria-hidden", "true");
+  }
+});
+
+// Cerrar con ESC (opcional)
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  const openModal = document.querySelector(
+    '.modal-overlay[style*="display: flex"]',
+  );
+  if (openModal) {
+    openModal.style.display = "none";
+    openModal.setAttribute("aria-hidden", "true");
+  }
 });
 
 /* =========================
@@ -347,7 +625,7 @@ byId("btn-google-registro")?.addEventListener("click", () => {
   if (!planSel) {
     setError(
       "reg-error",
-      "Debes seleccionar un plan antes de registrarte con Google.",
+      "Debes seleccionar un curso o especialidad antes de registrarte con Google.",
     );
     return;
   }
@@ -357,27 +635,128 @@ byId("btn-google-registro")?.addEventListener("click", () => {
 
 byId("btn-validar-ingreso")?.addEventListener("click", loginEmail);
 
-byId("btn-google-login")?.addEventListener("click", () => signInGoogle({}));
+// byId("btn-google-login")?.addEventListener("click", () => signInGoogle({}));
+byId("btn-google-login")?.addEventListener("click", () => {
+  setError("login-error", "");
+  setError("google-nivel-error", "");
+  abrirModal("modal-google-nivel");
+});
+
 
 byId("btn-reset-pass")?.addEventListener("click", resetPassword);
 
 byId("btn-olvido")?.addEventListener("click", resetPassword);
 
+byId("btnLogout")?.addEventListener("click", async () => {
+  await signOut(auth);
+});
+
+byId("btnLogout2")?.addEventListener("click", async () => {
+  await signOut(auth);
+});
+
+
+
+byId("btn-google-nivel-next")?.addEventListener("click", async () => {
+  setError("google-nivel-error", "");
+
+  const planSel = val("google-plan"); // select del modal intermedio
+
+  if (!planSel) {
+    setError("google-nivel-error", "Selecciona un nivel antes de continuar.");
+    return;
+  }
+
+  cerrarModal("modal-google-nivel");
+  await signInGoogle({ planSel }); // ✅ ahora sí con nivel
+});
+
 /* =========================
    Auto-login si ya estaba logueado (y asegura perfil)
 ========================= */
+
+// helpers de plan (colócalos una sola vez en tu archivo)
+function planLabel(estado) {
+  if (estado === "anual") return "Anual";
+  if (estado === "trimestral") return "Trimestral";
+  return "Gratis";
+}
+function planNote(estado) {
+  if (estado === "anual") return "Acceso anual";
+  if (estado === "trimestral") return "Acceso por trimestres";
+  return "Acceso básico";
+}
+
+function paintProfileUI(profile) {
+  if (!profile) return;
+
+  // Sidebar
+  byId("userName") &&
+    (byId("userName").textContent = profile.displayName || "Usuario");
+  byId("userEmail") && (byId("userEmail").textContent = profile.correo || "");
+  byId("sidebarPlan") &&
+    (byId("sidebarPlan").textContent = planLabel(profile.estado));
+  byId("sidebarPlanNote") &&
+    (byId("sidebarPlanNote").textContent = planNote(profile.estado));
+
+  // Vista Perfil
+  byId("perfilNombre") &&
+    (byId("perfilNombre").textContent = profile.displayName || "Usuario");
+  byId("perfilEmail") &&
+    (byId("perfilEmail").textContent = profile.correo || "");
+  byId("perfilPlan") &&
+    (byId("perfilPlan").textContent = planLabel(profile.estado));
+
+  // Admin button
+  const btnAdmin = byId("btnAdmin");
+  if (btnAdmin) {
+    btnAdmin.classList.toggle("d-none", !profile.isAdmin);
+    if (profile.isAdmin)
+      btnAdmin.onclick = () => (window.location.href = "admin.html");
+  }
+}
+
+// auth.js
+let __profileCache = { value: null, ts: 0 };
+const PROFILE_TTL_MS = 60_000; // 1 min
+
+async function fetchMyProfileCached() {
+  const now = Date.now();
+  if (__profileCache.value && now - __profileCache.ts < PROFILE_TTL_MS) {
+    return __profileCache.value;
+  }
+  const profile = await fetchMyProfile();
+  __profileCache = { value: profile, ts: now };
+  return profile;
+}
+
+
 onAuthStateChanged(auth, async (user) => {
-  if (!firstAuthState) return;
-  firstAuthState = false;
+  isAuthed = !!user;
+  setAuthUI(isAuthed, user);
 
   if (!user) return;
-  if (isAuthActionRunning) return;
 
+  // ✅ NO crear/asegurar perfil aquí (evita crear doc vacío o dejar nivel/permisos en blanco)
+
+  // ✅ traer perfil REAL desde Cloud Function y pintar UI
   try {
-    await ensureUserProfile(user, {});
-    window.location.href = "dashboard.html";
-  } catch (e) {
-    console.error("❌ No se pudo asegurar perfil:", e);
-    setError("login-error", firebaseErrorToText(e));
+    const profile = await fetchMyProfileCached();
+    paintProfileUI(profile);
+  } catch (err) {
+    console.warn("⚠️ No se pudo cargar getMyProfile:", err);
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const view = params.get("view");
+
+  if (!view) return;
+
+  const btn = document.querySelector(`.side-link[data-view="${view}"]`);
+  if (btn) {
+    btn.click();
   }
 });

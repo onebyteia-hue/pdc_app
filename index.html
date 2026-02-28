@@ -2,66 +2,1053 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PDC Bolivia 2026 - Acceso</title>
+    <title>Mi App - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Bootstrap (como tu modelo) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@1,500&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
 
+    <!-- AOS (animaciones) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Estilos Home -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="actions-container">
-      <div class="logo-relief-float">
-        <img src="imag/ic_logo.png" alt="Logo PDC" class="img-logo" />
-      </div>
-
-      <div class="login-card">
-        <div class="ministerio-frame">
-          <img
-            src="imag/ic_logo_ministerio.jpg"
-            alt="Ministerio de Educación"
-            class="img-banner-full"
-          />
-        </div>
-
-        <div class="text-header">
-          <h1 class="txt-ministerio">Ministerio de Educación</h1>
-          <h3 class="txt-orientaciones">Orientaciones Curriculares 2026</h3>
-          <p class="txt-elaboracion">
-            Elaboración de la Planificación de Desarrollo Curricular
-          </p>
-        </div>
-
-        <div class="button-container">
-          <div class="button-group">
-            <span class="btn-label">¿Aún no tienes cuenta? ¡Click aquí!</span>
-            <button
-              type="button"
-              onclick="abrirModal('modal-registro')"
-              class="btn-secundario"
-            >
-              REGISTRARSE
-            </button>
-          </div>
-
-          <div class="button-group">
-            <span class="btn-label">Si ya eres usuario autorizado:</span>
-            <button
-              type="button"
-              onclick="abrirModal('modal-login')"
-              class="btn-primario"
-            >
-              Ingresar al Sistema
-            </button>
+    <div class="app-shell">
+      <!-- SIDEBAR (panel lateral fijo) -->
+      <aside id="sidebar" class="app-sidebar">
+        <div class="brand" data-aos="fade-right">
+          <div class="brand-text">
+            
+            <div class="brand-title">MI PLANIFICACIÓN</div>
+            <div class="brand-sub">Yo Docente</div>
           </div>
         </div>
-      </div>
+
+        <!-- Datos del usuario en el encabezado -->
+        <div class="user-box" data-aos="fade-right" data-aos-delay="120">
+          <div class="user-name" id="titulo">USUARIO</div>
+          <div class="user-name" id="userName">Nombre Completo</div>
+          <div class="user-email" id="userEmail">Correo-@</div>
+
+          <!-- Botón Admin (solo visible si es admin) -->
+          
+
+        </div>
+
+        <!-- Menú lateral solicitado -->
+        <nav class="side-nav" data-aos="fade-right" data-aos-delay="220">
+          <button class="side-link active" data-view="principal">
+            🏠 Vista principal
+          </button>
+
+          <button class="side-link" data-view="inicial">
+            📚 INICIAL EN FAMILIA COMUNITARIA
+          </button>
+          <button class="side-link" data-view="primaria">
+            📚 PRIMARIA COMUNITARIA VOCACIONAL
+          </button>
+          <button class="side-link" data-view="secundaria">
+            📚 SECUNDARIA COMUNITARIA PRODUCTIVA
+          </button>
+          <button class="side-link" data-view="about">ℹ️ Quiénes somos</button>
+          <button class="side-link" data-view="perfil">👤 Perfil</button>
+        </nav>
+        <div
+          id="planBox"
+          class="plan-box"
+          data-aos="fade-right"
+          data-aos-delay="320"
+        >
+          <div class="plan-title">Plan actual</div>
+          <div class="plan-row">
+            <div class="plan-badge" id="sidebarPlan">Cargando..</div>
+            <div class="plan-meta">
+              
+              
+            </div>
+          </div>
+        </div>
+        <button id="btnAdmin" class="side-link d-none" type="button">
+  PANEL ADMIN
+</button>
+
+        <!-- Reemplaza el div#btnLogout completo por: -->
+<button id="btnLogout" class="plan-box d-none" type="button" aria-label="Cerrar sesión">
+  <div class="plan-row" style="margin-top:15px;display:flex;justify-content:center;padding-bottom:15px;">
+    <div class="plan-badge-c">🚪 Cerrar sesión</div>
+  </div>
+</button>
+
+
+        <div class="side-footer">
+          <small>© 2026 ADANEX</small>
+        </div>
+      </aside>
+
+      <!-- MAIN (ventana principal) -->
+      <main class="app-main">
+        <header class="topbar">
+          <div class="topbar-inner">
+            <div class="topbar-left">
+              <span class="topbar-title">Inicio</span>
+            </div>
+
+            <div class="topbar-right">
+              
+
+
+
+              <button
+              id="btnShowRegister"
+              type="button"
+                class="btn btn-outline-dark btn-sm topbar-btn"
+                data-modal="modal-registro"
+                
+              >
+                REGISTRATE
+              </button>
+
+              <button
+              id="btnShowLogin"
+                class="btn btn-primary btn-sm topbar-btn"
+                type="button"
+                data-modal="modal-login"
+
+              >
+                INGRESAR
+              </button>
+
+              
+            </div>
+          </div>
+        </header>
+        <section class="app-content">
+          <!-- =================== VISTA PRINCIPAL =================== -->
+          <section id="view-principal" class="view active">
+            <div class="hero-section d-flex align-items-center">
+              <div class="container">
+                <div
+                  class="row align-items-center flex-column-reverse flex-lg-row text-center text-lg-start"
+                >
+                  <div class="col-lg-6">
+                    <h1 class="hero-title" data-aos="fade-up">
+                      Plataforma Docente ADANEX
+                    </h1>
+                    <p
+                      class="hero-subtitle"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    >
+                      Elabora PDC, evaluaciones cualitativas/cuantitativas y
+                      gestiona tu banco de contenidos con asistencia de IA,
+                      alineado al modelo educativo vigente.
+                    </p>
+                  </div>
+
+                  <div class="col-lg-6 text-center">
+                    <img
+                      src="imag/ic_logo_min.png"
+                      class="img-fluid hero-img-a"
+                      alt="hero"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cards estilo "games-section" -->
+            <section class="games-section">
+              <div class="container">
+                <!-- TÍTULO -->
+                <div class="row mb-4">
+                  <div class="col-12 text-center">
+                    <h2 class="titulo-seccion">SISTEMA DE EDUCACIÓN REGULAR</h2>
+                  </div>
+                </div>
+                <div class="row g-4">
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="240"
+                  >
+                    <button
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-view="inicial"
+                    >
+                      <img
+                        src="imag/ic_ini.png"
+                        alt="Generar PDC"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">
+                          INICIAL EN FAMILIA COMUNITARIA
+                        </div>
+                        <div class="game-sub">Ir a mi planificación</div>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="col-12 col-md-4" data-aos="zoom-in">
+                    <button
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-view="primaria"
+                    >
+                      <img
+                        src="imag/ic_prim.png"
+                        alt="Generar PDC"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">
+                          PRIMARIA COMUNITARIA VOCACIONAL
+                        </div>
+                        <div class="game-sub">Ir a mi planificacióna</div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="120"
+                  >
+                    <button
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-view="secundaria"
+                    >
+                      <img
+                        src="imag/ic_sec.png"
+                        alt="Generar PDC"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">
+                          SECUNDARIA COMUNITARIA PRODUCTIVA
+                        </div>
+                        <div class="game-sub">Ir al generador en Dashboard</div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="about-section text-center" data-aos="fade-up">
+              <div class="container">
+                <h2>Planificación curricular con IA</h2>
+                <p>
+                  ADANEX desarrolla esta plataforma para facilitar
+                  planificaciones curriculares (PDC), evaluaciones y
+                  adaptaciones curriculares con plantillas y asesoría de IA.
+                </p>
+              </div>
+            </section>
+          </section>
+
+          <!-- =================== EDUCACIÓN INICIAL EN FAMILIA COMUNITARIA =================== -->
+          <section id="view-inicial" class="view">
+            <div class="hero-section d-flex align-items-center">
+              <div class="container">
+                <div
+                  class="row align-items-center flex-column-reverse flex-lg-row text-center text-lg-start"
+                >
+                  <div class="col-lg-7">
+                    <div class="level-badge" data-aos="fade-up">INICIAL</div>
+                    <h1
+                      class="hero-title"
+                      data-aos="fade-up"
+                      data-aos-delay="120"
+                    >
+                      Educación Inicial en Familia Comunitaria
+                    </h1>
+                    <p
+                      class="hero-subtitle"
+                      data-aos="fade-up"
+                      data-aos-delay="220"
+                    >
+                      Planificación por experiencias, juego, exploración y
+                      participación familiar.
+                    </p>
+                  </div>
+                  <div class="col-lg-5 text-center">
+                    <img
+                      src="imag/ic_inicial.jpg"
+                      class="img-fluid hero-img"
+                      alt="Educación Inicial en Familia Comunitaria"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <section class="games-section">
+              <div class="container">
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <h2 class="titulo-seccion" data-aos="fade-up">
+                      Accesos rápidos
+                    </h2>
+                    <p
+                      class="seccion-sub"
+                      data-aos="fade-up"
+                      data-aos-delay="120"
+                    >
+                      Crea planificaciones, genera recursos y evalúa en pocos
+                      pasos.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row g-4">
+                  <div class="col-12 col-md-4" data-aos="zoom-in">
+                    <button
+                      data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="inicial-ai.html"
+                    >
+                      <img
+                        src="imag/ic_all_pdc.png"
+                        alt="Planificación"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Planificación Simple (PDC)</div>
+                        <div class="game-sub">
+                          Objetivos, Contenidos, Actividades y Criterios de evaluación  
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="120"
+                  >
+                    <button
+                      data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="ini-pdc-ia.html"
+                    >
+                      <img
+                        src="imag/ic_ia_pdc.png"
+                        alt="Recursos"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Planificacón de (PDC) con Asistencia IA</div>
+                        <div class="game-sub">
+                          Elabore su (PDC) paso a paso, con la ayuda de tu IA...
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="240"
+                  >
+                    <button
+                    data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="dashboard.html"
+                    >
+                      <img
+                        src="imag/ic_eval.png"
+                        alt="Evaluación"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Crea tu Evaluación</div>
+                        <div class="game-sub">
+                          Construye tus instrumentos, rúbricas y evidencias...
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row mt-4 g-3">
+                  <div class="col-12 col-lg-4" data-aos="fade-up">
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-go="dashboard.html"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Abrir banco de contenidos"
+                    >
+                      <div class="mini-title">Sugerido</div>
+                      <h5 class="mb-2">Banco de contenidos</h5>
+                      <p class="text-muted mb-0">
+                        Organiza por mes, área y criterio de evaluación.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-lg-4"
+                    data-aos="fade-up"
+                    data-aos-delay="120"
+                  >
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-view="about"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Ver enfoque intra/intercultural"
+                    >
+                      <div class="mini-title">Documentación</div>
+                      <h5 class="mb-2">Resolucion Ministerial</h5>
+                      <p class="text-muted mb-0">
+                        Integra contexto local y plurilingüismo en tus
+                        actividades.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-lg-4"
+                    data-aos="fade-up"
+                    data-aos-delay="240"
+                  >
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-go="dashboard.html"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Abrir plantillas"
+                    >
+                      <div class="mini-title">Ejemplos de  PDC</div>
+                      <h5 class="mb-2">Plantillas Editables</h5>
+                      <p class="text-muted mb-0">
+                        Reutiliza PDCs elaborados para ahorrar tiempo.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <!-- =================== PRIMARIA COMUNITARIA VOCACIONAL =================== -->
+          <section id="view-primaria" class="view">
+            <div class="hero-section d-flex align-items-center">
+              <div class="container">
+                <div
+                  class="row align-items-center flex-column-reverse flex-lg-row text-center text-lg-start"
+                >
+                  <div class="col-lg-7">
+                    <div class="level-badge" data-aos="fade-up">PRIMARIA</div>
+                    <h1
+                      class="hero-title"
+                      data-aos="fade-up"
+                      data-aos-delay="120"
+                    >
+                      Primaria Comunitaria Vocacional
+                    </h1>
+                    <p
+                      class="hero-subtitle"
+                      data-aos="fade-up"
+                      data-aos-delay="220"
+                    >
+                      Diseña secuencias didácticas por áreas, con evaluación
+                      formativa y proyectos.
+                    </p>
+                  </div>
+                  <div class="col-lg-5 text-center">
+                    <img
+                      src="imag/ic_primaria.png"
+                      class="img-fluid hero-img"
+                      alt="Primaria Comunitaria Vocacional"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <section class="games-section">
+              <div class="container">
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <h2 class="titulo-seccion" data-aos="fade-up">
+                      Accesos rápidos
+                    </h2>
+                    <p
+                      class="seccion-sub"
+                      data-aos="fade-up"
+                      data-aos-delay="120"
+                    >
+                      Crea planificaciones, genera recursos y evalúa en pocos
+                      pasos.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row g-4">
+                  <div class="col-12 col-md-4" data-aos="zoom-in">
+                    <button
+                    data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="dashboard-prim-completo.html"
+                    >
+                      <img
+                        src="imag/ic_all_pdc.png"
+                        alt="Planificación"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Planificación Asistida con IA - (PDC) </div>
+                        <div class="game-sub">
+                          Objetivos, Contenidos, Actividades y Adaptaciones.
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="120"
+                  >
+                    <button
+                    data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="dashboard-prim-asistencia.html"
+                    >
+                      <img
+                        src="imag/ic_ia_pdc.png"
+                        alt="Recursos"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Planificación Personalizada con IA - (PDC) </div>
+                        <div class="game-sub">
+                          Elabora tu PDC con la ayuda de tu Asistente personal.
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="240"
+                  >
+                    <button
+                    data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="dashboard.html"
+                    >
+                      <img
+                        src="imag/ic_eval.png"
+                        alt="Evaluación"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Evaluación</div>
+                        <div class="game-sub">
+                          Instrumentos, rúbricas y evidencias
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row mt-4 g-3">
+                  <div class="col-12 col-lg-4" data-aos="fade-up">
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-go="dashboard.html"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Abrir banco de contenidos"
+                    >
+                      <div class="mini-title">Sugerido</div>
+                      <h5 class="mb-2">Banco de contenidos</h5>
+                      <p class="text-muted mb-0">
+                        Organiza por mes, área y criterio de evaluación.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-lg-4"
+                    data-aos="fade-up"
+                    data-aos-delay="120"
+                  >
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-view="about"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Ver enfoque intra/intercultural"
+                    >
+                      <div class="mini-title">Mejor práctica</div>
+                      <h5 class="mb-2">Enfoque intra/intercultural</h5>
+                      <p class="text-muted mb-0">
+                        Integra contexto local y plurilingüismo en tus
+                        actividades.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                  
+                    class="col-12 col-lg-4"
+                    data-aos="fade-up"
+                    data-aos-delay="240"
+                  >
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-go="dashboard.html"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Abrir plantillas"
+                    >
+                      <div class="mini-title">Atajo</div>
+                      <h5 class="mb-2">Plantillas listas</h5>
+                      <p class="text-muted mb-0">
+                        Reutiliza estructuras para ahorrar tiempo.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <!-- =================== SECUNDARIA COMUNITARIA PRODUCTIVA =================== -->
+          <section id="view-secundaria" class="view">
+            <div class="hero-section d-flex align-items-center">
+              <div class="container">
+                <div
+                  class="row align-items-center flex-column-reverse flex-lg-row text-center text-lg-start"
+                >
+                  <div class="col-lg-7">
+                    <div class="level-badge" data-aos="fade-up">SECUNDARIA</div>
+                    <h1
+                      class="hero-title"
+                      data-aos="fade-up"
+                      data-aos-delay="120"
+                    >
+                      Secundaria Comunitaria Productiva
+                    </h1>
+                    <p
+                      class="hero-subtitle"
+                      data-aos="fade-up"
+                      data-aos-delay="220"
+                    >
+                      Planifica por unidades y proyectos productivos, con
+                      criterios e indicadores claros.
+                    </p>
+                  </div>
+                  <div class="col-lg-5 text-center">
+                    <img
+                      src="imag/ic_secundaria.png"
+                      class="img-fluid hero-img"
+                      alt="Secundaria Comunitaria Productiva"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <section class="games-section">
+              <div class="container">
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <h2 class="titulo-seccion" data-aos="fade-up">
+                      Accesos rápidos
+                    </h2>
+                    <p
+                      class="seccion-sub"
+                      data-aos="fade-up"
+                      data-aos-delay="120"
+                    >
+                      Crea planificaciones, genera recursos y evalúa en pocos
+                      pasos.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row g-4">
+                  <div class="col-12 col-md-4" data-aos="zoom-in">
+                    <button
+                    data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="dashboard.html"
+                    >
+                      <img
+                        src="imag/ic_all_pdc.png"
+                        alt="Planificación"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Planificación (PDC)</div>
+                        <div class="game-sub">
+                          Objetivos, contenidos y actividades
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="120"
+                  >
+                    <button
+                    data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="dashboard.html"
+                    >
+                      <img
+                        src="imag/ic_ia_pdc.png"
+                        alt="Recursos"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Recursos didácticos</div>
+                        <div class="game-sub">
+                          Fichas, guías y material imprimible
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div
+                    class="col-12 col-md-4"
+                    data-aos="zoom-in"
+                    data-aos-delay="240"
+                  >
+                    <button
+                    data-auth="required"
+                      class="game-card w-100 d-flex align-items-center gap-3"
+                      data-go="dashboard.html"
+                    >
+                      <img
+                        src="imag/ic_eval.png"
+                        alt="Evaluación"
+                        class="game-img-side"
+                      />
+                      <div>
+                        <div class="game-info">Evaluación</div>
+                        <div class="game-sub">
+                          Instrumentos, rúbricas y evidencias
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row mt-4 g-3">
+                  <div class="col-12 col-lg-4" data-aos="fade-up">
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-go="dashboard.html"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Abrir banco de contenidos"
+                    >
+                      <div class="mini-title">Sugerido</div>
+                      <h5 class="mb-2">Banco de contenidos</h5>
+                      <p class="text-muted mb-0">
+                        Organiza por mes, área y criterio de evaluación.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-lg-4"
+                    data-aos="fade-up"
+                    data-aos-delay="120"
+                  >
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-view="about"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Ver enfoque intra/intercultural"
+                    >
+                      <div class="mini-title">Mejor práctica</div>
+                      <h5 class="mb-2">Enfoque intra/intercultural</h5>
+                      <p class="text-muted mb-0">
+                        Integra contexto local y plurilingüismo en tus
+                        actividades.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="col-12 col-lg-4"
+                    data-aos="fade-up"
+                    data-aos-delay="240"
+                  >
+                    <div
+                    data-auth="required"
+                      class="glass-card p-4 click-card"
+                      data-go="dashboard.html"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Abrir plantillas"
+                    >
+                      <div class="mini-title">Atajo</div>
+                      <h5 class="mb-2">Plantillas listas</h5>
+                      <p class="text-muted mb-0">
+                        Reutiliza estructuras para ahorrar tiempo.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          
+
+          <!-- =================== QUIÉNES SOMOS =================== -->
+          <section id="view-about" class="view">
+            <div class="container py-4">
+              <div class="row align-items-start g-3">
+                <div class="col-12 col-lg-7">
+                  <h2 data-aos="fade-up">Quiénes somos</h2>
+                  <p class="text-muted" data-aos="fade-up" data-aos-delay="120">
+                    Plataforma de productividad docente para planificar, generar
+                    recursos y evaluar con calidad.
+                  </p>
+
+                  <div
+                    class="glass-card p-4 mt-3"
+                    data-aos="fade-up"
+                    data-aos-delay="220"
+                  >
+                    <div class="mini-title">Qué hace la plataforma</div>
+                    <h5 class="mb-2">Apoyo integral a docentes</h5>
+                    <p class="text-muted mb-0">
+                      Facilita la elaboración de
+                      <strong>planificaciones curriculares</strong> con las
+                      nuevas orientaciones del Ministerio de Educación, la
+                      creación de
+                      <strong>evaluaciones cualitativas y cuantitativas</strong>
+                      en base a contenidos, y el uso de un
+                      <strong>banco de contenidos</strong>.
+                    </p>
+                  </div>
+
+                  <div
+                    class="glass-card p-4 mt-3"
+                    data-aos="fade-up"
+                    data-aos-delay="220"
+                  >
+                    <div class="mini-title">Misión</div>
+                    <h5 class="mb-2">Hacer simple la planificación</h5>
+                    <p class="text-muted mb-0">
+                      Reducimos el tiempo administrativo para que te enfoques en
+                      la enseñanza y el aprendizaje.
+                    </p>
+                  </div>
+
+                  <div
+                    class="glass-card p-4 mt-3"
+                    data-aos="fade-up"
+                    data-aos-delay="320"
+                  >
+                    <div class="mini-title">Visión</div>
+                    <h5 class="mb-2">Calidad y coherencia curricular</h5>
+                    <p class="text-muted mb-0">
+                      Herramientas alineadas al enfoque socio-comunitario
+                      productivo y al contexto boliviano.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                  <div class="glass-card p-4" data-aos="zoom-in">
+                    <div class="mini-title">Soporte</div>
+                    <h5 class="mb-2">Canales de ayuda</h5>
+                    <ul class="clean-list mb-0 text-muted">
+                      <li>Centro de ayuda / Preguntas frecuentes</li>
+                      <li>Contacto por WhatsApp / correo</li>
+                      <li>Reportar un problema o sugerencia</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="glass-card p-4 mt-3"
+                    data-aos="zoom-in"
+                    data-aos-delay="120"
+                  >
+                    <div class="mini-title">Seguridad</div>
+                    <h5 class="mb-2">Protección de datos</h5>
+                    <p class="text-muted mb-0">
+                      Buenas prácticas de acceso y control de roles para
+                      resguardar tu información.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="glass-card p-4 mt-3"
+                data-aos="fade-up"
+                data-aos-delay="320"
+              >
+                <div class="mini-title">Planificación con IA</div>
+                <h5 class="mb-2">Paso a paso o completo</h5>
+                <ul class="clean-list text-muted">
+                  <li>
+                    PDC paso a paso con asistencia de IA (contenidos y áreas a
+                    elección).
+                  </li>
+                  <li>PDC completo listo para imprimir.</li>
+                  <li>
+                    Adaptaciones curriculares desde diferentes enfoques (manual
+                    o con ayuda de IA).
+                  </li>
+                  <li>
+                    Evaluaciones según plantillas predefinidas (cuali/cuanti).
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="glass-card p-4 mt-3"
+                data-aos="fade-up"
+                data-aos-delay="420"
+              >
+                <div class="mini-title">Conclusión</div>
+                <h5 class="mb-2">Modelo educativo vigente</h5>
+                <p class="text-muted mb-0">
+                  Una plataforma de apoyo que reduce el tiempo administrativo y
+                  mejora la coherencia curricular en el marco del modelo
+                  educativo vigente.
+                </p>
+              </div>
+
+              <div
+                class="glass-card p-4 mt-3"
+                data-aos="zoom-in"
+                data-aos-delay="180"
+              >
+                <div class="mini-title">Contacto</div>
+                <h5 class="mb-2">Soporte y consultas</h5>
+                <div class="contact-grid text-muted">
+                  <div class="contact-label">Cel</div>
+                  <div class="contact-value">79398606</div>
+                  <div class="contact-label">Correo</div>
+                  <div class="contact-value">onebyte.ia@gmail.com</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =================== PERFIL =================== -->
+          <section id="view-perfil" class="view">
+            <div class="container py-4">
+              <div
+                class="d-flex align-items-start justify-content-between flex-wrap gap-2"
+              >
+                <div>
+                  <h2 data-aos="fade-up">Perfil</h2>
+                  <p class="text-muted" data-aos="fade-up" data-aos-delay="120">
+                    Revisa tu información, plan actual y accesos.
+                  </p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="180">
+                  <span class="pill">Cuenta</span>
+                  <span class="pill pill-accent">Plan</span>
+                </div>
+              </div>
+
+              <div class="row g-3 mt-2">
+                <div class="col-12 col-lg-6" data-aos="zoom-in">
+                  <div class="glass-card p-4">
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">Nombre</span>
+                      <strong id="perfilNombre">Usuario</strong>
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">Correo</span>
+                      <strong id="perfilEmail">correo@dominio.com</strong>
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">Plan</span>
+                      <strong id="perfilPlan">Gratis</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="col-12 col-lg-6"
+                  data-aos="zoom-in"
+                  data-aos-delay="120"
+                >
+                  <div class="glass-card p-4">
+                    <div class="mini-title">Acciones</div>
+                    <h5 class="mb-2">Gestión de cuenta</h5>
+                    <div class="row g-2">
+                      
+                      
+                    </div>
+                    <hr />
+                    <p class="text-muted mb-0">
+                      Próximamente: cambiar contraseña, editar foto y gestionar
+                      notificaciones.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3 mt-3">
+                <div class="col-12 col-md-4" data-aos="fade-up">
+                  <div class="glass-card p-4">
+                    <div class="mini-title">Uso</div>
+                    <h6 class="mb-1">Planificaciones</h6>
+                    <p class="text-muted mb-0">Historial y accesos rápidos.</p>
+                  </div>
+                </div>
+                <div
+                  class="col-12 col-md-4"
+                  data-aos="fade-up"
+                  data-aos-delay="120"
+                >
+                  <div class="glass-card p-4">
+                    <div class="mini-title">Preferencias</div>
+                    <h6 class="mb-1">Nivel / área</h6>
+                    <p class="text-muted mb-0">
+                      Configura tu enfoque por defecto.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="col-12 col-md-4"
+                  data-aos="fade-up"
+                  data-aos-delay="240"
+                >
+                  <div class="glass-card p-4">
+                    <div class="mini-title">Ayuda</div>
+                    <h6 class="mb-1">Soporte</h6>
+                    <p class="text-muted mb-0">
+                      Resuelve dudas o reporta fallas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
     </div>
 
     <!-- Modal Registro -->
@@ -72,18 +1059,28 @@
         <p>Ingrese su datos. ¡Aqui!</p>
 
         <div class="input-group">
-          <input type="text" id="reg-nombre" placeholder="Nombre(s)" />
+          <label class="visually-hidden" for="reg-nombre">Nombre(s)</label>
+          <input type="text" id="reg-nombre" placeholder="Nombre(s)"  />
+          <label class="visually-hidden" for="reg-apellido">Apellido(s)</label>
           <input type="text" id="reg-apellido" placeholder="Apellido(s)" />
+          <label class="visually-hidden" for="reg-correo">Correo electrónico</label>
           <input type="email" id="reg-correo" placeholder="Correo Electrónico" />
+          <label class="visually-hidden" for="reg-pass">Contraseña</label>
           <input type="password" id="reg-pass" placeholder="Contraseña (mín. 6 caracteres)" />
+          <label class="visually-hidden" for="reg-pass2">Repetir contraseña</label>
           <input type="password" id="reg-pass2" placeholder="Repetir contraseña" />
 
-          <label class="btn-label" style="margin-top: 10px; display: block">
+          <label class="btn-label" for="reg-plan" style="margin-top:10px; display:block">
             ELEGIR SU AÑO DE ESCOLARIDAD O ESPECIALIDAD
           </label>
 
           <select id="reg-plan" style="width: 100%; margin-top: 6px">
             <option value="">-- Seleccionar --</option>
+            <optgroup label="Inicial (Año de escolaridad)">
+              <option value="ini:ini_1ro">Inicial 1er Año</option>
+              <option value="ini:ini_2do">Inicial 2do Año</option>
+              
+            </optgroup>
 
             <optgroup label="Primaria (Año de escolaridad)">
               <option value="prim:prim_1ro">1ro de Primaria</option>
@@ -119,7 +1116,7 @@
 
           <button
             type="button"
-            onclick="cerrarModal('modal-registro')"
+            data-close-modal="modal-registro"
             class="btn-cancelar"
           >
             Cerrar Ventana
@@ -130,17 +1127,17 @@
       </div>
     </div>
 
-    <!-- Modal Login -->
+<!-- Modal Login -->
     <div id="modal-login" class="modal-overlay" aria-hidden="true">
       <div class="modal-content" role="dialog" aria-modal="true" aria-label="Acceso Docente">
         <h2>Acceso a Maestros Registrados</h2>
         <p>Ingrese sus credenciales autorizadas</p>
 
         <div class="input-group">
-          <span class="btn-label">Ingrese Su Correo</span>
+          <label class="visually-hidden" for="login-email">Correo electrónico</label>
           <input type="email" id="login-email" placeholder="Correo electrónico" />
 
-          <span class="btn-label">Ingrese su contraseña</span>
+          <label class="visually-hidden" for="login-pass">Contraseña</label>
           <input type="password" id="login-pass" placeholder="Código de acceso" />
         </div>
 
@@ -159,7 +1156,7 @@
           <div id="reset-msg" class="mensaje"></div>
 
 
-          <button type="button" onclick="cerrarModal('modal-login')" class="btn-cancelar">
+          <button type="button" data-close-modal="modal-login" class="btn-cancelar">
             Cancelar
           </button>
         </div>
@@ -167,22 +1164,75 @@
         <div id="login-error" class="form-error" role="alert" aria-live="polite"></div>
       </div>
     </div>
+    <!-- Modal Google: elegir nivel antes de ingresar -->
+<div id="modal-google-nivel" class="modal-overlay" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-label="Seleccionar nivel">
+    <h2>Selecciona tu nivel</h2>
+    <p>Antes de ingresar con Google, elige tu año o especialidad.</p>
 
-    <!-- WhatsApp -->
-    <a
-      href="https://wa.me/59179398606?text=Hola,%20quiero%20solicitar%20acceso%20al%20sistema%20de%20Elaboración%20de%20PDC%202026"
-      class="whatsapp-rect"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg viewBox="0 0 32 32" class="whatsapp-icon-small" aria-hidden="true">
-        <path
-          d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.016 7.787l-2.016 7.413 7.588-1.991c2.252 1.189 4.814 1.864 7.532 1.864 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.433 0-4.717-0.613-6.721-1.688l-0.481-0.256-4.484 1.176 1.196-4.393-0.281-0.448c-1.193-1.907-1.895-4.167-1.895-6.591 0-7.363 5.971-13.333 13.333-13.333s13.333 5.971 13.333 13.333-5.971 13.333-13.333 13.333zM22.519 19.344c-0.357-0.18-2.112-1.041-2.441-1.161-0.331-0.12-0.569-0.18-0.809 0.18-0.24 0.357-0.925 1.161-1.133 1.397-0.209 0.24-0.417 0.269-0.773 0.091-0.357-0.18-1.507-0.556-2.871-1.768-1.060-0.944-1.776-2.112-1.984-2.469-0.209-0.357-0.021-0.551 0.157-0.728 0.161-0.16 0.357-0.417 0.536-0.627 0.18-0.209 0.24-0.357 0.357-0.597 0.12-0.24 0.060-0.448-0.031-0.627s-0.809-1.944-1.109-2.672c-0.292-0.707-0.589-0.611-0.809-0.621-0.209-0.009-0.448-0.009-0.688-0.009s-0.627 0.091-0.955 0.448c-0.331 0.357-1.259 1.229-1.259 2.997s1.289 3.483 1.469 3.723c0.18 0.24 2.536 3.872 6.141 5.432 0.857 0.369 1.527 0.591 2.048 0.757 0.861 0.273 1.645 0.235 2.264 0.143 0.691-0.103 2.112-0.861 2.412-1.693s0.3-1.541 0.209-1.693c-0.089-0.152-0.329-0.24-0.687-0.42z"
-        ></path>
-      </svg>
-      <span>Contáctenos</span>
-    </a>
+    <div class="input-group">
+      <label class="btn-label" for="google-plan" style="margin-top:10px; display:block">
+        ELEGIR SU AÑO DE ESCOLARIDAD O ESPECIALIDAD
+      </label>
 
-    <script type="module" src="auth.js"></script>
+      <select id="google-plan" style="width: 100%; margin-top: 6px">
+        <!-- Copia aquí el mismo contenido de <select id="reg-plan"> -->
+        <option value="">-- Seleccionar --</option>
+
+        <optgroup label="Inicial (Año de escolaridad)">
+          <option value="ini:ini_1ro">Inicial 1er Año</option>
+          <option value="ini:ini_2do">Inicial 2do Año</option>
+        </optgroup>
+
+        <optgroup label="Primaria (Año de escolaridad)">
+          <option value="prim:prim_1ro">1ro de Primaria</option>
+          <option value="prim:prim_2do">2do de Primaria</option>
+          <option value="prim:prim_3ro">3ro de Primaria</option>
+          <option value="prim:prim_4to">4to de Primaria</option>
+          <option value="prim:prim_5to">5to de Primaria</option>
+          <option value="prim:prim_6to">6to de Primaria</option>
+        </optgroup>
+
+        <optgroup label="Secundaria (Especialidad / Área)">
+          <option value="sec:VAL_01">Valores, Espiritualidades y Religiones</option>
+          <option value="sec:LENG_02">Comunicación y Lenguajes</option>
+          <option value="sec:SOC_03">Ciencias Sociales</option>
+          <option value="sec:ART_04">Artes Plásticas y Visuales</option>
+          <option value="sec:EFD_05">Educación Física y Deportes</option>
+          <option value="sec:MUS_06">Educación Musical</option>
+          <option value="sec:CNA_07">Ciencias Naturales</option>
+          <option value="sec:MAT_08">Matemática</option>
+          <option value="sec:TEC_09">Técnica Tecnológica</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="modal-buttons">
+      <button id="btn-google-nivel-next" class="btn-primario" type="button">
+        Siguiente
+      </button>
+
+      <button type="button" data-close-modal="modal-google-nivel" class="btn-cancelar">
+        Cancelar
+      </button>
+    </div>
+
+    <div id="google-nivel-error" class="form-error" role="alert" aria-live="polite"></div>
+  </div>
+</div>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+
+    <!-- Home JS -->
+    <script type="module" src="./auth.js"></script>
   </body>
 </html>

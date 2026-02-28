@@ -15,7 +15,7 @@
     <div class="dash-wrapper">
       <aside class="dash-sidebar">
         <div class="dash-header">
-          <h2 class="txt-ministerio">Planificación PDC</h2>
+          <h2 class="txt-ministerio">PDC Personalizado</h2>
           <div class="tab-nav">
             <button class="tab-btn active" id="btn-tab-1" type="button">
               1. Datos
@@ -55,15 +55,10 @@
             </div>
             <div class="input-group">
               <label>Nivel</label>
-              <select id="nivel">
-                <option disabled="" selected="" value="">
-                  Elija el nivel de Educación
+              <select id="nivel" disabled>
+                <option value="PRI" selected>
+                  PRIMARIA COMUNITARIA VOCACIONAL
                 </option>
-                <option value="INI">
-                  INICIAL EN FAMILIA COMUNITARIA ESCOLARIZADA
-                </option>
-                <option value="PRI">PRIMARIA COMUNITARIA VOCACIONAL</option>
-                <option value="SEC">SECUNDARIA COMUNITARIA PRODUCTIVA</option>
               </select>
             </div>
             <div class="input-group">
@@ -147,14 +142,7 @@
               </div>
             </div>
 
-            <div class="user-actions">
-              <button class="btn-admin" id="btn-logout" type="button">
-                Cerrar Sesión
-              </button>
-              <button id="admin-btn" class="btn-admin1" type="button">
-                <span>⚙️</span> Admin
-              </button>
-            </div>
+            
           </div>
 
           <div class="tab-content" id="tab-contenido">
@@ -177,7 +165,7 @@
             <div class="dash-actions-final">
               <!-- 1) IDEA + Elaborar (objetivo) -->
               <label class="paso-titulo" style="padding-bottom: 5px 20px"
-                >3RO PASO "ELABORAR EL OBJETIVO DE APRENDIZAJE "</label
+                >3ER PASO "ELABORAR EL OBJETIVO DE APRENDIZAJE "</label
               >
               <div class="input-group">
                 <label>Idea</label>
@@ -274,26 +262,27 @@
                   <span>✅</span> Generar Criterios de Evaluación
                 </button>
               </div>
-              <!-- 4.5) Elaborar PDC completo -->
-              <label class="paso-titulo" style="padding-bottom: 5px 20px"
-                >"ELABORAR PDC COMPLETO"</label
-              >
-              <div class="row-buttons">
-                <button type="button" class="btn-com" id="btn-pdc-completo">
-                  <span>🚀</span> Elaborar el PDC Completo
-                </button>
-              </div>
-
+              <section id="bloque-avanzado" class="hidden">
+                <!-- 4.5) Elaborar PDC completo -->
+                <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                  >"ELABORAR PDC COMPLETO"</label
+                >
+                <div class="row-buttons">
+                  <button type="button" class="btn-com" id="btn-pdc-completo">
+                    <span>🚀</span> Elaborar el PDC Completo
+                  </button>
+                </div>
+              </section>
               <!-- 4.6) Adaptaciones curriculares -->
 
               <label class="paso-titulo" style="padding-bottom: 5px 20px">
-                "ADAPTACIONES CURRICULARES"
+                6TO PASO "ADAPTACIONES CURRICULARES"
               </label>
 
               <div class="input-group">
                 <label style="display: flex; align-items: center; gap: 10px">
                   <input type="checkbox" id="chk-adaptaciones" />
-                  ¿Hay adaptaciones?
+                  ¿Quiere realizar adaptaciones curriculares?
                 </label>
               </div>
 
@@ -325,9 +314,7 @@
                 </div>
 
                 <div class="input-group">
-                  <label
-                    >ESTUDIANTE 1</label
-                  >
+                  <label>ESTUDIANTE 1</label>
                   <label
                     >Contenido a desarrollar (Adaptaciones Específicas)</label
                   >
@@ -350,9 +337,7 @@
                 </div>
 
                 <div class="input-group">
-                  <label
-                    >ESTUDIANTE 2</label
-                  >
+                  <label>ESTUDIANTE 2</label>
                   <label
                     >Contenido a desarrollar (Adaptaciones Específicas)</label
                   >
@@ -379,8 +364,6 @@
                     <span>🎯</span> Generar Adaptaciones Específicas
                   </button>
                 </div>
-
-                
               </div>
 
               <!-- 5) Limpiar + Descargar en la misma línea -->
@@ -596,7 +579,7 @@
                         style="text-align: justify; border: none"
                       >
                         <span
-                          id="p-nivel"
+                          id="p-nivel-title"
                           lang="ES-TRAD"
                           style="font-size: 9pt; color: black"
                         ></span>
@@ -1402,8 +1385,7 @@
                               id="p-adapt-esp-contenido-1"
                               lang="ES-TRAD"
                               style="font-size: 9pt"
-                            ></span> 
-                            </span
+                            ></span> </span
                         ></b>
                       </p>
                     </td>
@@ -1469,7 +1451,7 @@
                       "
                       valign="top"
                       width="219"
-                      >
+                    >
                       <p
                         class="MsoNormal"
                         style="text-align: justify; line-height: 115%"
@@ -1541,12 +1523,11 @@
                       >
                         <b
                           ><span
-                          id="p-adapt-esp-contenido-2"
+                            id="p-adapt-esp-contenido-2"
                             lang="ES-TRAD"
                             style="font-size: 9pt; line-height: 115%"
-                            ></span
-                          ></b
-                        >
+                          ></span
+                        ></b>
                       </p>
                     </td>
                     <td
@@ -1569,8 +1550,7 @@
                           id="p-adapt-esp-condicion-2"
                           lang="ES-TRAD"
                           style="font-size: 9pt; line-height: 115%"
-                          ></span
-                        >
+                        ></span>
                       </p>
                     </td>
                     <td
@@ -1591,12 +1571,11 @@
                       >
                         <b
                           ><span
-                          id="p-adapt-esp-adaptacion-2"
+                            id="p-adapt-esp-adaptacion-2"
                             lang="ES-TRAD"
                             style="font-size: 9pt; line-height: 115%"
-                            ></span
-                          ></b
-                        >
+                          ></span
+                        ></b>
                       </p>
                     </td>
                     <td
@@ -1738,7 +1717,11 @@
         </div>
       </div>
     </div>
+    <a href="index.html?view=primaria" class="btn-home-float">
+  <i class="fas fa-home"></i>
+  <span>Volver al Inicio</span>
+</a>
 
-    <script src="dashboard-logic.js" type="module"></script>
+    <script src="dashboard-prim-asistencia-logic.js" type="module"></script>
   </body>
 </html>

@@ -29,8 +29,6 @@ import {
 
 import { callAI, notifyAIError } from "./ai.js";
 
-
-
 let currentUser = null;
 let currentProfile = null;
 
@@ -54,6 +52,7 @@ function __restoreSelect(selectId) {
   const html = __origSelectHTML[selectId];
   if (sel && html) sel.innerHTML = html;
 }
+
 
 function __filterSelect(selectId, permitidosSet) {
   const sel = document.getElementById(selectId);
@@ -184,7 +183,6 @@ function paintNombreDocente({ user, profile }) {
   if (el2) el2.innerText = full;
 }
 
-
 // ==========================================
 // VERSIÓN OPTIMIZADA - auth-guard.js
 // ==========================================
@@ -271,7 +269,6 @@ document.getElementById("btn-logout")?.addEventListener("click", async () => {
 
 // ===== Helper: token + backend call =====
 
-
 function renderizarPerfilesSalida() {
   const cont = document.getElementById("perfil-salida-container");
   if (!cont) return;
@@ -352,8 +349,6 @@ document
 document
   .getElementById("escolaridad")
   ?.addEventListener("change", renderizarPerfilesSalida);
-
-
 
 function convertirULaVinetasWord(html) {
   // Reemplaza cada <ul>...</ul> por párrafos estilo Word (MsoListParagraph)
@@ -519,9 +514,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // 3. ESCUCHAR EL CAMBIO EN EL SELECTOR
-  document.getElementById("nivel").addEventListener("change", (e) => {
-    actualizarObjetivoNivel(e.target.value);
-  });
+
+  const nivelFijo = document.getElementById("nivel");
+if (nivelFijo) {
+  nivelFijo.value = "PRI";
+  nivelFijo.dispatchEvent(new Event("change"));
+}
 
   // 2. Navegación de Pestañas
   const btns = document.querySelectorAll(".tab-btn");
@@ -673,6 +671,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  
   // =========================
   // CHECKBOXES dinámicos según los contenidos seleccionados
   // - Se renderizan en #checks-contenidos-seleccionados
@@ -941,7 +940,7 @@ li { margin-bottom: 2pt; }
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "PDC_Generado_2026.doc";
+      link.download = "PDC_Completo_Personalizado_2026.doc";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -1075,20 +1074,20 @@ async function elaborarPDCCompletoConAI() {
 
   try {
     await runAI(async () => {
-    // 1) Objetivo (usa idea-objetivo)
-    await generarObjetivoConIA();
+      // 1) Objetivo (usa idea-objetivo)
+      await generarObjetivoConIA();
 
-    // 2) Momentos + Recursos (reusa la idea del objetivo para mantener coherencia)
-    if (ideaMomEl) ideaMomEl.value = ideaBase;
-    await generarMomentosConIA();
+      // 2) Momentos + Recursos (reusa la idea del objetivo para mantener coherencia)
+      if (ideaMomEl) ideaMomEl.value = ideaBase;
+      await generarMomentosConIA();
 
-    // 3) Criterios (reusa la idea del objetivo para mantener coherencia)
-    if (ideaCritEl) ideaCritEl.value = ideaBase;
-    const indices = indicesSeleccionadosMomentos();
-    await generarRecYCritConIA(indices);
+      // 3) Criterios (reusa la idea del objetivo para mantener coherencia)
+      if (ideaCritEl) ideaCritEl.value = ideaBase;
+      const indices = indicesSeleccionadosMomentos();
+      await generarRecYCritConIA(indices);
 
-    // Listo
-    // alert("✅ PDC completo generado.");
+      // Listo
+      // alert("✅ PDC completo generado.");
     });
   } catch (err) {
     console.error("Error en PDC completo:", err);
@@ -1161,21 +1160,17 @@ Perfil de salida (nose mensiona): ${perfilSel || "(no seleccionado)"}
 Idea docente: ${ideaUsuario || "(sin idea adicional)"}
 Entrega solo el objetivo final, sin títulos ni explicaciones.`;
 
-
-
   setTyping(campoDestino, "✨ Generando");
 
   try {
-
     const feature = __pdcCompletoMode ? "pdcCompleto" : "objetivo";
     // const data = await callAI({ prompt: promptTexto, feature });
     const data = await callAI({
-  prompt: promptTexto,
-  feature,
-  timeoutMs: 50000,
-  getToken: () => currentUser.getIdToken(true),
-});
-
+      prompt: promptTexto,
+      feature,
+      timeoutMs: 50000,
+      getToken: () => currentUser.getIdToken(true),
+    });
 
     console.log("Respuesta IA:", data);
 
@@ -1553,23 +1548,23 @@ async function generarMomentosConIA() {
 
   try {
     await runAI(async () => {
-    for (const index of indices) {
-      const tema = seleccionados[index];
-      if (!tema) continue;
+      for (const index of indices) {
+        const tema = seleccionados[index];
+        if (!tema) continue;
 
-      const titulo =
-        tema.getAttribute("data-titulo") || `Contenido ${index + 1}`;
-      const puntos = (tema.getAttribute("data-puntos") || "")
-        .split("|")
-        .map((x) => x.trim())
-        .filter(Boolean);
+        const titulo =
+          tema.getAttribute("data-titulo") || `Contenido ${index + 1}`;
+        const puntos = (tema.getAttribute("data-puntos") || "")
+          .split("|")
+          .map((x) => x.trim())
+          .filter(Boolean);
 
-      const destinoMom = document.getElementById(`p-metodologia-${index}`);
-      const destinoRec = document.getElementById(`p-recursos-${index}`);
-      setTyping(destinoMom, "✨ Generando momentos");
-      setTyping(destinoRec, "✨ Generando recursos");
+        const destinoMom = document.getElementById(`p-metodologia-${index}`);
+        const destinoRec = document.getElementById(`p-recursos-${index}`);
+        setTyping(destinoMom, "✨ Generando momentos");
+        setTyping(destinoRec, "✨ Generando recursos");
 
-      const promptTexto = `Actúa como docente experto en Planificación de Desarrollo Curricular en Bolivia.
+        const promptTexto = `Actúa como docente experto en Planificación de Desarrollo Curricular en Bolivia.
 Necesito elaborar los Momentos del Proceso Formativo (Práctica, Teoría, Producción, Valoración) PARA UN SOLO CONTENIDO.
 Contenido (título): ${titulo}
 Puntos clave del contenido: ${puntos.join(", ") || "(sin puntos clave)"}
@@ -1589,43 +1584,43 @@ Requisitos estrictos:
 3) Ajusta a nivel escolar (lenguaje sencillo y viable en aula).
 4) Parrafos de max. 15 palabras.`;
 
-      const texto = await llamarGeminiTexto(promptTexto);
+        const texto = await llamarGeminiTexto(promptTexto);
 
-      const parsed = extraerJSONSeguro(texto);
+        const parsed = extraerJSONSeguro(texto);
 
-      if (!parsed?.momentos) {
-        if (destinoMom) destinoMom.innerText = texto || "(sin respuesta)";
+        if (!parsed?.momentos) {
+          if (destinoMom) destinoMom.innerText = texto || "(sin respuesta)";
+          if (destinoRec)
+            destinoRec.innerText = "(no se pudo estructurar recursos)";
+          continue;
+        }
+
+        const mom = parsed.momentos;
+
+        const htmlMomentos = renderMomentosPorSeccion(mom);
+        if (destinoMom) destinoMom.innerHTML = htmlMomentos;
+
+        // const itemsMomentos = [
+        //   { label: "Práctica", text: mom.practica || "" },
+        //   { label: "Teoría", text: mom.teoria || "" },
+        //   { label: "Producción", text: mom.produccion || "" },
+        //   { label: "Valoración", text: mom.valoracion || "" },
+        // ].filter((x) => String(x.text || "").trim().length);
+
+        // const htmlMomentos = itemsMomentos.length
+        //   ? `<ul style="margin: 4pt 0 0 0; padding-left: 15pt; list-style-type: disc;">${itemsMomentos
+        //       .map(
+        //         (it) =>
+        //           `<li style="margin-bottom: 2pt;">${escapeHtml(it.text)} <b>(${escapeHtml(it.label)})</b></li>`,
+        //       )
+        //       .join("")}</ul>`
+        //   : "<i>(sin momentos)</i>";
+
+        // if (destinoMom) destinoMom.innerHTML = htmlMomentos;
         if (destinoRec)
-          destinoRec.innerText = "(no se pudo estructurar recursos)";
-        continue;
+          destinoRec.innerHTML = renderListaBullets(parsed.recursos);
       }
-
-      const mom = parsed.momentos;
-
-      const htmlMomentos = renderMomentosPorSeccion(mom);
-      if (destinoMom) destinoMom.innerHTML = htmlMomentos;
-
-      // const itemsMomentos = [
-      //   { label: "Práctica", text: mom.practica || "" },
-      //   { label: "Teoría", text: mom.teoria || "" },
-      //   { label: "Producción", text: mom.produccion || "" },
-      //   { label: "Valoración", text: mom.valoracion || "" },
-      // ].filter((x) => String(x.text || "").trim().length);
-
-      // const htmlMomentos = itemsMomentos.length
-      //   ? `<ul style="margin: 4pt 0 0 0; padding-left: 15pt; list-style-type: disc;">${itemsMomentos
-      //       .map(
-      //         (it) =>
-      //           `<li style="margin-bottom: 2pt;">${escapeHtml(it.text)} <b>(${escapeHtml(it.label)})</b></li>`,
-      //       )
-      //       .join("")}</ul>`
-      //   : "<i>(sin momentos)</i>";
-
-      // if (destinoMom) destinoMom.innerHTML = htmlMomentos;
-      if (destinoRec)
-        destinoRec.innerHTML = renderListaBullets(parsed.recursos);
-    }
-  });
+    });
   } catch (err) {
     console.error("Error generando momentos:", err);
     notifyAIError(
@@ -1636,7 +1631,6 @@ Requisitos estrictos:
     btn.innerHTML = original;
     btn.disabled = false;
   }
-  
 }
 
 // Cache en memoria (se mantiene mientras no recargues la página)
@@ -1720,11 +1714,11 @@ async function generarRecYCritConIA(indicesOverride) {
 
   try {
     await runAI(async () => {
-    setTyping(destino, "✨ Generando criterios");
+      setTyping(destino, "✨ Generando criterios");
 
-    const keys = dimsFinal.map((d) => d.toLowerCase()); // ser | saber | hacer
+      const keys = dimsFinal.map((d) => d.toLowerCase()); // ser | saber | hacer
 
-    const promptTexto = `Actúa como docente experto en evaluación en el marco del PDC de Bolivia.
+      const promptTexto = `Actúa como docente experto en evaluación en el marco del PDC de Bolivia.
 
 Debes generar CRITERIOS DE EVALUACIÓN SOLO para estas dimensiones: ${dimsFinal.join(", ")}.
 Datos:
@@ -1742,25 +1736,25 @@ Requisitos estrictos:
 4) No incluyas la dimensión DECIDIR.
 5) Cada parrafo max. 8 palabras.`;
 
-    const texto = await llamarGeminiTexto(promptTexto);
+      const texto = await llamarGeminiTexto(promptTexto);
 
-    const parsed = extraerJSONSeguro(texto);
+      const parsed = extraerJSONSeguro(texto);
 
-    if (!parsed || typeof parsed !== "object") {
-      destino.innerText = texto || "(sin respuesta)";
-      return;
-    }
+      if (!parsed || typeof parsed !== "object") {
+        destino.innerText = texto || "(sin respuesta)";
+        return;
+      }
 
-    // ✅ CAMBIO: actualizar SOLO lo solicitado, sin borrar lo previo
-    if (dimsFinal.includes("SER") && Array.isArray(parsed.ser))
-      __critCache.ser = parsed.ser;
-    if (dimsFinal.includes("SABER") && Array.isArray(parsed.saber))
-      __critCache.saber = parsed.saber;
-    if (dimsFinal.includes("HACER") && Array.isArray(parsed.hacer))
-      __critCache.hacer = parsed.hacer;
+      // ✅ CAMBIO: actualizar SOLO lo solicitado, sin borrar lo previo
+      if (dimsFinal.includes("SER") && Array.isArray(parsed.ser))
+        __critCache.ser = parsed.ser;
+      if (dimsFinal.includes("SABER") && Array.isArray(parsed.saber))
+        __critCache.saber = parsed.saber;
+      if (dimsFinal.includes("HACER") && Array.isArray(parsed.hacer))
+        __critCache.hacer = parsed.hacer;
 
-    // ✅ Renderiza todo desde cache (lo viejo se mantiene)
-    destino.innerHTML = renderCriteriosFromCache(__critCache);
+      // ✅ Renderiza todo desde cache (lo viejo se mantiene)
+      destino.innerHTML = renderCriteriosFromCache(__critCache);
     });
   } catch (err) {
     console.error("Error generando criterios:", err);

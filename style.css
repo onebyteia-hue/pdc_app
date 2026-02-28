@@ -1,5 +1,3 @@
-
-
 /* --- VARIABLES Y CONFIGURACIÓN BASE --- */
 :root {
     --primary: #0f172a;
@@ -10,6 +8,18 @@
     --text-muted: #64748b;
 }
 
+/* =========================================================
+   ✅ CAMBIO (RESPONSIVE GLOBAL):
+   - box-sizing global evita desbordes en móviles
+   - mejora inputs/cards que antes se “salían”
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* =========================================================
+   ✅ CAMBIO (MÓVILES / TECLADO):
+   Antes: height:100vh + overflow:hidden => se corta en móviles
+   Ahora: usamos 100dvh + scroll vertical permitido
+   ========================================================= */
 body {
     margin: 0;
     font-family: 'Inter', system-ui, sans-serif;
@@ -19,8 +29,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+
+    /* ✅ CAMBIO */
+    min-height: 100dvh;    /* viewport real en móviles */
+    height: auto;          /* evita corte por 100vh */
+    overflow-y: auto;      /* permite scroll si no cabe */
+    overflow-x: hidden;
+    padding: 16px;         /* evita pegar al borde en pantallas pequeñas */
 }
 
 @keyframes gradient {
@@ -37,7 +52,13 @@ body {
     padding-top: 2rem;
     border-radius: 24px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    width: 420px;
+    /* width: 420px; */
+
+    /* ✅ CAMBIO (RESPONSIVE):
+       antes: width fijo => en móviles se desborda
+       ahora: ancho fluido con max */
+    width: min(420px, 100%);
+
     border: 1px solid rgba(255, 255, 255, 0.3);
     text-align: center;
 }
@@ -157,8 +178,6 @@ body {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    /* background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(12px); */
 
     backdrop-filter: none !important; /* si estabas usando blur */
     background: rgba(0,0,0,0.55);     /* más barato de renderizar */
@@ -182,6 +201,11 @@ body {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     text-align: center;
     animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* ✅ CAMBIO (MÓVIL/TECLADO):
+       evita que el modal se salga cuando aparece el teclado */
+    max-height: 85dvh;
+    overflow: auto;
 }
 
 .input-group {
@@ -210,6 +234,7 @@ input {
     font-weight: 600;
     cursor: pointer;
 }
+
 /* --- Banner Institucional Solucionado --- */
 .ministerio-frame {
     width: 100%;
@@ -227,71 +252,57 @@ input {
 .img-banner-full {
     width: 100%;
     height: 100%;
-    /* CAMBIO CLAVE: contain asegura que la imagen NO se corte */
     object-fit: contain; 
-    padding: 5px; /* Pequeño margen interno para que no toque los bordes del cuadro */
+    padding: 5px;
 }
 
 /* --- Contenedor de Acción y Logo --- */
 .actions-container {
-    position: relative; /* Necesario para que el logo se mueva respecto a este cuadro */
-    margin-top: 60px; /* Espacio para que el logo no tape el texto anterior */
+    position: relative;
+    margin-top: 60px;
 }
 .logo-relief-float {
     width: 170px;
     height: 170px;
     background: white;
-    border-radius: 50%; /* Esto crea el círculo */
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* SOLUCIÓN: Recorta cualquier esquina de la imagen que intente salir del círculo */
     overflow: hidden; 
-    
     position: absolute;
     top: -150px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 20;
-
-    /* Relieve profesional */
     box-shadow: 
         0 10px 25px rgba(0,0,0,0.2), 
         0 0 0 8px rgba(255, 255, 255, 0.3); 
-    
-    /* Opcional: añade un borde sutil para definir mejor el círculo */
     border: 1px solid rgba(0,0,0,0.05);
 }
 
 .img-logo {
-    /* SOLUCIÓN: Ajuste perfecto al círculo */
     width: 100%;
     height: 100%;
-    object-fit: cover; /* O 'contain' si no quieres que se pierda nada de la imagen */
+    object-fit: cover;
     display: block;
 }
 
 /* --- Cuadro de Botones Estilizado --- */
 .button-box {
     background: rgba(255, 255, 255, 0.4);
-    padding: 60px 25px 25px 25px; /* Más padding arriba (60px) para compensar el logo */
+    padding: 60px 25px 25px 25px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     display: grid;
     gap: 15px;
 }
 
-
-
-
 /* --- ANIMACIONES --- */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
 /* --- CONFIGURACIÓN DE FUENTES --- */
-
-/* 1. Montserrat para Títulos Principales e Institucionales */
 h1, h2, .txt-ministerio, .modal-content h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
@@ -302,7 +313,6 @@ h1, h2, .txt-ministerio, .modal-content h2 {
     width: 100%;
 }
 
-/* 2. Playfair Display para Orientaciones (Elegante y Cursiva) */
 .txt-orientaciones {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -312,20 +322,18 @@ h1, h2, .txt-ministerio, .modal-content h2 {
     margin: 8px 0;
 }
 
-/* 3. Inter para todo lo demás (Inputs, Botones, Párrafos, Descripciones) */
 body, p, input, button, .txt-elaboracion {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
 }
 
 .btn-primario, .btn-secundario, .btn-cancelar {
-    font-weight: 600; /* Un poco más grueso para botones */
+    font-weight: 600;
     padding: 9px 12px;
-  font-size: 12px;
-  line-height: 1.5;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-/* --- AJUSTES ESPECÍFICOS DE TEXTO --- */
 .txt-ministerio {
     font-size: 1.1rem;
     text-transform: uppercase;
@@ -339,19 +347,14 @@ body, p, input, button, .txt-elaboracion {
     margin-bottom: 1.5rem;
 }
 
-
-/* 2. Playfair Display para Orientaciones (AQUÍ AGREGAMOS H3) */
 h3, .txt-orientaciones {
     font-family: 'Playfair Display';
-    
     font-weight: 400;
     color: var(--accent);
     font-size: 1.2rem;
     line-height: 1.2;
     display: block;
     width: 100%;
-
-    
     margin: 8px 0;
 }
 
@@ -359,30 +362,28 @@ h3, .txt-orientaciones {
 .button-group {
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Espacio entre el mensaje y el botón */
+    gap: 5px;
     margin-bottom: 10px;
 }
 
-/* Estilo para el mensaje antes del botón */
 .btn-label {
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem; /* Tamaño pequeño para que sea discreto */
+    font-size: 0.75rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 600;
-    text-align: left; /* O center, según prefieras */
+    text-align: left;
     margin-left: 5px;
 }
 
-/* Ajuste al contenedor principal para que no se vea apretado */
 .button-container {
     background: rgba(255, 255, 255, 0.4);
     padding: 25px;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     display: grid;
-    gap: 15px; /* Espacio entre los grupos de botones */
+    gap: 15px;
 }
 
 /* Botón Flotante de WhatsApp */
@@ -398,7 +399,7 @@ h3, .txt-orientaciones {
     text-align: center;
     font-size: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 100000; /* Más alto que el modal-overlay */
+    z-index: 100000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -417,7 +418,6 @@ h3, .txt-orientaciones {
     fill: white;
 }
 
-/* Animación de pulso para llamar la atención */
 @keyframes pulse-whatsapp {
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -431,14 +431,19 @@ h3, .txt-orientaciones {
 /* --- DASHBOARD LAYOUT --- */
 .dashboard-body {
     background: #f1f5f9;
-    height: 100vh;
-    overflow: hidden;
+
+    /* ✅ CAMBIO: igual que en login, 100vh rompe en móviles */
+    min-height: 100dvh;
+    height: auto;
+
+    /* ✅ CAMBIO: no bloquees scroll total */
+    overflow: auto;
 }
 
 .dashboard-container {
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100dvh; /* ✅ CAMBIO */
 }
 
 /* Sidebar Izquierda */
@@ -483,9 +488,10 @@ h3, .txt-orientaciones {
     justify-content: center;
     align-items: center;
     padding: 40px;
+
+    /* ✅ CAMBIO: en móviles el preview debe poder scrollear */
     overflow: auto;
 }
-
 
 /*DESDE AQUI ES PARA LA SEGUNDA VENTANA*/
 
@@ -493,9 +499,9 @@ h3, .txt-orientaciones {
 :root {
     --primary: #1e293b;
     --accent: #3b82f6;
-    --bg-dash: #525659; /* Fondo oscuro tipo visor PDF */
-    --success: #2b5797; /* Word Color */
-    --danger: #ef4444;  /* Clear Color */
+    --bg-dash: #525659;
+    --success: #2b5797;
+    --danger: #ef4444;
     --ai-grad: linear-gradient(135deg, #6366f1, #a855f7);
 }
 
@@ -504,13 +510,17 @@ body {
     font-family: 'Inter', sans-serif; 
 }
 
+/* ✅ CAMBIO:
+   overflow hidden y 100vh => corte en móviles
+   ahora: 100dvh + scroll */
 .dash-body { 
-    background: #cbd5e1; /* Color de fondo del dashboard */
-    overflow: hidden; 
-    height: 100vh; 
+    background: #cbd5e1;
+    min-height: 100dvh;
+    height: auto;
+    overflow: auto;
 }
 
-.dash-wrapper { display: flex; height: 100vh; }
+.dash-wrapper { display: flex; min-height: 100dvh; }
 
 /* 2. SIDEBAR (PANEL IZQUIERDO) */
 .dash-sidebar { 
@@ -611,25 +621,25 @@ input, select, textarea {
 /* 5. VISTA PREVIA (HOJA ESTILO WORD) */
 .dash-preview { 
     flex: 1; 
-    background: var(--bg-dash); /* Fondo gris visor */
+    background: var(--bg-dash);
     padding: 40px 20px; 
     display: flex; 
     flex-direction: column;
     align-items: center;
-    overflow-y: auto; 
 
+    /* ✅ CAMBIO: habilitar scroll completo (vertical + horizontal) para pantallas chicas */
+    overflow: auto;
 }
 
 .sheet-landscape { 
-    width: 27.94cm; /* Ancho carta horizontal */
+    width: 27.94cm;
     min-height: 21.59cm; 
     background: white; 
     padding: 2cm; 
     box-shadow: 0 0 20px rgba(0,0,0,0.4); 
     box-sizing: border-box; 
-    height: auto; /* Permite crecer según contenido */
+    height: auto;
     position: relative;
-    
 }
 
 .sheet-header { display: flex; align-items: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 10px; }
@@ -643,7 +653,6 @@ input, select, textarea {
 .data-table td, .plan-table th, .plan-table td { border: 1px solid #000; padding: 8px; font-size: 0.8rem; word-wrap: break-word; }
 .objetivo-box { border: 1px solid #000; padding: 10px; font-size: 0.85rem; margin: 10px 0; line-height: 1.4; }
 
-/* Estilos internos de la tabla de contenidos */
 .semana-titulo { font-weight: bold; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 5px; }
 .lista-puntos-clave { margin: 0 0 0 18px; padding: 0; list-style-type: disc; }
 .lista-puntos-clave li { font-size: 0.75rem; color: #111; margin-bottom: 3px; }
@@ -662,21 +671,18 @@ input, select, textarea {
         border: none;
         height: auto;
     }
-    /* Reglas para evitar cortes feos en medio de una fila */
     tr { page-break-inside: avoid; break-inside: avoid; }
     .section-title, .sheet-header, .objetivo-box { 
         page-break-inside: avoid; 
         break-inside: avoid; 
     }
-    /* Evitar cortes feos en tablas */
     .plan-table tr { page-break-inside: avoid; break-inside: avoid; }
     .section-title, .objetivo-box, .sheet-header { page-break-inside: avoid; }
 }
 
-
 @font-face {
     font-family: 'MiFuenteElegante';
-    src: url('fuentes/mi-fuente.woff2') format('woff2'); /* Falta esto en tu error */
+    src: url('fuentes/mi-fuente.woff2') format('woff2');
 }
 
 /* RESET DE FUERZA PARA TABLAS DE WORD */
@@ -684,11 +690,10 @@ input, select, textarea {
     width: 100% !important; 
     margin-left: 0 !important;
     margin-right: 0 !important;
-    table-layout: fixed !important; /* Obliga a las celdas a quedarse dentro */
+    table-layout: fixed !important;
     border-collapse: collapse !important;
 }
 
-/* IMPORTANTE: Anular anchos fijos en celdas y filas que pone Word */
 .sheet-landscape td, 
 .sheet-landscape th, 
 .sheet-landscape tr {
@@ -699,14 +704,11 @@ input, select, textarea {
     overflow-wrap: break-word !important;
 }
 
-/* Asegurar que las imágenes no empujen la tabla hacia afuera */
 .sheet-landscape img {
     max-width: 100% !important;
     height: auto !important;
 }
 
-/* Evitar que párrafos con sangrías de Word se salgan */
-/* 6. RESET PARA ESTILOS AGRESIVOS DE WORD */
 .sheet-landscape p, .sheet-landscape span {
     max-width: 100% !important;
     white-space: normal !important;
@@ -716,7 +718,6 @@ input, select, textarea {
     text-align: justify;
     text-indent: 0 !important;
 }
-
 
 /* Mensajes de error en formularios */
 .form-error{
@@ -733,7 +734,6 @@ input, select, textarea {
 /* ===============================
    PANEL DE GENERACIÓN IA
 =============================== */
-
 .ai-panel {
     margin-top: 15px;
     padding: 12px;
@@ -745,7 +745,6 @@ input, select, textarea {
     gap: 10px;
 }
 
-/* Cuadros de texto IA */
 .ai-textarea {
     width: 100%;
     min-height: 70px;
@@ -769,7 +768,6 @@ input, select, textarea {
     font-style: italic;
 }
 
-/* Botones IA */
 .btn-ai-wide {
     background: var(--ai-grad);
     border: none;
@@ -787,7 +785,6 @@ input, select, textarea {
     transform: translateY(-1px);
 }
 
-/* Checkboxes dinámicos */
 .checkbox-panel {
     background: white;
     border: 2px solid #046bf1;
@@ -801,43 +798,21 @@ input, select, textarea {
     font-size: 0.8rem;
 }
 
-/* Fila final */
 .ai-row-final {
     display: flex;
     gap: 10px;
 }
 
-.ai-row-final button {
-    flex: 1;
-}
+.ai-row-final button { flex: 1; }
 
-/* Recursos con viñetas limpias */
-.recursos-box ul {
-    margin: 0;
-    padding-left: 18px;
-}
+.recursos-box ul { margin: 0; padding-left: 18px; }
+.recursos-box li { margin-bottom: 4px; font-size: 0.75rem; }
+.sheet-landscape ul { margin: 0; padding-left: 18px; }
+.sheet-landscape li { margin-bottom: 3px; font-size: 0.75rem; }
 
-.recursos-box li {
-    margin-bottom: 4px;
-    font-size: 0.75rem;
-}
-.sheet-landscape ul {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.sheet-landscape li {
-  margin-bottom: 3px;
-  font-size: 0.75rem;
-}
 /* ======================================================================
    OVERRIDES "A PRUEBA DE BALAS" (capa final)
-   - Mantiene tu CSS existente intacto
-   - Resuelve conflictos de especificidad / duplicados
-   - Unifica tamaños en la ventana de CONTENIDOS (dashboard)
    ====================================================================== */
-
-/* ---------- Dashboard: inputs compactos (sin afectar login) ---------- */
 .dash-sidebar input,
 .dash-sidebar select,
 .dash-sidebar textarea{
@@ -845,41 +820,27 @@ input, select, textarea {
   font-size: 0.82rem;
 }
 
-/* ---------- Dashboard: botones compactos ---------- */
 .row-buttons button{
   padding: 8px;
   font-size: 0.82rem;
 }
-.btn-word{
-  padding: 10px;
-}
+.btn-word{ padding: 10px; }
 
-/* ---------- Panel IA: corregir duplicados (padding/font-size) ---------- */
 .ai-textarea{
   min-height: 45px;
-  padding: 6px;              /* (en tu archivo aparecía 6px y luego 10px) */
+  padding: 6px;
   font-size: 0.82rem;
 }
 .btn-ai-wide{
   padding: 7px 10px;
-  font-size: 0.80rem;        /* (en tu archivo aparecía 0.8rem y luego 0.85rem) */
+  font-size: 0.80rem;
 }
 
-/* ---------- Box de checkboxes de dimensiones (SER/SABER/HACER) ----------
-   En tu HTML lo usas con class="temas-container" y a veces con style inline.
-   Recomendación: agrega class="dims-criterios" al contenedor.
-*/
 .temas-container.dims-criterios{
   max-height: 240px;
   overflow-y: auto;
 }
 
-/* Si NO quieres tocar HTML y tu contenedor tiene un id, puedes usar esto:
-#checks-dimensiones-criterios{ max-height: 240px !important; }
-*/
-
-/* ---------- Sistema de botones por "variantes" (sin romper lo existente) ---------- */
-/* Base (opcional): aplica SOLO si decides usar class="btn" */
 .btn{
   border: none;
   border-radius: 8px;
@@ -898,26 +859,20 @@ input, select, textarea {
   filter: brightness(1.05);
 }
 
-/* Variantes: funcionan aunque NO uses .btn */
 .dash-actions-final .btn-ai,
 .dash-actions-final .btn-word,
 .dash-actions-final .btn-clear{
-  color: #ffffff;            /* asegura texto blanco */
+  color: #ffffff;
 }
 
-/* ✅ Tu botón amarillo: fuerza texto negro incluso dentro de .dash-actions-final */
 .dash-actions-final .btn-com{
   background: #facc15;
   color: #000000 !important;
 }
 
-
-
-
 /* ===============================
    LOADING DOTS ANIMATION
 =============================== */
-
 .loading-dots::after {
   content: " .";
   animation: dots 1.2s steps(4, end) infinite;
@@ -932,10 +887,10 @@ input, select, textarea {
   80%  { content: " >>>>>>"; }
   100% { content: " >"; }
 }
+
 /* ===============================
    TYPING INDICATOR (tipo ChatGPT)
 =============================== */
-
 .typing {
   display: inline-flex;
   align-items: center;
@@ -949,11 +904,7 @@ input, select, textarea {
   line-height: 1;
 }
 
-.typing .dots {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
+.typing .dots { display: inline-flex; align-items: center; gap: 4px; }
 
 .typing .dot {
   width: 6px;
@@ -973,55 +924,48 @@ input, select, textarea {
   40% { transform: translateY(-5px); opacity: 0.9; }
 }
 
-
-
 /* Contenedor del botón rectangular */
-  .whatsapp-rect {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 20px 20px;
-    border-radius: 50px; /* Bordes redondeados elegantes */
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    transition: all 0.3s ease;
-  }
+.whatsapp-rect {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 50px;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
 
-  /* Icono dentro del botón */
-  .whatsapp-icon-small {
-    width: 40px;
-    height: 40px;
-    fill: white;
-    margin-right: 10px;
-  }
+.whatsapp-icon-small {
+  width: 40px;
+  height: 40px;
+  fill: white;
+  margin-right: 10px;
+}
 
-  /* Efecto al pasar el ratón */
-  .whatsapp-rect:hover {
-    background-color: #0920ec; /* Verde más oscuro */
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    color: white;
-  }
+.whatsapp-rect:hover {
+  background-color: #0920ec;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
 
-  /* Animación de entrada opcional */
-  @keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
-  .whatsapp-rect {
-    animation: fadeInRight 0.5s ease-out;
-  }
+.whatsapp-rect { animation: fadeInRight 0.5s ease-out; }
 
-  .btn-admin {
+.btn-admin {
   border: 1px solid rgba(0,0,0,0.10);
   background: #111;
   color: #fff;
@@ -1033,14 +977,12 @@ input, select, textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;          /* espacio entre ⚙️ y Admin */
-  text-align: center; /* por si hay reglas globales */
+  gap: 8px;
+  text-align: center;
 }
 .btn-admin:hover { opacity: 0.92; }
 
-
-
- .btn-admin1 {
+.btn-admin1 {
   border: 1px solid rgba(0,0,0,0.10);
   background: #0a74ee;
   color: #fff;
@@ -1052,30 +994,24 @@ input, select, textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;          /* espacio entre ⚙️ y Admin */
-  text-align: center; /* por si hay reglas globales */
+  gap: 8px;
+  text-align: center;
 }
 .btn-admin1:hover { opacity: 0.92; }
 
-
-  .user-actions {
-    display: flex; /* Activa Flexbox */
-    width: 100%; /* El contenedor ocupa todo el ancho */
-    gap: 10px; /* Espacio entre los botones (opcional) */
-  }
-
-  .user-actions button {
-    flex: 1; /* Ambos botones crecen para ocupar el espacio disponible por igual */
-    padding: 10px; /* Espaciado interno de los botones */
-    /* Otros estilos opcionales: */
-    cursor: pointer;
-  }
-
-
-  .admin-wide {
-  max-width: 96vw;   /* casi toda la pantalla */
+.user-actions {
+  display: flex;
   width: 100%;
+  gap: 10px;
 }
+
+.user-actions button {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.admin-wide { max-width: 96vw; width: 100%; }
 .admin-table-wrap {
   overflow: auto;
   border-radius: 12px;
@@ -1083,11 +1019,9 @@ input, select, textarea {
   width: 100%;
 }
 
-
 /* =========================
    Admin SaaS Modern UI
    ========================= */
-
 .admin-shell{
   min-height: 100vh;
   padding: 10px 45px;
@@ -1110,17 +1044,9 @@ input, select, textarea {
   padding: 18px;
 }
 
-.admin-card .text-header{
-  padding: 10px 10px 0;
-}
-
-.admin-card .txt-ministerio{
-  color: #eef2ff;
-}
-
-.admin-card .txt-elaboracion{
-  color: rgba(255,255,255,0.72);
-}
+.admin-card .text-header{ padding: 10px 10px 0; }
+.admin-card .txt-ministerio{ color: #eef2ff; }
+.admin-card .txt-elaboracion{ color: rgba(255,255,255,0.72); }
 
 /* Topbar */
 .admin-topbar{
@@ -1148,7 +1074,6 @@ input, select, textarea {
   border-radius: 12px !important;
 }
 
-/* Table wrap */
 .admin-table-wrap{
   overflow: auto;
   border-radius: 14px;
@@ -1156,7 +1081,6 @@ input, select, textarea {
   background: rgba(255,255,255,0.04);
 }
 
-/* Table */
 .admin-table-wrap table{
   width: 100%;
   border-collapse: separate;
@@ -1173,23 +1097,16 @@ input, select, textarea {
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
-.admin-table-wrap td{
-  color: rgba(255,255,255,0.78);
-}
+.admin-table-wrap td{ color: rgba(255,255,255,0.78); }
 
-.admin-table-wrap tr:hover td{
-  background: rgba(255,255,255,0.03);
-}
+.admin-table-wrap tr:hover td{ background: rgba(255,255,255,0.03); }
 
 .admin-table-wrap th,
 .admin-table-wrap td{
   padding: 12px 12px !important;
 }
 
-/* Pills look better on dark */
-.admin-table-wrap span{
-  font-family: Inter, system-ui, sans-serif;
-}
+.admin-table-wrap span{ font-family: Inter, system-ui, sans-serif; }
 
 /* Error */
 #admin-error{
@@ -1220,7 +1137,6 @@ input, select, textarea {
   color: #1a4f7a;
 }
 
-
 .mensaje {
   margin-top: 8px;
   font-size: 20px;
@@ -1229,17 +1145,8 @@ input, select, textarea {
   transition: opacity 0.3s ease;
 }
 
-.mensaje.ok {
-  color: #00a143;
-  opacity: 1;
-}
-
-.mensaje.error {
-  color: #e74c3c;
-  opacity: 1;
-}
-
-
+.mensaje.ok { color: #00a143; opacity: 1; }
+.mensaje.error { color: #e74c3c; opacity: 1; }
 
 /* Adaptaciones: estilo obligatorio */
 .adaptaciones-panel,
@@ -1264,7 +1171,725 @@ input, select, textarea {
   font-size: 10pt !important;
   font-weight: normal !important;
 }
+
 /* Bloquear redimensionado de todos los textarea (recomendado) */
-textarea {
-  resize: none;
+textarea { resize: none; }
+
+/* =========================================================
+   ✅ NUEVO BLOQUE RESPONSIVE (EL MÁS IMPORTANTE)
+   - Apila sidebar + preview en móvil
+   - Formulario pasa de 2 columnas a 1
+   - Ajusta logo y espaciados del login
+   ========================================================= */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 980px){
+
+  /* Dashboard (versión dash-*) */
+  .dash-wrapper{
+    flex-direction: column;        /* ✅ CAMBIO: antes 2 columnas, ahora apilado */
+  }
+  .dash-sidebar{
+    width: 100%;
+    max-width: none;
+  }
+  .dash-preview{
+    padding: 18px 10px;
+  }
+
+  /* Dashboard (versión dashboard-*) */
+  .dashboard-container{
+    flex-direction: column;        /* ✅ CAMBIO */
+  }
+  .sidebar-panel{
+    width: 100%;
+    max-width: none;
+  }
+  .preview-panel{
+    padding: 18px 10px;
+  }
+}
+
+/* Teléfonos: formularios y botones */
+@media (max-width: 700px){
+
+  /* ✅ CAMBIO: 2 columnas -> 1 columna */
+  .form-row{ grid-template-columns: 1fr; }
+  .input-group-row{ grid-template-columns: 1fr; }
+
+  /* ✅ CAMBIO: botones en fila -> columna para no apretarse */
+  .row-buttons{ flex-direction: column; }
+}
+
+/* Teléfonos chicos (login) */
+@media (max-width: 480px){
+
+  /* ✅ CAMBIO: reduce padding y evita que “reviente” */
+  .login-card{
+    padding: 1.25rem;
+  }
+
+  /* ✅ CAMBIO: el logo grande flotante suele tapar contenido */
+  .logo-relief-float{
+    width: 120px;
+    height: 120px;
+    top: -110px;
+  }
+
+  .actions-container{ margin-top: 40px; }
+  .text-header{ margin-bottom: 24px; }
+
+  /* ✅ CAMBIO: WhatsApp más pequeño en móvil para no tapar UI */
+  .whatsapp-float{
+    width: 64px;
+    height: 64px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+/* ✅ Extra: en pantallas muy pequeñas, la hoja Word es enorme.
+   En vez de romper, dejamos scroll horizontal (ya habilitado).
+   Si quisieras "fit to screen" por escala, dímelo y lo dejamos opcional. */
+
+
+
+
+   /* =========================================================
+   ✅ SCROLL INDEPENDIENTE: Sidebar vs Preview (hoja)
+   - No afecta negativamente si defines alturas bien
+   ========================================================= */
+
+/* 1) El contenedor principal debe tener alto de viewport */
+.dash-wrapper{
+  height: 100dvh;     /* ✅ asegura alto real en móviles modernos */
+  min-height: 100dvh;
+}
+
+/* 2) Para que los hijos puedan scrollear dentro de flex, usa min-height: 0 */
+.dash-sidebar,
+.dash-preview{
+  min-height: 0;      /* ✅ clave en layouts flex para que overflow funcione */
+}
+
+/* 3) Sidebar scrollea independiente */
+.dash-sidebar{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 4) Preview (hoja) scrollea independiente */
+.dash-preview{
+  overflow: auto;     /* vertical + horizontal si la hoja es grande */
+  -webkit-overflow-scrolling: touch; /* ✅ scroll suave en iOS */
+}
+
+/* 5) Opcional: evitar que la hoja se “encoga” en flex */
+.sheet-landscape{
+  flex: 0 0 auto;
+}
+
+
+
+
+/* =========================================================
+   HOME - Apple Ultra (más Apple: aire, minimal, iOS-like)
+   ========================================================= */
+
+:root{
+  --bg: #f5f5f7;
+  --surface: rgba(255,255,255,0.92);
+  --surface-2: rgba(255,255,255,0.78);
+  --border: rgba(0,0,0,0.08);
+  --hairline: rgba(0,0,0,0.06);
+  --shadow: 0 18px 45px rgba(0,0,0,0.10);
+  --shadow-soft: 0 10px 26px rgba(0,0,0,0.08);
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --accent: #0071e3;
+  --accent-soft: rgba(0,113,227,0.12);
+  --danger: #ff3b30;
+  --danger-soft: rgba(255,59,48,0.12);
+  --radius: 20px;
+}
+
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
+
+body{
+  font-family: system-ui, -apple-system, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* BUSCA ESTA CLASE Y DÉJALA ASÍ */
+.app-shell {
+    display: flex;
+    width: 100%;
+    height: 100vh;     /* Altura fija de pantalla */
+    height: 100dvh;    /* Para móviles modernos */
+    overflow: hidden;  /* El scroll lo manejará el contenido, no la app entera */
+    position: fixed;   /* Evita rebotes en móviles */
+    top: 0;
+    left: 0;
+}
+
+/* ============== SIDEBAR ============== */
+.app-sidebar{
+  
+  background: var(--surface);
+  border-right: 1px solid var(--hairline);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 18px;
+  gap: 14px;
+  overflow:auto;
+  min-height:0;
+  width: 300px;         /* Ancho fijo en escritorio */
+    min-width: 280px;     /* No permite que se encoja */
+    flex-shrink: 0;       /* Bloquea la compresión */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  
+    
+    /* Si ya tienes estilos de diseño, mantenlos, pero asegura estas 3 de arriba */
+}
+
+/* Brand */
+.brand{ display:flex; align-items:center; gap: 12px; padding: 4px 2px; }
+.brand-logo{
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,113,227,0.95), rgba(88,86,214,0.92));
+  box-shadow: 0 14px 28px rgba(0,113,227,0.18);
+  border: 1px solid rgba(255,255,255,0.22);
+}
+.brand-title{ font-weight: 850; font-size: 1.12rem; letter-spacing: .2px; }
+.brand-sub{ color: var(--muted); font-size: .88rem; }
+
+/* User box */
+.user-box{
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.user-name{ font-weight: 760; }
+.user-email{ color: var(--muted); font-size: .9rem; }
+
+/* iOS-like menu container */
+.side-nav{
+  display:flex;
+  flex-direction:column;
+  gap: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: rgba(255,255,255,0.70);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+}
+
+/* Links as iOS Settings rows */
+.side-link{
+  
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  padding: 12px 12px;
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  transition: background .16s ease;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+}
+
+/* left content */
+.side-link::before{
+  
+  content: "";
+  position:absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 1px;
+  background: var(--hairline);
+}
+.side-link:last-child::before{ display:none;
+ }
+
+/* subtle hover */
+.side-link:hover{ background: rgba(0,0,0,0.03); }
+
+/* active row */
+.side-link.active{
+  background: var(--accent-soft);
+}
+.side-link.active:hover{ background: rgba(0,113,227,0.16); }
+
+/* chevron */
+.side-link::after{
+  content: "›";
+  color: rgba(0,0,0,0.32);
+  font-weight: 900;
+  margin-left: auto;
+  transform: translateY(-1px);
+}
+/* hide chevron on danger/logout */
+.side-link.danger::after{ content:""; }
+
+.side-link.danger{
+  background: var(--danger-soft);
+}
+.side-link.danger:hover{ background: rgba(255,59,48,0.16); }
+
+/* Admin button */
+#btnAdmin{
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+}
+
+/* Plan box */
+.plan-box{
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.76);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+}
+.plan-title{
+  font-weight: 900;
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.plan-row{ display:flex; gap: 10px; align-items:center; }
+.plan-badge{
+  display: block;        /* Necesario para que el margen auto funcione */
+  margin: 10px auto;     /* 10px arriba/abajo, AUTO a los lados centra */
+  width: fit-content;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(0,113,227,0.20);
+  font-weight: 900;
+  min-width: 78px;
+  text-align:center;
+}
+.plan-small{ color: var(--muted); font-size:.88rem; line-height:1.1; }
+.plan-link{
+  margin-top: 4px;
+  font-weight: 800;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: .9rem;
+}
+.plan-link:hover{ text-decoration: underline; }
+
+.side-footer{
+  margin-top:auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--hairline);
+  color: var(--muted);
+}
+
+/* ============== MAIN ============== */
+.app-main{
+  flex: 1;
+  min-width: 0;
+  display:flex;
+  flex-direction:column;
+  background:
+    radial-gradient(900px 600px at 12% 0%, rgba(0,113,227,0.12), transparent 72%),
+    radial-gradient(900px 600px at 88% 0%, rgba(88,86,214,0.12), transparent 72%),
+    radial-gradient(900px 600px at 50% 100%, rgba(52,199,89,0.08), transparent 70%),
+    var(--bg);
+}
+
+/* BUSCA ESTA CLASE Y REEMPLAZA/AÑADE */
+.app-content {
+    flex: 1;            /* Ocupa todo el espacio que deja el sidebar */
+    min-width: 0;       /* ¡CRUCIAL! Evita que el contenido interno ensanche la columna */
+    height: 100%;       /* Ocupa todo el alto disponible */
+    overflow-y: auto;   /* Aquí es donde aparece el scroll si el texto es largo */
+    padding: 24px;
+    background: #f8fafc; /* Color de fondo suave para diferenciar del sidebar */
+}
+
+.view{ display:none; }
+.view.active{ display:block; }
+
+/* HERO */
+.hero-section{
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.62));
+  border-bottom: 1px solid var(--hairline);
+  padding: 92px 0;
+}
+
+.hero-title{
+  font-size: clamp(2.1rem, 3.2vw, 3.1rem);
+  font-weight: 880;
+  letter-spacing: -0.03em;
+}
+.hero-subtitle{
+  color: var(--muted);
+  font-size: 1.06rem;
+  max-width: 54ch;
+  line-height: 1.45;
+}
+
+.hero-img {
+  width: 340px;          /* Define un ancho fijo */
+  height: 340px;         /* Define el mismo alto para que sea un cuadrado */
+  object-fit: cover;     /* ¡IMPORTANTE! Evita que la imagen se estire o se vea aplastada */
+  border-radius: 50%;    /* Corta las esquinas hasta formar un círculo */
+  
+  /* Tus estilos actuales */
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 38px rgba(0,0,0,0.18));
+}
+@keyframes float{
+  0%{ transform: translateY(0) }
+  50%{ transform: translateY(-12px) }
+  100%{ transform: translateY(0) }
+}
+
+.hero-img-a {
+  width: 400px;          /* Define un ancho fijo */
+        /* Define el mismo alto para que sea un cuadrado */
+  object-fit: cover;     /* ¡IMPORTANTE! Evita que la imagen se estire o se vea aplastada */
+ /* Corta las esquinas hasta formar un círculo */
+  
+  /* Tus estilos actuales */
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 38px rgba(0,0,0,0.18));
+}
+@keyframes float{
+  0%{ transform: translateY(0) }
+  50%{ transform: translateY(-12px) }
+  100%{ transform: translateY(0) }
+}
+
+/* Sections */
+.games-section{ padding: 40px 0 24px; }
+
+/* Cards: more iOS-like */
+.game-card{
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.82);
+  color: var(--text);
+  
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+  text-align:left;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+}
+.game-card:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.92);
+  box-shadow: var(--shadow-soft);
+}
+
+.game-info{ font-weight: 860; font-size: 1.04rem; letter-spacing:-0.01em; }
+.game-sub{ color: var(--muted); font-size: .92rem; margin-top: 6px; }
+
+/* Monochrome icon container: it will tint images subtly */
+/* Ajuste para la imagen para que sea el "cuadrado máximo" */
+.game-img-side {
+    width: 100px;   /* Tamaño ideal para que se vea grande pero equilibrado */
+    height: 100px;
+    flex-shrink: 0; /* Evita que el texto de la derecha aplaste la imagen */
+}
+
+/* About band */
+.about-section{
+  padding: 58px 0;
+  background: rgba(255,255,255,0.60);
+  border-top: 1px solid var(--hairline);
+}
+
+/* Glass card */
+.glass-card{
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.82);
+  border: 1px solid var(--hairline);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+}
+
+.text-muted{ color: var(--muted) !important; }
+
+.titulo-seccion{
+  font-weight: 880;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.seccion-sub{ color: var(--muted); margin: 8px 0 0; }
+
+.level-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.08);
+  font-weight: 900;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  color: var(--text);
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.mini-title{
+  font-size: .76rem;
+  color: var(--muted);
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.76);
+  color: var(--text);
+  font-weight: 800;
+  font-size: .88rem;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.06);
+}
+.pill-accent{
+  background: var(--accent-soft);
+  border-color: rgba(0,113,227,0.22);
+}
+
+/* Lists */
+.clean-list{ list-style:none; padding-left:0; margin-bottom:0; }
+.clean-list li{
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.clean-list li:last-child{ border-bottom:0; }
+
+/* Clickable cards */
+.click-card{ cursor:pointer; transition: transform .18s ease, box-shadow .18s ease; }
+.click-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+.click-card:focus-visible{
+  outline: 3px solid rgba(0,113,227,0.20);
+  outline-offset: 3px;
+}
+
+/* Contact grid */
+.contact-grid{
+  display:grid;
+  grid-template-columns: 70px 1fr;
+  gap: 10px 12px;
+  align-items:center;
+}
+.contact-label{ font-weight: 900; color: var(--muted); }
+.contact-value{ font-weight: 800; color: var(--text); word-break: break-word; }
+
+/* Responsive */
+@media (max-width: 860px){
+  .app-sidebar{ width: 260px; }
+  .hero-img{ max-width: 240px; }
+}
+
+/* Scrollbar */
+.app-content::-webkit-scrollbar,
+.app-sidebar::-webkit-scrollbar{ width: 10px; }
+.app-content::-webkit-scrollbar-thumb,
+.app-sidebar::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,0.12);
+  border-radius: 999px;
+  border: 3px solid rgba(255,255,255,0.60);
+}
+
+/* ============== TOPBAR ============== */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.78);
+  border-bottom: 1px solid var(--hairline);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.topbar-inner{
+  height: 64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 18px;
+}
+
+.topbar-title{
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.topbar-right{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+
+.topbar-btn{
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+
+
+
+
+/* Estilo del botón oscuro */
+.plan-badge-c {
+    background-color: #1a1a1a; /* Gris casi negro */
+    color: #ffffff;            /* Texto blanco */
+    padding: 10px 20px;
+    border-radius: 8px;        /* Bordes redondeados */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #333;    /* Borde sutil para dar profundidad */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;                  /* Espacio entre el emoji y el texto */
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.plan-badge-c:hover {
+    background-color: #333333; /* Un gris un poco más claro al tocarlo */
+    transform: translateY(-2px); /* Pequeño salto hacia arriba */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Corta cualquier parte de la imagen que se salga */
+    width: 80px;      /* Ajusta al tamaño que desees para el contenedor */
+    height: 60px;
+}
+
+.logo-img {
+    max-width: 100%;  /* La imagen nunca será más ancha que el div */
+    max-height: 100%; /* La imagen nunca será más alta que el div */
+    object-fit: contain; /* Mantiene la proporción sin estirarse */
+}
+
+.locked {
+  opacity: 0.55;
+  filter: grayscale(0.55);
+  cursor: not-allowed;
+}
+
+
+@media (max-width: 768px) {
+    .app-shell {
+        flex-direction: column; /* Cambia de horizontal a vertical */
+    }
+
+    .app-sidebar {
+        width: 100%;
+        min-width: 100%;
+        height: auto; /* Se ajusta a los botones que tenga */
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .app-content {
+        height: calc(100vh - 80px); /* Resta el alto aproximado del sidebar/menu */
+        padding: 16px;
+    }
+}
+
+
+/* Asegura que las vistas ocupen todo el ancho de su padre */
+.view {
+    display: none; /* Se ocultan por defecto */
+    width: 100%;
+    max-width: 1200px; /* Opcional: para que en pantallas gigantes no se estire infinito */
+    margin: 0 auto;
+}
+
+.view.active {
+    display: block; /* Solo la activa se muestra */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hidden { display: none !important; }
+
+.btn-home-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #6c63ff, #4e4af0);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.btn-home-float i {
+  font-size: 18px;
+}
+
+.btn-home-float:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4e4af0, #0071e3);
+}
+@media (max-width: 600px) {
+  .btn-home-float span {
+    display: none;
+  }
 }

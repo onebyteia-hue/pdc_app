@@ -1,0 +1,361 @@
+{
+  "nivel_escolaridad": "Inicial Segundo",
+  "trimestres": [
+    {
+      "trimestre": 1,
+      "campos": [
+        {
+          "campo": "COSMOS Y PENSAMIENTO",
+          "titulos": [
+            {
+              "titulo": "Valores y normas en las interrelaciones en las familias y la escuela",
+              "puntos": [
+                "Identidad personal, cultural, lingüística, mi nombre, mi familia, mi comunidad y autoestima (persona única).",
+                "Normas de convivencia con equidad social de género y generacional, en una cultura sin discriminación (saludo, orden, pedir permiso, dar gracias, decir no y otros).",
+                "Todos somos diferentes e iguales en derechos: diversidad en la familia, escuela y comunidad.",
+                "Habilidades de autonomía, y confianza en sí mismo en las actividades cotidianas de la vida (higiene personal, cuidado del cuerpo, alimentación, vesti menta, entre otras)."
+              ]
+            }
+          ],
+          "id": "c1_cosmos"
+        },
+        {
+          "campo": "COMUNIDAD Y SOCIEDAD",
+          "titulos": [
+            {
+              "titulo": "Manifestaciones del lenguaje en la familia y escuela",
+              "puntos": [
+                "Sonidos de la naturaleza, del ambiente y de objetos.",
+                "Sonidos iniciales en palabras sencillas (conciencia fonológica).",
+                "Expresión y organización de ideas para una comunicación aserti va: presentarse, saludar, palabras de agradecimiento y despedida de manera espontánea (lenguaje de señas).",
+                "Expresiones comunicativas a partir de diálogos, cuentos, poesías, adivinanzas, rimas, canciones, entre otros no estereotipados.",
+                "Expresión oral, gestual y corporal de pensamientos, emociones, sentimientos, temores y necesidades en diferentes situaciones y la correspondencia entre las mismas.",
+                "Descripción oral de objetos, imágenes, lugares, situaciones y hechos de su vida cotidiana.",
+                "Representaciones gráficas a través de materiales y recursos propios de su entorno como cualidad única y personal."
+              ]
+            },
+            {
+              "titulo": "Familia y comunidad, como forma de complementariedad y reciprocidad con la comunidad",
+              "puntos": [
+                "Espacios físicos de riesgo en la escuela, familia y comunidad; la importancia de no exponerse a situaciones de peligro (prevención de la violencia).",
+                "Los derechos y deberes de la niña y el niño en la familia, escuela y comunidad.",
+                "Actividades productivas en la familia y la comunidad en igualdad de oportunidades entre hombres y mujeres."
+              ]
+            },
+            {
+              "titulo": "Sonidos y movimientos de cuerpo propias de las culturas",
+              "puntos": [
+                "Rondas infanti les, cantos que promueva los valores de respeto, igualdad y no discriminación.",
+                "Discriminación auditi va de diferentes sonidos (graves y agudos).",
+                "Expresión rítmica a través de su cuerpo (canciones, danzas, rondas entre otros)."
+              ]
+            },
+            {
+              "titulo": "Colores de la naturaleza aplicados en las actividades cotidianas",
+              "puntos": [
+                "Colores y sus combinaciones plasmados en diferentes expresiones artísti cas.",
+                "Expresiones creativas a partir de diversos trazos, líneas, formas, figuras en distintos materiales o recursos del contexto.",
+                "Técnicas plásticas para crear y representar nuestro entorno (pintado, rasgado, collage, recorte, modelado, torselado, calado, punzado, ensarte, origami y otros)."
+              ]
+            },
+            {
+              "titulo": "Expresión corporal rítmica mediante juegos y movimientos corporales",
+              "puntos": [
+                "Medidas antropométrica.",
+                "Técnicas de meditación, relajación y concentración para liberar el estrés.",
+                "Coordinación de patrones de movimiento básicos: reptar, gatear, saltar, correr, lanzar, patear, atrapar, entre otros.",
+                "Coordinación de movimientos y desplazamiento corporal a partir de distintos juegos tradicionales propios del contexto.",
+                "Espacio corporal personal (kinesfera) y el de las/los demás; reconocimiento y respeto."
+              ]
+            }
+          ],
+          "id": "c2_comunidad"
+        },
+        {
+          "campo": "VIDA TIERRA TERRITORIO",
+          "titulos": [
+            {
+              "titulo": "Cuerpo humano, sus características físicas, funciones y cuidados",
+              "puntos": [
+                "Cuerpo humano, características, funciones, cuidados y protección. (uso correcto de los nombres de las partes íntimas).",
+                "Salud integral: alimentación, actividad física, buen descanso, salud emocional expresada por el cuerpo.",
+                "Hábitos de higiene personal: aseo del cuerpo, higiene bucodental, lavado de manos, cortado de uñas y sonar la nariz.",
+                "Prevención de enfermedades e infecciones contagiosas y virales.",
+                "Funcionamiento, cuidado e higiene de los sentidos durante las actividades cotidianas."
+              ]
+            },
+            {
+              "titulo": "Alimentación saludable de acuerdo con el arco de la alimentación y precaución en el consumo de alimentos procesados",
+              "puntos": [
+                "Alimentos nutritivos que permiten el desarrollo físico y cognitivo (prevención de la desnutrición, el sobrepeso y la obesidad).",
+                "Producción, higiene y consumo de alimentos naturales (frutas y verduras) de acuerdo con el ciclo agrícola en la comunidad y la región.",
+                "Cuidado y protección del agua de los ríos, lagos y ojos de agua dulce necesaria para la vida de los seres vivos.",
+                "Alimentos procesados, consumo adecuado y equilibrado en la familia, escuela y comunidad."
+              ]
+            }
+          ],
+          "id": "c3_vida"
+        },
+        {
+          "campo": "CIENCIA TECNOLOGÍA Y PRODUCCIÓN",
+          "titulos": [
+            {
+              "titulo": "Esti mación y comparación de medidas de longitud, peso, volumen, tiempo, textura y su aplicación en las actividades familiares, escolares y comunitarias",
+              "puntos": [
+                "Espacialidad en relación a sus experiencias vividas: arriba abajo; dentro fuera; delante detrás; antes después; izquierda y derecha.",
+                "Objetos de la vida cotidiana y del contexto (forma, color, tamaño y textura) característi cas, semejanzas y diferencias.",
+                "Figuras geométricas en la vida cotidiana y en el entorno.",
+                "Longitud, peso, volumen y temperatura en las actividades familiares, escolares y comunitarias.",
+                "Nociones de tiempo día- noche; ayer-hoymañana; antes-después; tiempo de comer, tiempo de descansar, tiempo de recreación.",
+                "Uso de cuantificadores en situaciones de juego (correspondencia, mucho-poco, más quemenos que, mayor que-menor que)",
+                "Números cardinales, su uso y utilidad en actividades de la vida cotidiana (relación cantidad numeral-correspondencia uno a uno)."
+              ]
+            },
+            {
+              "titulo": "Herramientas y materiales de trabajo utilizadas en las actividades producti vas de las familias, la escuela y la comunidad",
+              "puntos": [
+                "Materiales, herramientas y tecnologías utilizadas para obtener información, crear, practi car y aprender en actividades de la vida cotidiana.",
+                "Acercamiento y familiarización en el uso de la tecnología."
+              ]
+            }
+          ],
+          "id": "c4_ciencia"
+        }
+      ]
+    },
+    {
+      "trimestre": 2,
+      "campos": [
+        {
+          "campo": "COSMOS Y PENSAMIENTO",
+          "titulos": [
+            {
+              "titulo": "Cosmovisiones y manifestaciones en la familia, escuela y comunidad, practicados en la interacción con el medio social y natural",
+              "puntos": [
+                "Vivir en armonía en la familia, comunidad, el medio natural y cultural practicando los valores de reciprocidad.",
+                "Afectividad, respeto a sí mismo y de todas las personas y otras formas de vida con responsabilidad y sin discriminación.",
+                "Creencias y espiritualidades que se manifiestan en la familia y/o comunidad respetando la libertad de creencias religiosas."
+              ]
+            }
+          ],
+          "id": "c1_cosmos"
+        },
+        {
+          "campo": "COMUNIDAD Y SOCIEDAD",
+          "titulos": [
+            {
+              "titulo": "Lenguaje oral y aproximación al lenguaje escrito desde sus propias formas de lectura y escritura",
+              "puntos": [
+                "Sonidos iniciales en palabras sencillas (conciencia fonológica).",
+                "Uso del lenguaje oral en conversaciones incorporando palabras nuevas a su vocabulario.",
+                "Palabras cortas y largas (contar silabas oralmente)",
+                "Lectura descriptiva del entorno y su uso cotidiano en la comunicación familiar y comunitaria.",
+                "Representaciones gráficas y producción de mensajes en situaciones comunicativas mediante garabatos, dibujos, signos y símbolos."
+              ]
+            },
+            {
+              "titulo": "Realidad histórica y social a partir de experiencias y vivencias locales y nacionales",
+              "puntos": [
+                "Conformación de las familias, sus actividades y roles de género no estereotipados.",
+                "Espacios comunitarios (plazas, parques y otros) y prácticas de cuidado a la propiedad común.",
+                "Sucesos históricos y culturales del contexto local y nacional.",
+                "Personajes históricos notables en el contexto local y nacional.",
+                "Estado Plurinacional de Bolivia (símbolos, lenguas, costumbres, territorio y otros)."
+              ]
+            },
+            {
+              "titulo": "Ritmos musicales como expresión de la cultura nacional",
+              "puntos": [
+                "Vocalización, entonación y respiración.",
+                "Canciones y rondas infantiles de la cultura.",
+                "Audición y diferenciación de sonidos agradables y desagradables ( melodía y ruido)."
+              ]
+            },
+            {
+              "titulo": "Expresiones plásticas y visuales como parte de la identidad cultural de la familia y comunidad",
+              "puntos": [
+                "Expresiones artísti cas a través del dibujo, pintura, collage y otros de manera natural y creativa.",
+                "Artesanía y escultura para transmitir mensajes en relación con su contexto, utilizando diversos materiales."
+              ]
+            },
+            {
+              "titulo": "Movimientos, coordinación, ritmos y actividades familiares y escolares a partir del juego comunitario",
+              "puntos": [
+                "Movimientos del cuerpo en distintas velocidades (lento, rápido).",
+                "Movimientos rítmicos en actividades variadas de coordinación a nivel ojo-mano y ojo-pie.",
+                "Actividades físicas coordinadas: movimientos de equilibrio, dirección, velocidad y control corporal.",
+                "Juegos tradicionales del contexto que ayudan al desarrollo de la coordinación corporal y ritmo."
+              ]
+            }
+          ],
+          "id": "c2_comunidad"
+        },
+        {
+          "campo": "VIDA TIERRA TERRITORIO",
+          "titulos": [
+            {
+              "titulo": "Característi cas de los espacios urbanos y rurales y el cuidado del medio ambiente",
+              "puntos": [
+                "Contaminación de los espacios urbanos, rurales y sus efectos (acústicos, industriales y otros).",
+                "Destino de las aguas residuales y residuos generados en la familia, escuela y comunidad.",
+                "Uso adecuado de los artefactos sanitarios: lavamanos, inodoros y piletas de servicio que benefician a la familia, escuela y la comunidad.",
+                "Clasificación de residuos sólidos y su disposición adecuada, en los contenedores diferenciados de colores en la familia, la escuela y la comunidad."
+              ]
+            },
+            {
+              "titulo": "Cuidado y uso eficiente del agua, prevención y atención de desastres en la escuela y la comunidad",
+              "puntos": [
+                "Elementos de la naturaleza: agua, aire, ti erra y fuego como parte de los sistemas de vida.",
+                "Ciclo del agua, sus estados y purificación. (Método Sódis, entre otros).",
+                "Uso eficiente y cuidado del agua potable en la vida cotidiana.",
+                "Cosecha de agua de lluvias, sus beneficios en los sistemas de vida.",
+                "Bioindicadores de fenómenos naturales y atención de desastres: heladas, nevadas, deslizamientos, sismos, inundaciones, riadas, sequía e incendios forestales."
+              ]
+            }
+          ],
+          "id": "c3_vida"
+        },
+        {
+          "campo": "CIENCIA TECNOLOGÍA Y PRODUCCIÓN",
+          "titulos": [
+            {
+              "titulo": "Estimaciones matemáticas, noción de tiempo y su aplicación en las actividades familiares, escolares y comunitarias",
+              "puntos": [
+                "Orientación espacial de ubicación, dirección, distancia, y posición en relación a objetos, personas y lugares.",
+                "Correspondencia, clasificación y seriación con objetos según su forma, color, tamaño, longitud, características y otros.",
+                "Figuras geométricas y cuerpos geométricos en la vida cotidiana y en el entorno.",
+                "Nociones de tiempo en actividades de la familia y la comunidad: relaciones de causa- efecto y consecuencias en personas y objetos.",
+                "Secuencia de números en conteos y desconteos simples con objetos (antecesor y sucesor).",
+                "Números ordinales y cardinales y su uso en actividades cotidianas."
+              ]
+            },
+            {
+              "titulo": "Tecnología en la familia, sus características y precauciones en su utilización",
+              "puntos": [
+                "Artefactos, herramientas su utilidad, precaución y su uso adecuado en la vida cotidiana.",
+                "Uso responsable de los aparatos tecnológicos digitales con supervisión de los adultos."
+              ]
+            }
+          ],
+          "id": "c4_ciencia"
+        }
+      ]
+    },
+    {
+      "trimestre": 3,
+      "campos": [
+        {
+          "campo": "COSMOS Y PENSAMIENTO",
+          "titulos": [
+            {
+              "titulo": "Tradiciones, valores, costumbres, en actividades producti vas de la familia y comunidad",
+              "puntos": [
+                "Relaciones de convivencia armónica intercultural con el cosmos y la naturaleza para vivir bien (priorizar la vida, la unidad y el bienestar común).",
+                "Tradiciones y costumbres culturales practi cadas en la familia y la comunidad que promueven la convivencia pacífi ca y armónica.",
+                "Los valores vinculados con la identidad cultural, el cuidado y protección de la Madre Tierra."
+              ]
+            }
+          ],
+          "id": "c1_cosmos"
+        },
+        {
+          "campo": "COMUNIDAD Y SOCIEDAD",
+          "titulos": [
+            {
+              "titulo": "Lenguaje escrito y su uso en situaciones cotidianas de la familia y la comunidad",
+              "puntos": [
+                "Sonidos iniciales y finales en diversas palabras (conciencia fonológica).",
+                "Expresión de ideas, emociones, sentimientos, placeres y displaceres.",
+                "Lectura y comprensión de textos a partir de imágenes: cuentos, canciones, pictogramas, leyendas y otros.",
+                "Creación espontánea de diversos ti pos de textos: canciones, cuentos, rimas, adivinanzas, poemas y chistes de forma oral.",
+                "Representaciones gráfi cas de escrituras propias.",
+                "Medios de comunicación y su importancia en el entorno social."
+              ]
+            },
+            {
+              "titulo": "Normas viales y señales de seguridad en la familia, escuela y comunidad",
+              "puntos": [
+                "Cuidado y precaución ante situaciones de riesgo y accidentes en la familia, escuela y comunidad.",
+                "Educación vial y peatonal en el entorno social.",
+                "Medios de transporte y su importancia en la comunidad para incrementar la productividad."
+              ]
+            },
+            {
+              "titulo": "Canto e instrumentos musicales como expresión cultural",
+              "puntos": [
+                "Ritmos musicales, locales y nacionales, expresados con el cuerpo.",
+                "Elaboración de instrumentos con materiales reciclados y del contexto.",
+                "Creaciones melódicas y rítmicas simples."
+              ]
+            },
+            {
+              "titulo": "Expresiones culturales y artísticas en la familia y la comunidad",
+              "puntos": [
+                "Manifestaciones artísticas de nuestra cultura: pintura, modelado e imágenes.",
+                "Expresiones artísticas con materiales del contexto (plantas, rocas, semillas, entre otros)."
+              ]
+            },
+            {
+              "titulo": "Desarrollo motriz y auditivo en relación a ritmos y melodías musicales de nuestra cultura",
+              "puntos": [
+                "Coordinación de movimientos con obstáculos en actividades individuales y grupales.",
+                "Control postural a partir de la estabilidad y la orientación del cuerpo en el espacio.",
+                "Desplazamientos y cambios de dirección por medio de circuitos en forma individual y grupal.",
+                "Formas de lanzamiento de diversos objetos, con dirección (con una y dos manos)."
+              ]
+            }
+          ],
+          "id": "c2_comunidad"
+        },
+        {
+          "campo": "VIDA TIERRA TERRITORIO",
+          "titulos": [
+            {
+              "titulo": "El ciclo vital de los seres vivos, características de los animales según su hábitat y según su contexto natural",
+              "puntos": [
+                "Ciclo vital de las personas, animales y plantas; nacen, crecen se reproducen y mueren.",
+                "Sistemas del cuerpo humano (respiratorio, circulatorio, digestivo y óseo).",
+                "La planta, sus partes y cuidados para su crecimiento.",
+                "Plantas de nuestro contexto: alimenticias, medicinales, ornamentales, industriales y sus beneficios.",
+                "Plantas terrestres, acuáticas y aéreas y sus beneficios en los sistemas de vida.",
+                "Animales según su hábitat (terrestre, aéreos, acuáticos) y según su desplazamiento (camina, repta, salta, vuela, nada)."
+              ]
+            },
+            {
+              "titulo": "Cuidado, protección y defensa de la Madre Tierra y los sistemas de vida",
+              "puntos": [
+                "Ahorro de energía eléctrica en la vivienda y la escuela.",
+                "Energías limpias que no contaminan: energía solar, energía eólica, y energía hidráulica.",
+                "Mitigación del cambio climático a través de la forestación y reforestación.",
+                "Abonos orgánicos sus características, beneficios y elaboración."
+              ]
+            }
+          ],
+          "id": "c3_vida"
+        },
+        {
+          "campo": "CIENCIA TECNOLOGÍA Y PRODUCCIÓN",
+          "titulos": [
+            {
+              "titulo": "La cultura tributaria y su aplicación en las actividades productivas de la familia y comunidad",
+              "puntos": [
+                "Nociones de orden y correspondencia en situaciones cotidianas.",
+                "Números para identificar, contar, descontar, clasificar, agrupar e informarse en situaciones de la vida cotidiana.",
+                "El sistema monetario en actividades productivas desarrolladas en el entorno cotidiano (pago de servicios, compra y venta de productos).",
+                "Solución de problemas matemáticos adición (agregar) y sustracción (quitar), en la resolución de problemas sencillos en la vida cotidiana."
+              ]
+            },
+            {
+              "titulo": "Diversidad de objetos, medios tecnológicos y su uso con responsabilidad en la vida cotidiana",
+              "puntos": [
+                "Artefactos tecnológicos y sus cambios en el tiempo: antes, ahora, después.",
+                "Cambios que ocurren en objetos y materiales, cuando se desplazan, se mojan, se disuelven, se mezclan, se queman."
+              ]
+            }
+          ],
+          "id": "c4_ciencia"
+        }
+      ]
+    }
+  ]
+}

@@ -11,11 +11,12 @@
       rel="stylesheet"
     />
   </head>
+
   <body class="dash-body">
     <div class="dash-wrapper">
       <aside class="dash-sidebar">
         <div class="dash-header">
-          <h2 class="txt-ministerio">Planificación PDC</h2>
+          <h2 class="txt-ministerio">Primaria - Asistido</h2>
           <div class="tab-nav">
             <button class="tab-btn active" id="btn-tab-1" type="button">
               1. Datos
@@ -24,6 +25,10 @@
               2. Contenidos
             </button>
           </div>
+          <a href="index.html?view=primaria" class="btn-home-float">
+  <i class="fas fa-home"></i>
+  <span>Volver al Inicio</span>
+</a>
 
           <span
             class="paso-titulo"
@@ -55,15 +60,10 @@
             </div>
             <div class="input-group">
               <label>Nivel</label>
-              <select id="nivel">
-                <option disabled="" selected="" value="">
-                  Elija el nivel de Educación
+              <select id="nivel" disabled>
+                <option value="PRI" selected>
+                  PRIMARIA COMUNITARIA VOCACIONAL
                 </option>
-                <option value="INI">
-                  INICIAL EN FAMILIA COMUNITARIA ESCOLARIZADA
-                </option>
-                <option value="PRI">PRIMARIA COMUNITARIA VOCACIONAL</option>
-                <option value="SEC">SECUNDARIA COMUNITARIA PRODUCTIVA</option>
               </select>
             </div>
             <div class="input-group">
@@ -147,14 +147,7 @@
               </div>
             </div>
 
-            <div class="user-actions">
-              <button class="btn-admin" id="btn-logout" type="button">
-                Cerrar Sesión
-              </button>
-              <button id="admin-btn" class="btn-admin1" type="button">
-                <span>⚙️</span> Admin
-              </button>
-            </div>
+            
           </div>
 
           <div class="tab-content" id="tab-contenido">
@@ -174,109 +167,112 @@
               <label>Seleccionar Temas del Trimestre</label>
               <div class="temas-container" id="lista-temas-json"></div>
             </div>
-            <div class="dash-actions-final">
-              <!-- 1) IDEA + Elaborar (objetivo) -->
-              <label class="paso-titulo" style="padding-bottom: 5px 20px"
-                >3RO PASO "ELABORAR EL OBJETIVO DE APRENDIZAJE "</label
-              >
-              <div class="input-group">
-                <label>Idea</label>
-                <input
-                  id="idea-objetivo"
-                  placeholder="Tienes alguna idea ?"
-                  type="text"
-                />
-              </div>
-              <div class="row-buttons">
-                <button type="button" class="btn-ai" id="btn-elaborar">
-                  <span>✨</span> Generar el Objetivo de Aprendizaje
-                </button>
-              </div>
-              <!-- 2) Checkboxes dinámicos por contenido seleccionado -->
-              <label class="paso-titulo" style="padding-bottom: 5px 20px"
-                >4TO PASO "SELECCIONE PARA LOS M.P.F."</label
-              >
-              <div class="input-group">
-                <label>(Momentos / Recursos)</label>
-                <div
-                  class="temas-container"
-                  id="checks-contenidos-seleccionados"
-                  style="max-height: 170px; overflow: auto"
-                ></div>
-              </div>
-              <!-- 3) IDEA + Generar Momentos -->
 
-              <div class="input-group">
-                <label>Idea (Momentos del proceso formativo)</label>
-                <input
-                  id="idea-momentos"
-                  placeholder="Tienes alguna idea ?"
-                  type="text"
-                />
-              </div>
-              <div class="row-buttons">
-                <button type="button" class="btn-ai" id="btn-momentos">
-                  <span>🧩</span> Generar Momentos del Proceso Formativo
-                </button>
-              </div>
-              <!-- 4) IDEA + Generar Recursos y Criterios -->
-              <label class="paso-titulo" style="padding-bottom: 5px 20px"
-                >5TO PASO "ELABORE LOS CRITERIOS DE EVALUACIÓN"</label
-              >
-              <div class="input-group">
-                <label>Idea (Criterios de Evaluación)</label>
-                <input
-                  id="idea-criterios"
-                  placeholder="Tienes alguna idea ?"
-                  type="text"
-                />
-              </div>
-              <div class="input-group">
-                <label>Dimensiones a generar (Criterios)</label>
-                <div
-                  class="temas-container"
-                  style="max-height: 200px; overflow: auto"
+            <div class="dash-actions-final">
+              <section id="bloque-avanzado" class="hidden">
+                <!-- 1) IDEA + Elaborar (objetivo) -->
+                <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                  >3RO PASO "ELABORAR EL OBJETIVO DE APRENDIZAJE "</label
                 >
-                  <div class="tema-item">
-                    <label>
-                      <input checked="" id="crit-ser" type="checkbox" />
-                      <div class="tema-item-texto">
-                        <strong>SER</strong>
-                        <span class="tema-detalle">Actitudes y valores</span>
-                      </div>
-                    </label>
-                  </div>
-                  <div class="tema-item">
-                    <label>
-                      <input checked="" id="crit-saber" type="checkbox" />
-                      <div class="tema-item-texto">
-                        <strong>SABER</strong>
-                        <span class="tema-detalle">Conocimientos</span>
-                      </div>
-                    </label>
-                  </div>
-                  <div class="tema-item">
-                    <label>
-                      <input checked="" id="crit-hacer" type="checkbox" />
-                      <div class="tema-item-texto">
-                        <strong>HACER</strong>
-                        <span class="tema-detalle"
-                          >Procedimientos y desempeño</span
-                        >
-                      </div>
-                    </label>
+                <div class="input-group">
+                  <label>Idea</label>
+                  <input
+                    id="idea-objetivo"
+                    placeholder="Tienes alguna idea ?"
+                    type="text"
+                  />
+                </div>
+                <div class="row-buttons">
+                  <button type="button" class="btn-ai" id="btn-elaborar">
+                    <span>✨</span> Generar el Objetivo de Aprendizaje
+                  </button>
+                </div>
+                <!-- 2) Checkboxes dinámicos por contenido seleccionado -->
+                <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                  >4TO PASO "SELECCIONE PARA LOS M.P.F."</label
+                >
+                <div class="input-group">
+                  <label>(Momentos / Recursos)</label>
+                  <div
+                    class="temas-container"
+                    id="checks-contenidos-seleccionados"
+                    style="max-height: 170px; overflow: auto"
+                  ></div>
+                </div>
+                <!-- 3) IDEA + Generar Momentos -->
+
+                <div class="input-group">
+                  <label>Idea (Momentos del proceso formativo)</label>
+                  <input
+                    id="idea-momentos"
+                    placeholder="Tienes alguna idea ?"
+                    type="text"
+                  />
+                </div>
+                <div class="row-buttons">
+                  <button type="button" class="btn-ai" id="btn-momentos">
+                    <span>🧩</span> Generar Momentos del Proceso Formativo
+                  </button>
+                </div>
+                <!-- 4) IDEA + Generar Recursos y Criterios -->
+                <label class="paso-titulo" style="padding-bottom: 5px 20px"
+                  >5TO PASO "ELABORE LOS CRITERIOS DE EVALUACIÓN"</label
+                >
+                <div class="input-group">
+                  <label>Idea (Criterios de Evaluación)</label>
+                  <input
+                    id="idea-criterios"
+                    placeholder="Tienes alguna idea ?"
+                    type="text"
+                  />
+                </div>
+                <div class="input-group">
+                  <label>Dimensiones a generar (Criterios)</label>
+                  <div
+                    class="temas-container"
+                    style="max-height: 200px; overflow: auto"
+                  >
+                    <div class="tema-item">
+                      <label>
+                        <input checked="" id="crit-ser" type="checkbox" />
+                        <div class="tema-item-texto">
+                          <strong>SER</strong>
+                          <span class="tema-detalle">Actitudes y valores</span>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="tema-item">
+                      <label>
+                        <input checked="" id="crit-saber" type="checkbox" />
+                        <div class="tema-item-texto">
+                          <strong>SABER</strong>
+                          <span class="tema-detalle">Conocimientos</span>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="tema-item">
+                      <label>
+                        <input checked="" id="crit-hacer" type="checkbox" />
+                        <div class="tema-item-texto">
+                          <strong>HACER</strong>
+                          <span class="tema-detalle"
+                            >Procedimientos y desempeño</span
+                          >
+                        </div>
+                      </label>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="row-buttons">
-                <button type="button" class="btn-ai" id="btn-crit">
-                  <span>✅</span> Generar Criterios de Evaluación
-                </button>
-              </div>
+                <div class="row-buttons">
+                  <button type="button" class="btn-ai" id="btn-crit">
+                    <span>✅</span> Generar Criterios de Evaluación
+                  </button>
+                </div>
+              </section>
               <!-- 4.5) Elaborar PDC completo -->
               <label class="paso-titulo" style="padding-bottom: 5px 20px"
-                >"ELABORAR PDC COMPLETO"</label
+                >3ER PASO "ELABORAR PDC COMPLETO"</label
               >
               <div class="row-buttons">
                 <button type="button" class="btn-com" id="btn-pdc-completo">
@@ -287,13 +283,13 @@
               <!-- 4.6) Adaptaciones curriculares -->
 
               <label class="paso-titulo" style="padding-bottom: 5px 20px">
-                "ADAPTACIONES CURRICULARES"
+                4TO PASO "ADAPTACIONES CURRICULARES"
               </label>
 
               <div class="input-group">
                 <label style="display: flex; align-items: center; gap: 10px">
                   <input type="checkbox" id="chk-adaptaciones" />
-                  ¿Hay adaptaciones?
+                  ¿Quiere realizar adaptaciones curriculares?
                 </label>
               </div>
 
@@ -325,9 +321,7 @@
                 </div>
 
                 <div class="input-group">
-                  <label
-                    >ESTUDIANTE 1</label
-                  >
+                  <label>ESTUDIANTE 1</label>
                   <label
                     >Contenido a desarrollar (Adaptaciones Específicas)</label
                   >
@@ -350,9 +344,7 @@
                 </div>
 
                 <div class="input-group">
-                  <label
-                    >ESTUDIANTE 2</label
-                  >
+                  <label>ESTUDIANTE 2</label>
                   <label
                     >Contenido a desarrollar (Adaptaciones Específicas)</label
                   >
@@ -379,8 +371,6 @@
                     <span>🎯</span> Generar Adaptaciones Específicas
                   </button>
                 </div>
-
-                
               </div>
 
               <!-- 5) Limpiar + Descargar en la misma línea -->
@@ -596,7 +586,7 @@
                         style="text-align: justify; border: none"
                       >
                         <span
-                          id="p-nivel"
+                          id="p-nivel-title"
                           lang="ES-TRAD"
                           style="font-size: 9pt; color: black"
                         ></span>
@@ -1402,8 +1392,7 @@
                               id="p-adapt-esp-contenido-1"
                               lang="ES-TRAD"
                               style="font-size: 9pt"
-                            ></span> 
-                            </span
+                            ></span> </span
                         ></b>
                       </p>
                     </td>
@@ -1469,7 +1458,7 @@
                       "
                       valign="top"
                       width="219"
-                      >
+                    >
                       <p
                         class="MsoNormal"
                         style="text-align: justify; line-height: 115%"
@@ -1541,12 +1530,11 @@
                       >
                         <b
                           ><span
-                          id="p-adapt-esp-contenido-2"
+                            id="p-adapt-esp-contenido-2"
                             lang="ES-TRAD"
                             style="font-size: 9pt; line-height: 115%"
-                            ></span
-                          ></b
-                        >
+                          ></span
+                        ></b>
                       </p>
                     </td>
                     <td
@@ -1569,8 +1557,7 @@
                           id="p-adapt-esp-condicion-2"
                           lang="ES-TRAD"
                           style="font-size: 9pt; line-height: 115%"
-                          ></span
-                        >
+                        ></span>
                       </p>
                     </td>
                     <td
@@ -1591,12 +1578,11 @@
                       >
                         <b
                           ><span
-                          id="p-adapt-esp-adaptacion-2"
+                            id="p-adapt-esp-adaptacion-2"
                             lang="ES-TRAD"
                             style="font-size: 9pt; line-height: 115%"
-                            ></span
-                          ></b
-                        >
+                          ></span
+                        ></b>
                       </p>
                     </td>
                     <td
@@ -1739,6 +1725,6 @@
       </div>
     </div>
 
-    <script src="dashboard-logic.js" type="module"></script>
+    <script src="dashboard-prim-completo-logic.js" type="module"></script>
   </body>
 </html>
