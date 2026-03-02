@@ -1068,9 +1068,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function actualizarVistaPreviaTemas() {
-    const destino = __getPreviewCellCampos();
-    if (!destino) return;
-
     const seleccion = Array.isArray(window.__PDC_PUNTOS_SELECCIONADOS__)
       ? window.__PDC_PUNTOS_SELECCIONADOS__
       : [];
@@ -1101,6 +1098,74 @@ document.addEventListener("DOMContentLoaded", () => {
       ["VIDA", "VIDA TIERRA Y TERRITORIO"],
       ["CIENCIA", "CIENCIA, TECNOLOGÍA Y PRODUCCIÓN"],
     ];
+
+    // ✅ NUEVO: si existen celdas por campo en la previsualización, pintar 1 fila por campo
+    const hasPerFieldCells = orden.some(([key]) =>
+      document.getElementById(`p-campos-${key}`),
+    );
+
+    if (hasPerFieldCells) {
+      orden.forEach(([key, label]) => {
+        const destinoCampo = document.getElementById(`p-campos-${key}`);
+        if (!destinoCampo) return;
+
+        const titulosMap = grupos[key];
+
+        if (!titulosMap || titulosMap.size === 0) {
+          destinoCampo.innerHTML = `
+            <div style="margin-bottom:6px;">
+              <div><b>${escapeHtml(label)}</b></div>
+              <div style="font-style:italic;">(Sin puntos seleccionados)</div>
+            </div>
+          `;
+          return;
+        }
+
+        const bloquesTitulos = Array.from(titulosMap.entries())
+          .map(([titulo, setPuntos]) => {
+            const puntos = Array.from(setPuntos.values());
+
+            const puntosHtml =
+              puntos.length > 0
+                ? puntos
+                    .map((p) => {
+                      const txt = escapeHtml(p);
+                      return `<p class="MsoListParagraph" style="margin:0cm 0cm 2pt 18pt; text-align:justify;">
+  <span style="font-size:10pt;color:black">•&nbsp;</span><span style="font-size:10pt;color:black">${txt}</span>
+</p>`;
+                    })
+                    .join("")
+                : `<p class="MsoNormal" style="margin:2pt 0 0 0; font-style:italic;">
+  <span style="font-size:10pt;color:black">(Sin puntos seleccionados)</span>
+</p>`;
+
+            return `
+              <p class="MsoNormal" style="margin:4pt 0 0 0;">
+                <b><span style="font-size:10pt;color:black">${escapeHtml(
+                  titulo,
+                )}</span></b>
+              </p>
+              ${puntosHtml}
+            `;
+          })
+          .join("");
+
+        destinoCampo.innerHTML = `
+          <p class="MsoNormal" style="margin:0pt 0 4pt 0;">
+            <b><span style="font-size:10pt;color:black">${escapeHtml(
+              label,
+            )}</span></b>
+          </p>
+          ${bloquesTitulos}
+        `;
+      });
+
+      return;
+    }
+
+    // ✅ Fallback (modo antiguo): un solo cuadro
+    const destino = __getPreviewCellCampos();
+    if (!destino) return;
 
     const html = orden
       .map(([key, label]) => {
@@ -1163,7 +1228,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Exponer para uso desde los checks
   window.actualizarVistaPreviaTemas = actualizarVistaPreviaTemas;
-
   function __getPreviewCellPerfilesSalida() {
     // 1) Si existe un contenedor explícito, úsalo
     const explicit =
@@ -1212,10 +1276,64 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function actualizarVistaPreviaPerfilesSalida() {
+    const sel = window.__PDC_PERFILES_SALIDA__ || {};
+
+    const slotToKey = {
+      1: "COSMOS",
+      2: "COMUNIDAD",
+      3: "VIDA",
+      4: "CIENCIA",
+    };
+
+    const hasPerFieldCells = Object.values(slotToKey).some((key) =>
+      document.getElementById(`p-perfil-${key}`),
+    );
+
+    // ✅ NUEVO: pintar por fila/campo si existen los contenedores
+    if (hasPerFieldCells) {
+      [1, 2, 3, 4].forEach((slot) => {
+        const key = slotToKey[slot];
+        const destinoCampo = document.getElementById(`p-perfil-${key}`);
+        if (!destinoCampo) return;
+
+        const data = sel[slot] || null;
+        const titulo = String(data?.titulo || "").trim();
+        const items = Array.isArray(data?.itemsSeleccionados)
+          ? data.itemsSeleccionados
+          : [];
+
+        // Si no hay perfil elegido para ese campo, limpiar
+        if (!titulo) {
+          destinoCampo.innerHTML = "";
+          return;
+        }
+
+        const tituloHtml = escapeHtml(titulo);
+
+        const itemsHtml = items
+          .map((it) => {
+            const txt = escapeHtml(String(it || "").trim());
+            if (!txt) return "";
+            return `<p class="MsoListParagraph" style="margin:0cm 0cm 2pt 18pt; text-align:justify;">
+  <span style="font-size:10pt;color:black">•&nbsp;</span><span style="font-size:10pt;color:black">${txt}</span>
+</p>`;
+          })
+          .join("");
+
+        destinoCampo.innerHTML = `
+          <div style="margin-bottom:8px;">
+            <div style="margin:2pt 0 4pt 0;"><b>${tituloHtml}</b></div>
+            ${itemsHtml || `<div style="font-style:italic;">(Sin puntos seleccionados)</div>`}
+          </div>
+        `;
+      });
+
+      return;
+    }
+
+    // ✅ Fallback (modo antiguo): un solo cuadro
     const destino = __getPreviewCellPerfilesSalida();
     if (!destino) return;
-
-    const sel = window.__PDC_PERFILES_SALIDA__ || {};
 
     // ✅ SOLO tomar slots que realmente tengan un perfil elegido (titulo)
     const elegidos = [1, 2, 3, 4]
@@ -1263,7 +1381,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✅ opcional (recomendado): exponerla para llamarla seguro desde listeners
   window.actualizarVistaPreviaPerfilesSalida =
     actualizarVistaPreviaPerfilesSalida;
-
   // =========================
   // CHECKBOXES dinámicos según los contenidos seleccionados
   // - Se renderizan en #checks-contenidos-seleccionados
@@ -1562,7 +1679,7 @@ async function elaborarPDCCompletoConAI() {
 
     // 2) Momentos + Recursos (reusa la idea del objetivo para mantener coherencia)
     if (ideaMomEl) ideaMomEl.value = ideaBase;
-    await generarMomentosConIA();
+    
     await generarMomRecCosmos();
     await generarMomRecComunidad();
     await generarMomRecVida();
@@ -2126,6 +2243,18 @@ function __getMomRecTargetsForCampo(campoKey) {
   };
   const label = map[campoKey] || campoKey;
 
+  // ✅ NUEVO: si existen celdas por fila/campo, usarlas directamente
+  const momDirect = document.getElementById(`p-momentos-${campoKey}`);
+  const recDirect = document.getElementById(`p-recursos-${campoKey}`);
+  if (momDirect && recDirect) {
+    if (!momDirect.innerHTML.trim())
+      momDirect.innerHTML = `<i>(sin generar)</i>`;
+    if (!recDirect.innerHTML.trim())
+      recDirect.innerHTML = `<i>(sin generar)</i>`;
+    return { label, mom: momDirect, rec: recDirect };
+  }
+
+  // ✅ Fallback (modo antiguo): un solo cuadro, bloques por campo
   const cellMom = __getPreviewCellByHeaderText(
     "MOMENTOS DEL PROCESO FORMATIVO",
   );

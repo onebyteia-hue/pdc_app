@@ -162,24 +162,6 @@
               <label>Seleccionar Temas del Trimestre</label>
               <div class="temas-container" id="lista-temas-json"></div>
             </div>
-
-            <div class="input-group" id="semanas-control">
-              <label style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
-                <span><b>Planificación por semanas</b> — Semana actual: <span id="lbl-semana-actual">1</span></span>
-                <span style="display:flex; gap:8px;">
-                  <button type="button" class="btn btn-success" id="btn-add-week" style="padding:8px 10px; font-size: 12px;">
-                    ➕ Añadir semana
-                  </button>
-                  <button type="button" class="btn btn-success" id="btn-del-week" style="padding:8px 10px; font-size: 12px;">
-                    🗑️ Eliminar última
-                  </button>
-                </span>
-              </label>
-              <small style="opacity:.85; display:block; margin-top:6px;">
-                Selecciona contenidos (título y/o puntos clave) para la <b>semana actual</b>. Al presionar “Añadir semana” se guarda y se habilita una nueva semana (se desmarcan los checks).
-              </small>
-            </div>
-
             <div class="dash-actions-final">
               <!-- 1) IDEA + Elaborar (objetivo) -->
               <label class="paso-titulo" style="padding-bottom: 5px 20px"
@@ -294,9 +276,29 @@
               <!-- 4.6) Adaptaciones curriculares -->
 
               <label class="paso-titulo" style="padding-bottom: 5px 20px">
-                6TO PASO "ADAPTACIONES CURRICULARES GENERALES"
+                6TO PASO "ADAPTACIONES CURRICULARES"
               </label>
+
               <div class="input-group">
+                <label style="display: flex; align-items: center; gap: 10px">
+                  <input type="checkbox" id="chk-adaptaciones" />
+                  ¿Quiere realizar adaptaciones curriculares?
+                </label>
+              </div>
+
+              <!-- Panel desplegable -->
+              <div
+                id="adaptaciones-panel"
+                style="
+                  display: none;
+                  border-left: 3px solid rgba(255, 255, 255, 0.12);
+                  padding-left: 10px;
+                  margin-left: 5px;
+                "
+              >
+                <!-- TODO tu bloque actual de adaptaciones va aquí adentro -->
+
+                <div class="input-group">
                   <label>Contenidos (para Adaptaciones Generales)</label>
                   <textarea
                     id="adapt-gen-contenidos"
@@ -311,29 +313,6 @@
                   </button>
                 </div>
 
-              <div class="input-group">
-                <label style="display: flex; align-items: center; gap: 10px">
-                  <input type="checkbox" id="chk-adaptaciones" />
-                  ¿Quiere realizar adaptaciones curriculares significativas?
-                </label>
-              </div>
-
-              <label class="paso-titulo" style="padding-bottom: 5px 20px">
-                7MO PASO "ADAPTACIONES CURRICULARES SIGNIFICATIVAS"
-              </label>
-
-              <!-- Panel desplegable -->
-              <div
-                id="adaptaciones-panel"
-                style="
-                  display: none;
-                  border-left: 3px solid rgba(255, 255, 255, 0.12);
-                  padding-left: 10px;
-                  margin-left: 5px;
-                "
-              >
-                <!-- TODO tu bloque actual de adaptaciones va aquí adentro -->
-                
                 <div class="input-group">
                   <label>ESTUDIANTE 1</label>
                   <label
@@ -1022,13 +1001,9 @@
                       >
                         <b
                           ><span lang="ES-TRAD" style="font-size: 9pt"
-                            >Área de saberes y conocimientos: </span
-                          >
-                          
-                          </b
-                        >
-                        <span id="pv-area-saberes" style="font-size: 9pt"></span>
-                        <span
+                            >Área de saberes y conocimiento</span
+                          ></b
+                        ><span
                           style="
                             position: absolute;
                             z-index: 251658238;
@@ -1245,7 +1220,6 @@
               <p class="MsoNormal" style="text-align: justify">
                 <span lang="ES-TRAD" style="font-size: 9pt"> </span>
               </p>
-              <div id="adaptaciones-preview" style="display:none">
               <table
                 border="1"
                 cellpadding="0"
@@ -1671,7 +1645,6 @@
                   </tr>
                 </tbody>
               </table>
-              </div>
               <p class="MsoNormal" style="text-align: justify">
                 <span lang="ES-TRAD" style="font-size: 9pt"> </span>
               </p>

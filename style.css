@@ -1893,3 +1893,8 @@ body{
     display: none;
   }
 }
+
+.ocultar-ui {
+  display: none !important;
+}
+.atab-nav { display: flex; gap: 5px; margin-bottom: 10px; background: #ffe4b1; padding: 5px; border-radius: 8px; }

@@ -16,7 +16,7 @@
       <aside class="dash-sidebar">
         <div class="dash-header">
           <h2 class="txt-ministerio">Inicial Asistido</h2>
-          <div class="tab-nav">
+          <div class="atab-nav">
             <button class="tab-btn active" id="btn-tab-1" type="button">
               1. Datos
             </button>
@@ -34,7 +34,7 @@
             Cargando Usuario...
           </span>
         </div>
-        <form class="dash-form" id="pdc-form">
+        <form class="atab-nav" id="pdc-form">
           <div class="tab-content active" id="tab-datos">
             <label class="paso-titulo" style="padding-bottom: 5px 20px"
               >INGRESE SUS DATOS LABORALES</label
@@ -129,7 +129,7 @@
                   id="perfil-salida-container-1"
                 ></div>
               </div>
-              <div class="input-group">
+              <div class="ocultar-ui">
                 <label>Idea Momentos (Cosmos y Pensamiento)</label>
                 <input
                   id="idea-momentos-cosmos"
@@ -140,7 +140,7 @@
 
               <div class="dash-actions-final">
                 <div class="row-buttons" style="flex-wrap: wrap; gap: 10px">
-                  <button type="button" class="btn-ai" id="btn-momrec-cosmos">
+                  <button type="button" class="ocultar-ui" id="btn-momrec-cosmos">
                     <span>🧩</span> Elaborar Momentos y Recursos - Cosmos y
                     Pensamiento
                   </button>
@@ -158,7 +158,7 @@
                   id="perfil-salida-container-2"
                 ></div>
               </div>
-              <div class="input-group">
+              <div class="ocultar-ui">
                 <label>Idea Momentos (Comunidad y Sociedad)</label>
                 <input
                   id="idea-momentos-comunidad"
@@ -170,7 +170,7 @@
                 <div class="row-buttons" style="flex-wrap: wrap; gap: 10px">
                   <button
                     type="button"
-                    class="btn-ai"
+                    class="ocultar-ui"
                     id="btn-momrec-comunidad"
                   >
                     <span>🧩</span> Elaborar Momentos y Recursos - Comunidad y
@@ -191,7 +191,7 @@
                   id="perfil-salida-container-3"
                 ></div>
               </div>
-              <div class="input-group">
+              <div class="ocultar-ui">
                 <label>Idea Momentos (Vida, Tierra y Territorio)</label>
                 <input
                   id="idea-momentos-vida"
@@ -201,7 +201,7 @@
               </div>
               <div class="dash-actions-final">
                 <div class="row-buttons" style="flex-wrap: wrap; gap: 10px">
-                  <button type="button" class="btn-ai" id="btn-momrec-vida">
+                  <button type="button" class="ocultar-ui" id="btn-momrec-vida">
                     <span>🧩</span> Elaborar Momentos y Recursos - Vida, Tierra
                     y Territorio
                   </button>
@@ -224,7 +224,7 @@
             <div class="dash-actions-final">
               <!-- 1) IDEA + Elaborar (objetivo) -->
 
-              <div class="input-group">
+              <div class="ocultar-ui">
                 <label>Idea Momentos (Ciencia, Tecnología y Producción)</label>
                 <input
                   id="idea-momentos-ciencia"
@@ -233,7 +233,7 @@
                 />
               </div>
               <div class="row-buttons" style="flex-wrap: wrap; gap: 10px">
-                <button type="button" class="btn-ai" id="btn-momrec-ciencia">
+                <button type="button" class="ocultar-ui" id="btn-momrec-ciencia">
                   <span>🧩</span> Ciencia, Tecnología y Producción
                 </button>
               </div>
@@ -278,7 +278,7 @@
                   </div>
                 </div>
               </div>
-              <div class="input-group">
+              <div class="ocultar-ui">
                 <label>Idea (Criterios de evaluación)</label>
                 <input
                   id="idea-criterios"
@@ -287,7 +287,7 @@
                 />
               </div>
               <div class="row-buttons">
-                <button type="button" class="btn-ai" id="btn-crit">
+                <button type="button" class="ocultar-ui" id="btn-crit">
                   <span>🧩</span> Elaborar los Criterios de Evaluación
                 </button>
               </div>
@@ -297,7 +297,7 @@
                 >"ELABORAR PDC COMPLETO"</label
               >
               <div class="row-buttons">
-                <button type="button" class="btn-com" id="btn-pdc-completo">
+                <button type="button" class="btn-ai" id="btn-pdc-completo">
                   <span>🚀</span> Elaborar el PDC Completo
                 </button>
               </div>
@@ -305,13 +305,31 @@
               <!-- 4.6) Adaptaciones curriculares -->
 
               <label class="paso-titulo" style="padding-bottom: 5px 20px">
-                "ADAPTACIONES CURRICULARES"
+                "ADAPTACIONES CURRICULARES GENERALES"
+              </label>
+
+              <div class="input-group">
+                <label>Contenidos (para Adaptaciones Generales)</label>
+                <textarea
+                  id="adapt-gen-contenidos"
+                  placeholder="Escribe el/los contenidos"
+                  style="min-height: 30px"
+                ></textarea>
+              </div>
+
+              <div class="row-buttons">
+                <button type="button" class="btn-ai" id="btn-adapt-gen">
+                  <span>🧠</span> Generar Adaptaciones Generales
+                </button>
+              </div>
+              <label class="paso-titulo" style="padding-bottom: 5px 20px">
+                "ADAPTACIONES CURRICULARES SIGNIFICATIVAS"
               </label>
 
               <div class="input-group">
                 <label style="display: flex; align-items: center; gap: 10px">
                   <input type="checkbox" id="chk-adaptaciones" />
-                  ¿Hay adaptaciones?
+                  ¿Quiere realizar adaptaciones curriculares significativas?
                 </label>
               </div>
 
@@ -326,21 +344,6 @@
                 "
               >
                 <!-- TODO tu bloque actual de adaptaciones va aquí adentro -->
-
-                <div class="input-group">
-                  <label>Contenidos (para Adaptaciones Generales)</label>
-                  <textarea
-                    id="adapt-gen-contenidos"
-                    placeholder="Escribe el/los contenidos"
-                    style="min-height: 30px"
-                  ></textarea>
-                </div>
-
-                <div class="row-buttons">
-                  <button type="button" class="btn-ai" id="btn-adapt-gen">
-                    <span>🧠</span> Generar Adaptaciones Generales
-                  </button>
-                </div>
 
                 <div id="adapt-esp-list">
                   <div class="input-group">
@@ -995,7 +998,7 @@
                 <b
                   ><span
                     lang="ES-TRAD"
-                    style="font-size: 9pt; line-height: 150%"
+                    style="font-size: 10pt; line-height: 150%"
                     >Objetivo holístico de nivel</span
                   ></b
                 >
@@ -1011,11 +1014,11 @@
                 <span
                   id="p-objetivo"
                   lang="ES-TRAD"
-                  style="font-size: 9pt; padding: 5; margin: 0; text-indent: 0"
+                  style="font-size: 10pt; padding: 5; margin: 0; text-indent: 0"
                 ></span>
               </p>
               <p class="MsoNormal" style="text-align: justify">
-                <span lang="ES-TRAD" style="font-size: 9pt"> </span>
+                <span lang="ES-TRAD" style="font-size: 10pt"> </span>
               </p>
 
               <table
@@ -1315,6 +1318,7 @@
                 <p class="MsoNormal" style="text-align: justify">
                   <b><span style="font-size: 10pt">&nbsp;</span> </b>
                 </p>
+                <div id="preview-adaptaciones-significativas" style="display:none;">
 
                 <table
                   class="MsoNormalTable"
@@ -1475,12 +1479,10 @@
                       </p>
                     </td>
                   </tr>
-                  
-                  <tbody id="p-adapt-esp-rows">
-                    </tbody>
-                    
-                  
+
+                  <tbody id="p-adapt-esp-rows"></tbody>
                 </table>
+                </div>
 
                 <p class="MsoNormal" align="center" style="text-align: center">
                   <b><span style="font-size: 10pt">&nbsp;</span></b>

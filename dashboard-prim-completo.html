@@ -17,7 +17,7 @@
       <aside class="dash-sidebar">
         <div class="dash-header">
           <h2 class="txt-ministerio">Primaria - Asistido</h2>
-          <div class="tab-nav">
+          <div class="atab-nav">
             <button class="tab-btn active" id="btn-tab-1" type="button">
               1. Datos
             </button>
@@ -26,9 +26,9 @@
             </button>
           </div>
           <a href="index.html?view=primaria" class="btn-home-float">
-  <i class="fas fa-home"></i>
-  <span>Volver al Inicio</span>
-</a>
+            <i class="fas fa-home"></i>
+            <span>Volver al Inicio</span>
+          </a>
 
           <span
             class="paso-titulo"
@@ -39,7 +39,7 @@
             Cargando Usuario...
           </span>
         </div>
-        <form class="dash-form" id="pdc-form">
+        <form class="atab-nav" id="pdc-form">
           <div class="tab-content active" id="tab-datos">
             <label class="paso-titulo" style="padding-bottom: 5px 20px"
               >INGRESE SUS DATOS LABORALES</label
@@ -146,8 +146,6 @@
                 ><input id="fecha-inicio" type="date" />
               </div>
             </div>
-
-            
           </div>
 
           <div class="tab-content" id="tab-contenido">
@@ -283,13 +281,31 @@
               <!-- 4.6) Adaptaciones curriculares -->
 
               <label class="paso-titulo" style="padding-bottom: 5px 20px">
-                4TO PASO "ADAPTACIONES CURRICULARES"
+                4TO PASO "ADAPTACIONES CURRICULARES GENERALES"
+              </label>
+
+              <div class="input-group">
+                  <label>Contenidos (para Adaptaciones Generales)</label>
+                  <textarea
+                    id="adapt-gen-contenidos"
+                    placeholder="Escribe el/los contenidos"
+                    style="min-height: 30px"
+                  ></textarea>
+                </div>
+
+                <div class="row-buttons">
+                  <button type="button" class="btn-ai" id="btn-adapt-gen">
+                    <span>🧠</span> Generar Adaptaciones Generales
+                  </button>
+                </div>
+               <label class="paso-titulo" style="padding-bottom: 5px 20px">
+                5TO PASO "ADAPTACIONES CURRICULARES SIGNIFICATIVAS"
               </label>
 
               <div class="input-group">
                 <label style="display: flex; align-items: center; gap: 10px">
                   <input type="checkbox" id="chk-adaptaciones" />
-                  ¿Quiere realizar adaptaciones curriculares?
+                  ¿Quiere realizar adaptaciones curriculares Significativas?
                 </label>
               </div>
 
@@ -305,20 +321,7 @@
               >
                 <!-- TODO tu bloque actual de adaptaciones va aquí adentro -->
 
-                <div class="input-group">
-                  <label>Contenidos (para Adaptaciones Generales)</label>
-                  <textarea
-                    id="adapt-gen-contenidos"
-                    placeholder="Escribe el/los contenidos"
-                    style="min-height: 30px"
-                  ></textarea>
-                </div>
-
-                <div class="row-buttons">
-                  <button type="button" class="btn-ai" id="btn-adapt-gen">
-                    <span>🧠</span> Generar Adaptaciones Generales
-                  </button>
-                </div>
+                
 
                 <div class="input-group">
                   <label>ESTUDIANTE 1</label>
@@ -973,6 +976,7 @@
               <p class="MsoNormal" style="text-align: justify">
                 <span lang="ES-TRAD" style="font-size: 9pt"> </span>
               </p>
+
               <table
                 align="left"
                 border="1"
@@ -1010,7 +1014,12 @@
                           ><span lang="ES-TRAD" style="font-size: 9pt"
                             >Área de saberes y conocimiento</span
                           ></b
-                        ><span
+                        >
+                        <span
+                          id="pv-area-saberes"
+                          style="font-size: 9pt"
+                        ></span>
+                        <span
                           style="
                             position: absolute;
                             z-index: 251658238;
@@ -1227,6 +1236,7 @@
               <p class="MsoNormal" style="text-align: justify">
                 <span lang="ES-TRAD" style="font-size: 9pt"> </span>
               </p>
+              <div id="adaptaciones-preview" style="display:none;">
               <table
                 border="1"
                 cellpadding="0"
@@ -1652,6 +1662,7 @@
                   </tr>
                 </tbody>
               </table>
+              </div>
               <p class="MsoNormal" style="text-align: justify">
                 <span lang="ES-TRAD" style="font-size: 9pt"> </span>
               </p>

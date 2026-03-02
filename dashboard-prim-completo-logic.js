@@ -383,12 +383,14 @@ function initToggleAdaptaciones() {
   const chk = document.getElementById("chk-adaptaciones");
   const panel = document.getElementById("adaptaciones-panel");
   const preview = document.getElementById("p-hay-adaptaciones"); // opcional
+  const previewBox = document.getElementById("adaptaciones-preview");
 
   if (!chk || !panel) return;
 
   const apply = () => {
     const on = chk.checked;
     panel.style.display = on ? "block" : "none";
+    if (previewBox) previewBox.style.display = on ? "block" : "none";
 
     // opcional: reflejar en documento
     if (preview) preview.textContent = on ? "Sí" : "No";
@@ -412,6 +414,11 @@ function initToggleAdaptaciones() {
   chk.addEventListener("change", apply);
   apply(); // estado inicial
 }
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // ✅ V2: ya no usamos sessionStorage. La sesión se controla con Firebase Auth en el guard superior.
@@ -515,6 +522,26 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("⚠️ No se encontró el objetivo para:", idSeleccionado);
     }
   };
+
+  function syncAreaToPreview() {
+    const areaInput = document.getElementById("area"); // 👈 cambia este id si el tuyo es otro
+    const out = document.getElementById("pv-area-saberes");
+    if (!areaInput || !out) return;
+
+    const text =
+      areaInput.tagName === "SELECT"
+        ? (areaInput.options[areaInput.selectedIndex]?.text || "").trim()
+        : (areaInput.value || "").trim();
+
+    out.textContent = text ? text : "";
+  }
+
+  const areaInput = document.getElementById("area"); // 👈 ajusta id
+  if (areaInput) {
+    areaInput.addEventListener("change", syncAreaToPreview);
+    areaInput.addEventListener("input", syncAreaToPreview);
+  }
+  syncAreaToPreview(); // estado inicial
 
   // 3. ESCUCHAR EL CAMBIO EN EL SELECTOR
   const nivelFijo = document.getElementById("nivel");
@@ -860,6 +887,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // Necesario porque el HTML usa onclick="limpiarFormulario()"
   window.limpiarFormulario = limpiarFormulario;
 
+  function sanitizeFilename(text) {
+  return (text || "")
+    .toString()
+    .normalize("NFD")                 // separa acentos
+    .replace(/[\u0300-\u036f]/g, "")  // quita acentos
+    .replace(/[^a-zA-Z0-9-_ ]/g, "")  // quita caracteres raros
+    .trim()
+    .replace(/\s+/g, "_")             // espacios -> _
+    .slice(0, 60) || "SIN_AREA";
+}
+
+function getAreaFilenamePart() {
+  const areaInput = document.getElementById("area"); // 👈 si tu id es otro, cámbialo aquí
+  if (!areaInput) return "SIN_AREA";
+
+  let txt = "";
+  if (areaInput.tagName === "SELECT") {
+    txt = (areaInput.options[areaInput.selectedIndex]?.text || "").trim();
+  } else {
+    txt = (areaInput.value || "").trim();
+  }
+
+  return sanitizeFilename(txt);
+}
+
+
+
+
   window.descargarWord = function () {
     console.log("Iniciando descarga...");
 
@@ -941,7 +996,9 @@ li { margin-bottom: 2pt; }
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "PDC_Completo_IA_2026.doc";
+
+      const areaTxt = getAreaFilenamePart(); // 👈 nuevo
+      link.download = `PDC_Base_${areaTxt}.doc`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -988,6 +1045,11 @@ li { margin-bottom: 2pt; }
   };
 
   __wireButtons();
+
+  
+
+
+
 });
 
 // =========================
@@ -1149,7 +1211,7 @@ Debe:
 • Estar en modo indicativo, ser claro, evaluable y sin mencionar productos finales ni perfil de salida.
 • Integrar: ¿qué hace?, ¿qué aprende?, ¿cómo aprende? y ¿para qué aprende?
 • Ajustarse al nivel y enfoque intracultural, intercultural y plurilingüe.
-• Tener máximo 2–3 líneas en un solo párrafo.
+• Tener máximo 2–4 líneas en un solo párrafo.
 • Integrar implícitamente SER, SABER y HACER.
 Datos:
 Nivel: ${nivelText}
@@ -1209,16 +1271,14 @@ async function generarAdaptacionesGeneralesConIA() {
   try {
     setTyping(destino, "✨ Generando adaptaciones generales");
 
-    const promptTexto = `Actúa como docente experto en inclusión educativa y PDC de Bolivia.
-
-Genera ADAPTACIONES CURRICULARES GENERALES basadas en estos contenidos/idea del Maestro:
-${contenidos}
+    const promptTexto = `Actúa como pedagogo inclusivo. Genera adaptaciones para un estudiante con Dificultad Leve/Rezago Temporal, basadas en
+     estos contenidos o idea del Maestro: ${contenidos}
 
 Requisitos estrictos:
 1) Devuelve SOLO un JSON válido (sin texto adicional) con esta estructura:
 { "adaptaciones_generales": ["...","..."] }
-2) "adaptaciones_generales" debe tener ENTRE 1 y 2 viñetas.
-3) Cada viñeta debe ser concreta y breve (máx 10 palabras).`;
+2) "adaptaciones_generales" debe tener ENTRE 1 y 4 viñetas.
+3) Cada viñeta debe ser concreta y breve (máx 12 palabras).`;
 
     const texto = await llamarGeminiTexto(promptTexto);
 
@@ -1300,12 +1360,12 @@ async function generarAdaptacionesEspecificasConIA() {
       setTyping(outSaber, `✨ Generando SABER (Est... ${n})`);
       setTyping(outHacer, `✨ Generando HACER (Est... ${n})`);
 
-      const promptTexto = `Actúa como docente experto en inclusión educativa y adecuaciones curriculares (PDC Bolivia).
+      const promptTexto = `Actúa como pedagogo experto en inclusión educativa en Bolivia. Diseña adaptaciones curriculares.
 Datos:
 - Contenido a desarrollar: ${contenido}
 - Condición o discapacidad: ${condicion}
 Tareas:
-A) Genera ADAPTACIONES ESPECÍFICAS para el contenido según la condición.
+A) Genera ADAPTACIONES SIGNIFICATIVAS para el contenido según la condición.
 B) Genera CRITERIOS DE EVALUACIÓN SOLO en SER, SABER y HACER (NO incluir DECIDIR).
 Requisitos estrictos:
 1) Devuelve SOLO un JSON válido con esta estructura:
@@ -1497,7 +1557,7 @@ function renderMomentosPorSeccion(momentosObj) {
     if (!items.length) continue;
 
     html += `<div style="margin-bottom:6pt;">
-      <b>(${escapeHtml(titulo)})</b>
+      <b>${escapeHtml(titulo)}:</b>
       <ul style="margin:4pt 0 0 0; padding-left:15pt; list-style-type:disc;">
         ${items.map((x) => `<li style="margin-bottom:2pt;">${escapeHtml(x)}</li>`).join("")}
       </ul>
@@ -1640,11 +1700,11 @@ let __critCache = { ser: null, saber: null, hacer: null };
 function renderCriteriosFromCache(cache) {
   const parts = [];
   if (Array.isArray(cache.ser) && cache.ser.length)
-    parts.push(`<b>SER:</b>${renderListaBullets(cache.ser)}`);
+    parts.push(`<b>Ser:</b>${renderListaBullets(cache.ser)}`);
   if (Array.isArray(cache.saber) && cache.saber.length)
-    parts.push(`<b>SABER:</b>${renderListaBullets(cache.saber)}`);
+    parts.push(`<b>Saber:</b>${renderListaBullets(cache.saber)}`);
   if (Array.isArray(cache.hacer) && cache.hacer.length)
-    parts.push(`<b>HACER:</b>${renderListaBullets(cache.hacer)}`);
+    parts.push(`<b>Hacer:</b>${renderListaBullets(cache.hacer)}`);
   return parts.length ? parts.join("<br>") : `<i>(sin criterios)</i>`;
 }
 

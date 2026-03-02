@@ -53,6 +53,7 @@ function __restoreSelect(selectId) {
   if (sel && html) sel.innerHTML = html;
 }
 
+
 function __filterSelect(selectId, permitidosSet) {
   const sel = document.getElementById(selectId);
   if (!sel) return;
@@ -379,17 +380,14 @@ function initToggleAdaptaciones() {
   const chk = document.getElementById("chk-adaptaciones");
   const panel = document.getElementById("adaptaciones-panel");
   const preview = document.getElementById("p-hay-adaptaciones"); // opcional
-  const previewBox = document.getElementById("adaptaciones-preview");
 
   if (!chk || !panel) return;
 
   const apply = () => {
     const on = chk.checked;
     panel.style.display = on ? "block" : "none";
-    if (previewBox) previewBox.style.display = on ? "block" : "none";
 
     // opcional: reflejar en documento
-
     if (preview) preview.textContent = on ? "Sí" : "No";
 
     // opcional PRO: limpiar outputs si se desmarca
@@ -517,31 +515,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 3. ESCUCHAR EL CAMBIO EN EL SELECTOR
 
-  function syncAreaToPreview() {
-    const areaInput = document.getElementById("area"); // 👈 cambia este id si el tuyo es otro
-    const out = document.getElementById("pv-area-saberes");
-    if (!areaInput || !out) return;
-
-    const text =
-      areaInput.tagName === "SELECT"
-        ? (areaInput.options[areaInput.selectedIndex]?.text || "").trim()
-        : (areaInput.value || "").trim();
-
-    out.textContent = text ? text : "";
-  }
-
-  const areaInput = document.getElementById("area"); // 👈 ajusta id
-  if (areaInput) {
-    areaInput.addEventListener("change", syncAreaToPreview);
-    areaInput.addEventListener("input", syncAreaToPreview);
-  }
-  syncAreaToPreview(); // estado inicial
-
   const nivelFijo = document.getElementById("nivel");
-  if (nivelFijo) {
-    nivelFijo.value = "PRI";
-    nivelFijo.dispatchEvent(new Event("change"));
-  }
+if (nivelFijo) {
+  nivelFijo.value = "PRI";
+  nivelFijo.dispatchEvent(new Event("change"));
+}
 
   // 2. Navegación de Pestañas
   const btns = document.querySelectorAll(".tab-btn");
@@ -664,202 +642,62 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   };
 
-  // ============================================================
-  // ✅ CONTENIDOS POR SEMANA (solo Momentos/Recursos por semana)
-  // - Un solo cuadro de contenidos (#lista-temas-json)
-  // - Puedes repetir contenidos en distintas semanas
-  // - Botones: Añadir semana / Eliminar última
-  // ============================================================
-
-  // Semanas guardadas (confirmadas) + semana en edición (se toma desde el UI)
-  let __planSemanas = []; // [{ items: [{titulo, puntos:[]}] }]
-
-  // Mapa de filas (para generar Momentos/Recursos)
-  let __momRowMap = []; // [{ key, weekIndex, itemIndex, titulo, puntos }]
-  let __momRowByKey = {}; // key -> row
-
-  function __setSemanaActualLabel() {
-    const el = document.getElementById("lbl-semana-actual");
-    if (el) el.textContent = String(__planSemanas.length + 1);
-  }
-
-  function __limpiarSeleccionUI() {
-    // desmarca todo: padres y puntos
-    document
-      .querySelectorAll(".check-tema-parent, .check-tema-punto")
-      .forEach((c) => {
-        c.checked = false;
-        c.indeterminate = false;
-      });
-  }
-
-  // Lee selección actual (SEMANA EN EDICIÓN) desde el UI y la agrupa por título
-  function __leerSeleccionSemanaDesdeUI() {
-    const parents = Array.from(document.querySelectorAll(".check-tema-parent"));
-    const puntos = Array.from(document.querySelectorAll(".check-tema-punto"));
-
-    const byTitulo = new Map(); // titulo -> {titulo, puntos:Set}
-
-    // puntos marcados
-    puntos.forEach((c) => {
-      if (!c.checked) return;
-      const titulo = c.getAttribute("data-titulo") || "";
-      const punto = c.getAttribute("data-punto") || "";
-      if (!titulo) return;
-
-      if (!byTitulo.has(titulo))
-        byTitulo.set(titulo, { titulo, puntos: new Set() });
-      if (punto) byTitulo.get(titulo).puntos.add(punto);
-    });
-
-    // padres marcados (permiten incluir solo el título)
-    parents.forEach((c) => {
-      if (!c.checked) return;
-      const titulo = c.getAttribute("data-titulo") || "";
-      if (!titulo) return;
-
-      if (!byTitulo.has(titulo))
-        byTitulo.set(titulo, { titulo, puntos: new Set() });
-    });
-
-    const items = Array.from(byTitulo.values()).map((x) => ({
-      titulo: x.titulo,
-      puntos: Array.from(x.puntos.values()),
-    }));
-
-    return { items };
-  }
-
-  function __getPlanSemanasConEdicion() {
-    const draft = __leerSeleccionSemanaDesdeUI();
-    return __planSemanas.concat([draft]);
-  }
-
-  function __getTitulosUnicosPlan() {
-    const semanas = __getPlanSemanasConEdicion();
-    const set = new Set();
-    semanas.forEach((s) => {
-      (s.items || []).forEach((it) => {
-        if (it?.titulo) set.add(String(it.titulo));
-      });
-    });
-    return Array.from(set.values());
-  }
-
-  // ============================================================
-  // Renderiza los checkboxes en el formulario (título + puntos clave)
-  // ============================================================
+  // Renderiza los checkboxes en el formulario
   const renderizarTemas = (unidades) => {
     const contenedor = document.getElementById("lista-temas-json");
     contenedor.innerHTML = "";
 
-    unidades.forEach((uni, uniIndex) => {
-      const titulo = String(uni.titulo_principal || "").trim();
-      const puntosArr = Array.isArray(uni.puntos_clave) ? uni.puntos_clave : [];
-      const safeIdBase = `tema-${uniIndex}-${Math.random().toString(16).slice(2)}`;
+    unidades.forEach((uni) => {
+      const div = document.createElement("div");
+      div.className = "tema-item";
+      const puntosStr = uni.puntos_clave ? uni.puntos_clave.join("|") : "";
 
-      const wrapper = document.createElement("div");
-      wrapper.className = "tema-item";
-      wrapper.innerHTML = `
-        <label style="display:flex; gap:10px; align-items:flex-start;">
-          <input type="checkbox" class="check-tema-parent" data-titulo="${escapeHtml(
-            titulo,
-          )}" id="${safeIdBase}-parent">
-          <div class="tema-item-texto" style="width:100%;">
-            <strong>${escapeHtml(titulo)}</strong>
-            <div class="tema-detalle" style="margin-top:4px;">
-              ${
-                puntosArr.length
-                  ? puntosArr
-                      .map((p, i) => {
-                        const punto = String(p || "").trim();
-                        if (!punto) return "";
-                        const pid = `${safeIdBase}-p-${i}`;
-                        return `
-                          <label style="display:flex; gap:8px; align-items:flex-start; margin:3px 0; opacity:.95;">
-                            <input type="checkbox" class="check-tema-punto" id="${pid}"
-                              data-titulo="${escapeHtml(titulo)}"
-                              data-punto="${escapeHtml(punto)}">
-                            <span style="line-height:1.2;">${escapeHtml(punto)}</span>
-                          </label>
-                        `.trim();
-                      })
-                      .join("")
-                  : `<i>(sin puntos clave)</i>`
-              }
-            </div>
-          </div>
-        </label>
-      `;
+      div.innerHTML = `
+            <label>
+                <input type="checkbox" class="check-tema" 
+                    data-titulo="${uni.titulo_principal}" 
+                    data-puntos="${puntosStr}">
+                <div class="tema-item-texto">
+                    <strong>${uni.titulo_principal}</strong>
+                    <span class="tema-detalle">${puntosStr.replace(/\|/g, ", ")}</span>
+                </div>
+            </label>
+        `;
 
-      const parent = wrapper.querySelector(".check-tema-parent");
-      const children = Array.from(
-        wrapper.querySelectorAll(".check-tema-punto"),
-      );
-
-      // Parent -> hijos
-      parent?.addEventListener("change", () => {
-        const on = parent.checked;
-        children.forEach((c) => (c.checked = on));
-        parent.indeterminate = false;
-        actualizarVistaPreviaTemas();
-      });
-
-      // Hijos -> estado parent (checked/indeterminate)
-      children.forEach((c) => {
-        c.addEventListener("change", () => {
-          const total = children.length;
-          const marked = children.filter((x) => x.checked).length;
-
-          if (marked === 0) {
-            // si no hay hijos marcados, el parent queda como estaba (permite "solo título")
-            parent.indeterminate = false;
-          } else if (marked === total) {
-            parent.checked = true;
-            parent.indeterminate = false;
-          } else {
-            parent.checked = false;
-            parent.indeterminate = true;
-          }
-
-          actualizarVistaPreviaTemas();
-        });
-      });
-
-      contenedor.appendChild(wrapper);
+      div
+        .querySelector("input")
+        .addEventListener("change", actualizarVistaPreviaTemas);
+      contenedor.appendChild(div);
     });
-
-    // al renderizar (cambio de área/trimestre), reiniciamos semanas para evitar mezclar planes
-    __planSemanas = [];
-    __setSemanaActualLabel();
-    actualizarVistaPreviaTemas();
   };
 
-  // ============================================================
-  // CHECKBOXES dinámicos según filas del plan (semanas + items)
+  
+  // =========================
+  // CHECKBOXES dinámicos según los contenidos seleccionados
   // - Se renderizan en #checks-contenidos-seleccionados
   // - Sirven para elegir a qué filas aplicar Momentos/Recursos
-  // ============================================================
-  const actualizarChecksContenidosSeleccionados = () => {
+  // =========================
+  const actualizarChecksContenidosSeleccionados = (seleccionados) => {
     const box = document.getElementById("checks-contenidos-seleccionados");
     if (!box) return;
 
     box.innerHTML = "";
 
-    if (!Array.isArray(__momRowMap) || __momRowMap.length === 0) {
-      box.innerHTML =
-        "<i>Selecciona contenidos (por semana) para ver opciones.</i>";
+    if (!Array.isArray(seleccionados) || seleccionados.length === 0) {
+      box.innerHTML = "<i>Selecciona contenidos para ver opciones.</i>";
       return;
     }
 
-    __momRowMap.forEach((row) => {
+    seleccionados.forEach((tema, index) => {
+      const titulo =
+        tema.getAttribute("data-titulo") || `Contenido ${index + 1}`;
       const div = document.createElement("div");
       div.className = "tema-item";
       div.innerHTML = `
         <label>
-          <input type="checkbox" class="check-fila-momento" data-key="${row.key}" checked />
+          <input type="checkbox" class="check-fila-momento" data-index="${index}" checked />
           <div class="tema-item-texto">
-            <strong>Semana ${row.weekIndex + 1} — ${escapeHtml(row.titulo)}</strong>
+            <strong>${titulo}</strong>
             <span class="tema-detalle">Aplicar a esta fila</span>
           </div>
         </label>
@@ -868,39 +706,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // ============================================================
-  // Vista previa en la tabla (render por semanas)
-  // ============================================================
   const actualizarVistaPreviaTemas = () => {
+    const seleccionados = Array.from(
+      document.querySelectorAll(".check-tema:checked"),
+    );
     const cuerpoTabla = document.getElementById("tabla-planificacion-dinamica");
     const areaSelector = document.getElementById("area");
     const escolaridadSelector = document.getElementById("escolaridad");
 
     if (!cuerpoTabla || !areaSelector || !escolaridadSelector) return;
-
-    __setSemanaActualLabel();
-
-    // limpiar filas dinámicas (dejar 2 filas de encabezado)
-    while (cuerpoTabla.rows.length > 2) {
-      cuerpoTabla.deleteRow(2);
-    }
-
-    // construir mapa de filas desde semanas
-    const semanas = __getPlanSemanasConEdicion();
-
-    __momRowMap = [];
-    __momRowByKey = {};
-
-    let totalFilas = 0;
-    semanas.forEach(
-      (s) => (totalFilas += Array.isArray(s.items) ? s.items.length : 0),
-    );
-
-    // render checks de momentos/recursos
-    if (totalFilas === 0) {
-      actualizarChecksContenidosSeleccionados();
-      return;
-    }
 
     const diccionarioCarga = {
       LENG_02: "COM",
@@ -918,6 +732,15 @@ document.addEventListener("DOMContentLoaded", () => {
       diccionarioCarga[areaSelector.value] || areaSelector.value;
     const cursoKey = mapearCurso(escolaridadSelector.value);
 
+    while (cuerpoTabla.rows.length > 2) {
+      cuerpoTabla.deleteRow(2);
+    }
+
+    const totalTemasTikeados = seleccionados.length;
+    // actualizar lista de filas para Momentos/Recursos
+    actualizarChecksContenidosSeleccionados(seleccionados);
+    if (totalTemasTikeados === 0) return;
+
     const areaEncontrada = datosCargaHoraria.find(
       (a) => a.id_area === idParaCarga,
     );
@@ -925,143 +748,76 @@ document.addEventListener("DOMContentLoaded", () => {
       areaEncontrada && areaEncontrada.carga_horaria
         ? areaEncontrada.carga_horaria[cursoKey]
         : 0;
-
-    // distribución simple: periodos por fila
-    const periodosPorFila = totalFilas
-      ? Math.max(1, Math.floor(cargaMensual / totalFilas))
-      : 0;
+    const periodosPorTema = Math.floor(cargaMensual / totalTemasTikeados);
 
     const fontStyle =
       "font-family: 'Times New Roman', Times, serif; font-size: 10pt;";
-    const styleIA =
-      "font-family: 'Times New Roman', Times, serif; font-size: 9pt; font-weight: normal;";
 
-    let globalIndex = 0;
+    seleccionados.forEach((tema, index) => {
+      const titulo = tema.getAttribute("data-titulo");
+      const puntosArray = tema.getAttribute("data-puntos")
+        ? tema.getAttribute("data-puntos").split("|")
+        : [];
 
-    semanas.forEach((semana, weekIndex) => {
-      const isDraft = weekIndex === __planSemanas.length;
-      const items = Array.isArray(semana.items) ? semana.items : [];
-      items.forEach((it, itemIndex) => {
-        const titulo = String(it?.titulo || "").trim();
-        const puntosArray = Array.isArray(it?.puntos) ? it.puntos : [];
+      const styleIA =
+        "font-family: 'Times New Roman', Times, serif; font-size: 9pt; font-weight: normal;";
 
-        const weekLabel =
-          itemIndex === 0
-            ? `<div style="font-weight:700; margin-bottom:4pt;">SEMANA ${weekIndex + 1}${isDraft ? " (EN EDICIÓN)" : ""}</div>`
-            : "";
-
-        let vinetasHTML = "";
-        if (puntosArray.length) {
-          vinetasHTML =
-            `<ul style="${fontStyle} margin: 4pt 0 0 0; padding-left: 15pt; list-style-type: disc;">` +
-            puntosArray
-              .filter((p) => String(p || "").trim())
-              .map(
-                (p) =>
-                  `<li style="font-weight: normal; margin-bottom: 2pt;">${escapeHtml(String(p).trim())}</li>`,
-              )
-              .join("") +
-            `</ul>`;
+      let viñetasHTML = `<ul style="${fontStyle} margin: 4pt 0 0 0; padding-left: 15pt; list-style-type: disc;">`;
+      puntosArray.forEach((punto) => {
+        if (punto.trim() !== "") {
+          viñetasHTML += `<li style="font-weight: normal; margin-bottom: 2pt;">${punto.trim()}</li>`;
         }
+      });
+      viñetasHTML += "</ul>";
 
-        const key = `w${weekIndex}-i${itemIndex}`;
-        const row = { key, weekIndex, itemIndex, titulo, puntos: puntosArray };
-        __momRowMap.push(row);
-        __momRowByKey[key] = row;
+      const nuevaFila = document.createElement("tr");
+      let contenidoFila = "";
 
-        const nuevaFila = document.createElement("tr");
-        let contenidoFila = "";
-
-        if (globalIndex === 0) {
-          contenidoFila += `
-            <td width="8%" rowspan="${totalFilas}" valign="top" style="border:solid black 1pt; border-top:none; padding:5pt; text-align:justify; ${fontStyle}">
-              <div id="p-objetivo" style="margin-bottom: 10pt; color: #555; font-style: italic; display: none;"></div>
-              <div id="p-obj-aprender" style="${styleIA}">
-                <i>Presione "Elaborar PDC" para generar el objetivo...</i>
-              </div>
-            </td>`;
-        }
-
+      if (index === 0) {
         contenidoFila += `
-          <td width="22%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; ${fontStyle}">
-            ${weekLabel}
-            <b style="text-transform: uppercase;">${escapeHtml(titulo)}</b>
-            ${vinetasHTML}
-          </td>
-          <td width="28%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; ${styleIA}">
-            <div id="p-metodologia-${key}">Momento metodológico...</div>
-          </td>
-          <td width="8%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; text-align:justify; ${styleIA}">
-            <div id="p-recursos-${key}">Recursos analógicos, producción de conocimientos.</div>
-          </td>
-          <td width="6%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; text-align:center; ${fontStyle}">
-            ${periodosPorFila}
-          </td>
+                <td width="8%" rowspan="${totalTemasTikeados}" valign="top" style="border:solid black 1pt; border-top:none; padding:5pt; text-align:justify; ${fontStyle}">
+                    <div id="p-objetivo" style="margin-bottom: 10pt; color: #555; font-style: italic; display: none;"></div>
+                    
+                    <div id="p-obj-aprender" style="${styleIA}">
+                        <i>Presione "Elaborar PDC" para generar el objetivo...</i>
+                    </div>
+                </td>`;
+      }
+
+      contenidoFila += `
+            <td width="22%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; ${fontStyle}">
+                <b style="text-transform: uppercase;">${titulo}</b>
+                ${viñetasHTML}
+            </td>
+            <td width="28%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; ${styleIA}">
+                <div id="p-metodologia-${index}">Momento metodológico...</div>
+            </td>
+            <td width="8%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; text-align:justify; ${styleIA}">
+                <div id="p-recursos-${index}">Recursos analógicos, producción de conocimientos.</div>
+            </td>
+            <td width="6%" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; text-align:center; ${fontStyle}">
+                ${periodosPorTema}
+            </td>
         `;
 
-        if (globalIndex === 0) {
-          contenidoFila += `
-            <td width="28%" rowspan="${totalFilas}" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; ${styleIA}">
-              <div id="p-criterios">
-                <b>SER:</b> ...<br><br>
-                <b>SABER:</b> ...<br><br>
-                <b>HACER:</b> ...<br><br>
-              </div>
+      if (index === 0) {
+        contenidoFila += `
+            <td width="28%" rowspan="${totalTemasTikeados}" valign="top" style="border:solid black 1pt; border-top:none; border-left:none; padding:5pt; ${styleIA}">
+                <div id="p-criterios">
+                    <b>SER:</b> ...<br><br>
+                    <b>SABER:</b> ...<br><br>
+                    <b>HACER:</b> ...<br><br>
+                    
+                </div>
             </td>`;
-        }
+      }
 
-        nuevaFila.innerHTML = contenidoFila;
-        cuerpoTabla.appendChild(nuevaFila);
-
-        globalIndex++;
-      });
+      nuevaFila.innerHTML = contenidoFila;
+      cuerpoTabla.appendChild(nuevaFila);
     });
 
-    // Exponer para funciones IA (fuera del DOMContentLoaded)
-    window.__PDC_PLAN_SEMANAS__ = __planSemanas;
-    window.__PDC_MOM_ROW_MAP__ = __momRowMap;
-    window.__PDC_MOM_ROW_BY_KEY__ = __momRowByKey;
-
-    actualizarChecksContenidosSeleccionados();
     actualizarObjetivoNivel(document.getElementById("nivel").value);
   };
-
-  // ============================================================
-  // Botones semanas
-  // ============================================================
-  const __wireWeeksButtons = () => {
-    const addBtn = document.getElementById("btn-add-week");
-    const delBtn = document.getElementById("btn-del-week");
-
-    addBtn?.addEventListener("click", (e) => {
-      e.preventDefault();
-      const draft = __leerSeleccionSemanaDesdeUI();
-      if (!draft.items.length) {
-        alert(
-          "Selecciona al menos un contenido (título y/o punto clave) para guardar la semana.",
-        );
-        return;
-      }
-      __planSemanas.push(draft);
-      __limpiarSeleccionUI();
-      __setSemanaActualLabel();
-      actualizarVistaPreviaTemas();
-    });
-
-    delBtn?.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (!__planSemanas.length) {
-        alert("No hay semanas guardadas para eliminar.");
-        return;
-      }
-      __planSemanas.pop();
-      __setSemanaActualLabel();
-      actualizarVistaPreviaTemas();
-    });
-  };
-
-  // se conecta una vez en DOMContentLoaded (más abajo también llamamos __wireButtons)
-  __wireWeeksButtons();
 
   ["escolaridad", "area", "trimestre"].forEach((id) => {
     document
@@ -1102,33 +858,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Necesario porque el HTML usa onclick="limpiarFormulario()"
   window.limpiarFormulario = limpiarFormulario;
-
-  function sanitizeFilename(text) {
-    return (
-      (text || "")
-        .toString()
-        .normalize("NFD") // separa acentos
-        .replace(/[\u0300-\u036f]/g, "") // quita acentos
-        .replace(/[^a-zA-Z0-9-_ ]/g, "") // quita caracteres raros
-        .trim()
-        .replace(/\s+/g, "_") // espacios -> _
-        .slice(0, 60) || "SIN_AREA"
-    );
-  }
-
-  function getAreaFilenamePart() {
-    const areaInput = document.getElementById("area"); // 👈 si tu id es otro, cámbialo aquí
-    if (!areaInput) return "SIN_AREA";
-
-    let txt = "";
-    if (areaInput.tagName === "SELECT") {
-      txt = (areaInput.options[areaInput.selectedIndex]?.text || "").trim();
-    } else {
-      txt = (areaInput.value || "").trim();
-    }
-
-    return sanitizeFilename(txt);
-  }
 
   window.descargarWord = function () {
     console.log("Iniciando descarga...");
@@ -1211,10 +940,7 @@ li { margin-bottom: 2pt; }
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-
-      const areaTxt = getAreaFilenamePart(); // 👈 nuevo
-      link.download = `PDC_${areaTxt}.doc`;
-
+      link.download = "PDC_Completo_Personalizado_2026.doc";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -1323,11 +1049,14 @@ async function elaborarPDCCompletoConAI() {
   const btn = document.getElementById("btn-pdc-completo");
   if (!btn) return;
 
-  const titulosSeleccionados = getTitulosSeleccionadosGlobal();
-  if (!titulosSeleccionados.length) {
+  const seleccionados = Array.from(
+    document.querySelectorAll(".check-tema:checked"),
+  );
+  if (!seleccionados.length) {
     alert("Selecciona al menos un contenido.");
     return;
   }
+
   const original = btn.innerHTML;
   btn.innerHTML =
     '<i class="fas fa-spinner fa-spin"></i> Generando PDC completo...';
@@ -1401,20 +1130,25 @@ const generarObjetivoConIA = async () => {
     document.getElementById("idea-objetivo")?.value?.trim() || "";
 
   const campoDestino = document.getElementById("p-obj-aprender");
-  const titulosSeleccionados = getTitulosSeleccionadosGlobal();
+  const seleccionados = Array.from(
+    document.querySelectorAll(".check-tema:checked"),
+  );
 
-  if (!campoDestino || titulosSeleccionados.length === 0) return;
+  if (!campoDestino || seleccionados.length === 0) return;
 
-  const listaContenidos = titulosSeleccionados.join(", ");
+  const listaContenidos = seleccionados
+    .map((t) => t.getAttribute("data-titulo"))
+    .join(", ");
+
   const perfilSel = window.__PDC_PERFIL_SALIDA__ || "";
 
   const promptTexto = `Eres docente experto en Planificación de Desarrollo Curricular del Subsistema de Educación Regular de Bolivia.
-Redacta Un Objetivo de Aprendizaje coherente con el Objetivo Holístico del Nivel y los contenidos del mes.
+Redacta UN Objetivo de Aprendizaje coherente con el Objetivo Holístico del Nivel y los contenidos del mes.
 Debe:
 • Estar en modo indicativo, ser claro, evaluable y sin mencionar productos finales ni perfil de salida.
 • Integrar: ¿qué hace?, ¿qué aprende?, ¿cómo aprende? y ¿para qué aprende?
 • Ajustarse al nivel y enfoque intracultural, intercultural y plurilingüe.
-• Tener máximo 2–4 líneas en un solo párrafo.
+• Tener máximo 2–3 líneas en un solo párrafo.
 • Integrar implícitamente SER, SABER y HACER.
 Datos:
 Nivel: ${nivelText}
@@ -1474,14 +1208,16 @@ async function generarAdaptacionesGeneralesConIA() {
   try {
     setTyping(destino, "✨ Generando adaptaciones generales");
 
-    const promptTexto = `Actúa como pedagogo inclusivo. Genera adaptaciones para un estudiante con Dificultad Leve/Rezago Temporal, basadas en estos contenidos o idea del Maestro:
+    const promptTexto = `Actúa como docente experto en inclusión educativa y PDC de Bolivia.
+
+Genera ADAPTACIONES CURRICULARES GENERALES basadas en estos contenidos/idea del Maestro:
 ${contenidos}
 
 Requisitos estrictos:
 1) Devuelve SOLO un JSON válido (sin texto adicional) con esta estructura:
 { "adaptaciones_generales": ["...","..."] }
-2) "adaptaciones_generales" debe tener ENTRE 1 y 4 viñetas.
-3) Cada viñeta debe ser concreta y breve (máx 12 palabras).`;
+2) "adaptaciones_generales" debe tener ENTRE 1 y 2 viñetas.
+3) Cada viñeta debe ser concreta y breve (máx 10 palabras).`;
 
     const texto = await llamarGeminiTexto(promptTexto);
 
@@ -1563,12 +1299,12 @@ async function generarAdaptacionesEspecificasConIA() {
       setTyping(outSaber, `✨ Generando SABER (Est... ${n})`);
       setTyping(outHacer, `✨ Generando HACER (Est... ${n})`);
 
-      const promptTexto = `Actúa como pedagogo experto en inclusión educativa en Bolivia. Diseña adaptaciones curriculares.
+      const promptTexto = `Actúa como docente experto en inclusión educativa y adecuaciones curriculares (PDC Bolivia).
 Datos:
 - Contenido a desarrollar: ${contenido}
 - Condición o discapacidad: ${condicion}
 Tareas:
-A) Genera ADAPTACIONES SIGNIFICATIVAS para el contenido según la condición.
+A) Genera ADAPTACIONES ESPECÍFICAS para el contenido según la condición.
 B) Genera CRITERIOS DE EVALUACIÓN SOLO en SER, SABER y HACER (NO incluir DECIDIR).
 Requisitos estrictos:
 1) Devuelve SOLO un JSON válido con esta estructura:
@@ -1580,8 +1316,8 @@ Requisitos estrictos:
     "hacer": ["...","..."]
   }
 }
-2) "adaptacion" entre 1 y 3 viñetas.
-3) Cada dimensión (ser/saber/hacer) entre 1 y 3 viñetas.
+2) "adaptacion" entre 1 y 2 viñetas.
+3) Cada dimensión (ser/saber/hacer) entre 1 y 2 viñetas.
 4) Viñetas breves, observables y evaluables (máx 10 palabras).`;
 
       const texto = await llamarGeminiTexto(promptTexto);
@@ -1760,7 +1496,7 @@ function renderMomentosPorSeccion(momentosObj) {
     if (!items.length) continue;
 
     html += `<div style="margin-bottom:6pt;">
-      <b>${escapeHtml(titulo)}:</b>
+      <b>(${escapeHtml(titulo)})</b>
       <ul style="margin:4pt 0 0 0; padding-left:15pt; list-style-type:disc;">
         ${items.map((x) => `<li style="margin-bottom:2pt;">${escapeHtml(x)}</li>`).join("")}
       </ul>
@@ -1776,44 +1512,16 @@ function indicesSeleccionadosMomentos() {
   const checks = Array.from(document.querySelectorAll(".check-fila-momento"));
   const marcados = checks
     .filter((c) => c.checked)
-    .map((c) => String(c.getAttribute("data-key") || ""))
-    .filter(Boolean);
+    .map((c) => Number(c.getAttribute("data-index")))
+    .filter((n) => Number.isFinite(n));
 
   // si no hay (por ejemplo, el usuario desmarcó todo), aplicamos a todos
   if (!marcados.length) {
     return checks
-      .map((c) => String(c.getAttribute("data-key") || ""))
-      .filter(Boolean);
+      .map((c) => Number(c.getAttribute("data-index")))
+      .filter((n) => Number.isFinite(n));
   }
   return marcados;
-}
-
-// =========================
-// Helper: títulos seleccionados (todas las semanas + semana en edición)
-// =========================
-function getTitulosSeleccionadosGlobal() {
-  const set = new Set();
-
-  // semanas guardadas
-  const semanas = Array.isArray(window.__PDC_PLAN_SEMANAS__)
-    ? window.__PDC_PLAN_SEMANAS__
-    : [];
-  semanas.forEach((s) => {
-    const items = Array.isArray(s?.items) ? s.items : [];
-    items.forEach((it) => {
-      if (it?.titulo) set.add(String(it.titulo));
-    });
-  });
-
-  // semana en edición (UI actual)
-  document
-    .querySelectorAll(".check-tema-parent:checked, .check-tema-punto:checked")
-    .forEach((c) => {
-      const titulo = c.getAttribute("data-titulo") || "";
-      if (titulo) set.add(String(titulo));
-    });
-
-  return Array.from(set.values());
 }
 
 // =========================
@@ -1823,16 +1531,16 @@ async function generarMomentosConIA() {
   const btn = document.getElementById("btn-momentos");
   if (!btn) return;
 
-  const rowMap = window.__PDC_MOM_ROW_MAP__ || [];
-  const byKey = window.__PDC_MOM_ROW_BY_KEY__ || {};
-
-  if (!Array.isArray(rowMap) || rowMap.length === 0) {
-    alert("Selecciona al menos un contenido (por semana).");
+  const seleccionados = Array.from(
+    document.querySelectorAll(".check-tema:checked"),
+  );
+  if (!seleccionados.length) {
+    alert("Selecciona al menos un contenido.");
     return;
   }
 
   const idea = document.getElementById("idea-momentos")?.value?.trim() || "";
-  const keys = indicesSeleccionadosMomentos();
+  const indices = indicesSeleccionadosMomentos();
 
   const original = btn.innerHTML;
   btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generando... ';
@@ -1840,17 +1548,19 @@ async function generarMomentosConIA() {
 
   try {
     await runAI(async () => {
-      for (const key of keys) {
-        const row = byKey[key];
-        if (!row) continue;
+      for (const index of indices) {
+        const tema = seleccionados[index];
+        if (!tema) continue;
 
-        const titulo = row.titulo || "Contenido";
-        const puntos = Array.isArray(row.puntos)
-          ? row.puntos.map((x) => String(x).trim()).filter(Boolean)
-          : [];
+        const titulo =
+          tema.getAttribute("data-titulo") || `Contenido ${index + 1}`;
+        const puntos = (tema.getAttribute("data-puntos") || "")
+          .split("|")
+          .map((x) => x.trim())
+          .filter(Boolean);
 
-        const destinoMom = document.getElementById(`p-metodologia-${key}`);
-        const destinoRec = document.getElementById(`p-recursos-${key}`);
+        const destinoMom = document.getElementById(`p-metodologia-${index}`);
+        const destinoRec = document.getElementById(`p-recursos-${index}`);
         setTyping(destinoMom, "✨ Generando momentos");
         setTyping(destinoRec, "✨ Generando recursos");
 
@@ -1870,12 +1580,12 @@ Requisitos estrictos:
   },
   "recursos": ["recurso 1", "recurso 2", "..."]
 }
-2) En recursos, usa viñetas (arreglo) de recursos concretos (máx 10), 2-6 viñetas.
+2) En recursos, usa viñetas (arreglo) de recursos concretos (máx 10), 2-6 viñetas .
 3) Ajusta a nivel escolar (lenguaje sencillo y viable en aula).
-4) Parrafos de max. 15 palabras.
-5) No lapiz,marcadores (no recurrentes)`;
+4) Parrafos de max. 15 palabras.`;
 
         const texto = await llamarGeminiTexto(promptTexto);
+
         const parsed = extraerJSONSeguro(texto);
 
         if (!parsed?.momentos) {
@@ -1886,8 +1596,27 @@ Requisitos estrictos:
         }
 
         const mom = parsed.momentos;
+
         const htmlMomentos = renderMomentosPorSeccion(mom);
         if (destinoMom) destinoMom.innerHTML = htmlMomentos;
+
+        // const itemsMomentos = [
+        //   { label: "Práctica", text: mom.practica || "" },
+        //   { label: "Teoría", text: mom.teoria || "" },
+        //   { label: "Producción", text: mom.produccion || "" },
+        //   { label: "Valoración", text: mom.valoracion || "" },
+        // ].filter((x) => String(x.text || "").trim().length);
+
+        // const htmlMomentos = itemsMomentos.length
+        //   ? `<ul style="margin: 4pt 0 0 0; padding-left: 15pt; list-style-type: disc;">${itemsMomentos
+        //       .map(
+        //         (it) =>
+        //           `<li style="margin-bottom: 2pt;">${escapeHtml(it.text)} <b>(${escapeHtml(it.label)})</b></li>`,
+        //       )
+        //       .join("")}</ul>`
+        //   : "<i>(sin momentos)</i>";
+
+        // if (destinoMom) destinoMom.innerHTML = htmlMomentos;
         if (destinoRec)
           destinoRec.innerHTML = renderListaBullets(parsed.recursos);
       }
@@ -1903,17 +1632,18 @@ Requisitos estrictos:
     btn.disabled = false;
   }
 }
+
 // Cache en memoria (se mantiene mientras no recargues la página)
 let __critCache = { ser: null, saber: null, hacer: null };
 
 function renderCriteriosFromCache(cache) {
   const parts = [];
   if (Array.isArray(cache.ser) && cache.ser.length)
-    parts.push(`<b>Ser:</b>${renderListaBullets(cache.ser)}`);
+    parts.push(`<b>SER:</b>${renderListaBullets(cache.ser)}`);
   if (Array.isArray(cache.saber) && cache.saber.length)
-    parts.push(`<b>Saber:</b>${renderListaBullets(cache.saber)}`);
+    parts.push(`<b>SABER:</b>${renderListaBullets(cache.saber)}`);
   if (Array.isArray(cache.hacer) && cache.hacer.length)
-    parts.push(`<b>Hacer:</b>${renderListaBullets(cache.hacer)}`);
+    parts.push(`<b>HACER:</b>${renderListaBullets(cache.hacer)}`);
   return parts.length ? parts.join("<br>") : `<i>(sin criterios)</i>`;
 }
 
@@ -1928,27 +1658,14 @@ async function generarRecYCritConIA(indicesOverride) {
   const btn = document.getElementById("btn-crit");
   if (!btn) return;
 
-  const titulosSeleccionados = getTitulosSeleccionadosGlobal();
-  if (!titulosSeleccionados.length) {
+  const seleccionados = Array.from(
+    document.querySelectorAll(".check-tema:checked"),
+  );
+  if (!seleccionados.length) {
     alert("Selecciona al menos un contenido.");
     return;
   }
 
-  // Si nos pasan "keys" (desde Momentos/Recursos), filtramos por esas filas
-  let titulosFinales = titulosSeleccionados;
-  if (
-    indicesOverride &&
-    Array.isArray(indicesOverride) &&
-    indicesOverride.length
-  ) {
-    const byKey = window.__PDC_MOM_ROW_BY_KEY__ || {};
-    const set = new Set();
-    indicesOverride.forEach((k) => {
-      const row = byKey[String(k)];
-      if (row?.titulo) set.add(String(row.titulo));
-    });
-    if (set.size) titulosFinales = Array.from(set.values());
-  }
   const objetivo =
     document.getElementById("p-obj-aprender")?.innerText?.trim() || "";
   if (!objetivo || objetivo.includes('Presione "Elaborar PDC"')) {
@@ -1974,7 +1691,19 @@ async function generarRecYCritConIA(indicesOverride) {
   const dimsFinal = dims; // solo las seleccionadas
 
   const idea = document.getElementById("idea-criterios")?.value?.trim() || "";
-  const contenidos = titulosFinales.filter(Boolean);
+  const indicesValidos = Array.isArray(indicesOverride)
+    ? indicesOverride
+        .map((n) => Number(n))
+        .filter((n) => Number.isFinite(n) && n >= 0 && n < seleccionados.length)
+    : null;
+
+  const contenidos = (
+    indicesValidos?.length
+      ? indicesValidos.map((i) => seleccionados[i])
+      : seleccionados
+  )
+    .map((t) => t.getAttribute("data-titulo"))
+    .filter(Boolean);
 
   const destino = document.getElementById("p-criterios");
   if (!destino) return;
@@ -1989,7 +1718,7 @@ async function generarRecYCritConIA(indicesOverride) {
 
       const keys = dimsFinal.map((d) => d.toLowerCase()); // ser | saber | hacer
 
-      const promptTexto = `Actúa como experto en diseño curricular boliviano.
+      const promptTexto = `Actúa como docente experto en evaluación en el marco del PDC de Bolivia.
 
 Debes generar CRITERIOS DE EVALUACIÓN SOLO para estas dimensiones: ${dimsFinal.join(", ")}.
 Datos:
@@ -2002,7 +1731,7 @@ Base conceptual:
 - HACER: habilidades y destrezas en la ejecución de tareas.
 Requisitos estrictos:
 1) Devuelve SOLO un JSON válido (sin texto adicional) con estas claves EXACTAS: ${keys.map((k) => `"${k}"`).join(", ")}.
-2) Cada clave debe ser un arreglo de strings. Entre 1 y 4 criterios por dimensión.
+2) Cada clave debe ser un arreglo de strings. Entre 1 y 3 criterios por dimensión.
 3) Redacción clara, observable y evaluable (sin asteriscos, sin títulos).
 4) No incluyas la dimensión DECIDIR.
 5) Cada parrafo max. 8 palabras.`;

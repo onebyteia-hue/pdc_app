@@ -1,0 +1,119 @@
+[debug] [2026-03-02T02:13:54.763Z] ----------------------------------------------------------------------
+[debug] [2026-03-02T02:13:54.776Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hansel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-03-02T02:13:54.777Z] CLI Version:   15.8.0
+[debug] [2026-03-02T02:13:54.778Z] Platform:      win32
+[debug] [2026-03-02T02:13:54.778Z] Node Version:  v24.12.0
+[debug] [2026-03-02T02:13:54.779Z] Time:          Sun Mar 01 2026 22:13:54 GMT-0400 (hora de Bolivia)
+[debug] [2026-03-02T02:13:54.779Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-02T02:13:54.791Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\migg\escritorio\Codigos\mi_plan_docente
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2026-03-02T02:14:04.623Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-03-02T02:14:04.624Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-03-02T02:23:36.482Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-02T02:23:36.482Z] > authorizing via signed-in user (milercopajira@gmail.com)
+[debug] [2026-03-02T02:23:36.485Z] Checked if tokens are valid: false, expires at: 1771235172609
+[debug] [2026-03-02T02:23:36.485Z] Checked if tokens are valid: false, expires at: 1771235172609
+[debug] [2026-03-02T02:23:36.485Z] > refreshing access token with scopes: []
+[debug] [2026-03-02T02:23:36.487Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-03-02T02:23:36.488Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-03-02T02:23:36.780Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-03-02T02:23:36.780Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-03-02T02:23:36.864Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/simulacroesfms2026 [none]
+[debug] [2026-03-02T02:23:37.419Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/simulacroesfms2026 200
+[debug] [2026-03-02T02:23:37.420Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/simulacroesfms2026 {"projectId":"simulacroesfms2026","projectNumber":"1076674602133","displayName":"simulacro-esfms-2026","name":"projects/simulacroesfms2026","resources":{"hostingSite":"simulacroesfms2026"},"state":"ACTIVE","etag":"1_44fcdb10-42b1-45de-bf11-efaf2f9b1af2"}
+[info] i  Using project simulacroesfms2026 (simulacro-esfms-2026) . 
+[info] 
+=== App Hosting Setup
+[debug] [2026-03-02T02:23:37.517Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:37.518Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:37.518Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/simulacroesfms2026/billingInfo [none]
+[debug] [2026-03-02T02:23:38.929Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/simulacroesfms2026/billingInfo 200
+[debug] [2026-03-02T02:23:38.930Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/simulacroesfms2026/billingInfo {"name":"projects/simulacroesfms2026/billingInfo","projectId":"simulacroesfms2026","billingAccountName":"billingAccounts/0179FE-EBBE5B-26A82D","billingEnabled":true}
+[debug] [2026-03-02T02:23:38.932Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:38.933Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:38.933Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-03-02T02:23:38.934Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com  x-goog-user-project=simulacroesfms2026
+[debug] [2026-03-02T02:23:40.384Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-03-02T02:23:40.385Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-03-02T02:23:40.386Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:40.387Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:40.387Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com:enable [none]
+[debug] [2026-03-02T02:23:40.387Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com:enable  x-goog-user-project=simulacroesfms2026
+[debug] [2026-03-02T02:23:42.081Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com:enable 200
+[debug] [2026-03-02T02:23:42.081Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/firebaseapphosting.googleapis.com:enable [omitted]
+[debug] [2026-03-02T02:23:52.160Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:52.161Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:52.162Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:52.163Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:52.164Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:52.164Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:52.165Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com [none]
+[debug] [2026-03-02T02:23:52.165Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com  x-goog-user-project=simulacroesfms2026
+[debug] [2026-03-02T02:23:52.169Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/run.googleapis.com [none]
+[debug] [2026-03-02T02:23:52.170Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/run.googleapis.com  x-goog-user-project=simulacroesfms2026
+[debug] [2026-03-02T02:23:52.174Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/iam.googleapis.com [none]
+[debug] [2026-03-02T02:23:52.175Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/iam.googleapis.com  x-goog-user-project=simulacroesfms2026
+[debug] [2026-03-02T02:23:53.500Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/iam.googleapis.com 200
+[debug] [2026-03-02T02:23:53.500Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/iam.googleapis.com [omitted]
+[debug] [2026-03-02T02:23:53.622Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com 200
+[debug] [2026-03-02T02:23:53.622Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com [omitted]
+[debug] [2026-03-02T02:23:53.623Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:53.623Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:23:53.624Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com:enable [none]
+[debug] [2026-03-02T02:23:53.624Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com:enable  x-goog-user-project=simulacroesfms2026
+[debug] [2026-03-02T02:23:53.629Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/run.googleapis.com 200
+[debug] [2026-03-02T02:23:53.629Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/run.googleapis.com [omitted]
+[debug] [2026-03-02T02:23:54.479Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com:enable 200
+[debug] [2026-03-02T02:23:54.479Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/simulacroesfms2026/services/developerconnect.googleapis.com:enable [omitted]
+[debug] [2026-03-02T02:24:04.615Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:04.615Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:04.615Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts/firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-03-02T02:24:04.616Z] >>> [apiv2][(partial)header] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts/firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com:testIamPermissions  x-goog-user-project=simulacroesfms2026
+[debug] [2026-03-02T02:24:04.616Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts/firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-03-02T02:24:05.920Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts/firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com:testIamPermissions 404
+[debug] [2026-03-02T02:24:05.921Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts/firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2026-03-02T02:24:05.923Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:05.923Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:05.924Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts [none]
+[debug] [2026-03-02T02:24:05.924Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts {"accountId":"firebase-app-hosting-compute","serviceAccount":{"displayName":"Firebase App Hosting compute service account","description":"Default service account used to run builds and deploys for Firebase App Hosting"}}
+[debug] [2026-03-02T02:24:07.320Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts 200
+[debug] [2026-03-02T02:24:07.320Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/simulacroesfms2026/serviceAccounts [omitted]
+[debug] [2026-03-02T02:24:07.323Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:07.323Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:07.324Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/simulacroesfms2026:getIamPolicy [none]
+[debug] [2026-03-02T02:24:09.002Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/simulacroesfms2026:getIamPolicy 200
+[debug] [2026-03-02T02:24:09.003Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/simulacroesfms2026:getIamPolicy {"version":1,"etag":"BwZLExusPKw=","bindings":[{"role":"roles/artifactregistry.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-artifactregistry.iam.gserviceaccount.com"]},{"role":"roles/cloudbuild.builds.builder","members":["serviceAccount:1076674602133@cloudbuild.gserviceaccount.com"]},{"role":"roles/cloudbuild.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-cloudbuild.iam.gserviceaccount.com"]},{"role":"roles/cloudfunctions.serviceAgent","members":["serviceAccount:service-1076674602133@gcf-admin-robot.iam.gserviceaccount.com"]},{"role":"roles/containerregistry.ServiceAgent","members":["serviceAccount:service-1076674602133@containerregistry.iam.gserviceaccount.com"]},{"role":"roles/editor","members":["serviceAccount:1076674602133-compute@developer.gserviceaccount.com","serviceAccount:1076674602133@cloudservices.gserviceaccount.com","serviceAccount:simulacroesfms2026@appspot.gserviceaccount.com"]},{"role":"roles/firebase.managementServiceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firebase.iam.gserviceaccount.com"]},{"role":"roles/firebase.sdkAdminServiceAgent","members":["serviceAccount:firebase-adminsdk-fbsvc@simulacroesfms2026.iam.gserviceaccount.com"]},{"role":"roles/firebasemods.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firebasemods.iam.gserviceaccount.com"]},{"role":"roles/firebaserules.system","members":["serviceAccount:service-1076674602133@firebase-rules.iam.gserviceaccount.com"]},{"role":"roles/firebasestorage.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firebasestorage.iam.gserviceaccount.com"]},{"role":"roles/firestore.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firestore.iam.gserviceaccount.com"]},{"role":"roles/iam.serviceAccountTokenCreator","members":["serviceAccount:firebase-adminsdk-fbsvc@simulacroesfms2026.iam.gserviceaccount.com"]},{"role":"roles/owner","members":["user:milercopajira@gmail.com"]},{"role":"roles/run.serviceAgent","members":["serviceAccount:service-1076674602133@serverless-robot-prod.iam.gserviceaccount.com"]},{"role":"roles/storage.admin","members":["serviceAccount:firebase-adminsdk-fbsvc@simulacroesfms2026.iam.gserviceaccount.com"]}]}
+[debug] [2026-03-02T02:24:09.004Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:09.004Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:24:09.005Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/simulacroesfms2026:setIamPolicy [none]
+[debug] [2026-03-02T02:24:09.005Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/simulacroesfms2026:setIamPolicy {"policy":{"version":1,"etag":"BwZLExusPKw=","bindings":[{"role":"roles/artifactregistry.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-artifactregistry.iam.gserviceaccount.com"]},{"role":"roles/cloudbuild.builds.builder","members":["serviceAccount:1076674602133@cloudbuild.gserviceaccount.com"]},{"role":"roles/cloudbuild.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-cloudbuild.iam.gserviceaccount.com"]},{"role":"roles/cloudfunctions.serviceAgent","members":["serviceAccount:service-1076674602133@gcf-admin-robot.iam.gserviceaccount.com"]},{"role":"roles/containerregistry.ServiceAgent","members":["serviceAccount:service-1076674602133@containerregistry.iam.gserviceaccount.com"]},{"role":"roles/editor","members":["serviceAccount:1076674602133-compute@developer.gserviceaccount.com","serviceAccount:1076674602133@cloudservices.gserviceaccount.com","serviceAccount:simulacroesfms2026@appspot.gserviceaccount.com"]},{"role":"roles/firebase.managementServiceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firebase.iam.gserviceaccount.com"]},{"role":"roles/firebase.sdkAdminServiceAgent","members":["serviceAccount:firebase-adminsdk-fbsvc@simulacroesfms2026.iam.gserviceaccount.com","serviceAccount:firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com"]},{"role":"roles/firebasemods.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firebasemods.iam.gserviceaccount.com"]},{"role":"roles/firebaserules.system","members":["serviceAccount:service-1076674602133@firebase-rules.iam.gserviceaccount.com"]},{"role":"roles/firebasestorage.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firebasestorage.iam.gserviceaccount.com"]},{"role":"roles/firestore.serviceAgent","members":["serviceAccount:service-1076674602133@gcp-sa-firestore.iam.gserviceaccount.com"]},{"role":"roles/iam.serviceAccountTokenCreator","members":["serviceAccount:firebase-adminsdk-fbsvc@simulacroesfms2026.iam.gserviceaccount.com"]},{"role":"roles/owner","members":["user:milercopajira@gmail.com"]},{"role":"roles/run.serviceAgent","members":["serviceAccount:service-1076674602133@serverless-robot-prod.iam.gserviceaccount.com"]},{"role":"roles/storage.admin","members":["serviceAccount:firebase-adminsdk-fbsvc@simulacroesfms2026.iam.gserviceaccount.com"]},{"role":"roles/firebaseapphosting.computeRunner","members":["serviceAccount:firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com"]},{"role":"roles/developerconnect.readTokenAccessor","members":["serviceAccount:firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com"]},{"role":"roles/storage.objectViewer","members":["serviceAccount:firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com"]}]},"updateMask":"bindings"}
+[debug] [2026-03-02T02:24:09.749Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/simulacroesfms2026:setIamPolicy 400
+[debug] [2026-03-02T02:24:09.750Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/simulacroesfms2026:setIamPolicy {"error":{"code":400,"message":"Service account firebase-app-hosting-compute@simulacroesfms2026.iam.gserviceaccount.com does not exist.","status":"INVALID_ARGUMENT"}}
+[warn] !  Your App Hosting compute service account is still being provisioned in the background. If you encounter an error, please try again after a few moments. 
+[info] i  This command links your local project to Firebase App Hosting. You will be able to deploy your web app with `firebase deploy` after setup. 
+[debug] [2026-03-02T02:49:23.819Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:49:23.821Z] Checked if tokens are valid: true, expires at: 1772421814781
+[debug] [2026-03-02T02:49:23.822Z] >>> [apiv2][query] GET https://firebaseapphosting.googleapis.com/v1beta/projects/simulacroesfms2026/locations/-/backends 
+[debug] [2026-03-02T02:49:25.423Z] <<< [apiv2][status] GET https://firebaseapphosting.googleapis.com/v1beta/projects/simulacroesfms2026/locations/-/backends 200
+[debug] [2026-03-02T02:49:25.424Z] <<< [apiv2][body] GET https://firebaseapphosting.googleapis.com/v1beta/projects/simulacroesfms2026/locations/-/backends {}
